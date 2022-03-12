@@ -1,0 +1,11 @@
+Atividade da aula de hoje: 29/11/2021
+
+Primeira etapa: Inicializar o Linux Mint
+				(Obs: verificar se a placa de rede está em modo Bridge ou NAT, verificar o endereçamento IPv4 e checar se está pingando a Internet).
+Segunda etapa.: Instalar o Visual Studio Code for 
+				Linux do site oficial (última versão)
+Terceira etapa: Instalar o Git, Vim e Python (Ctrl+Alt+T)
+					sudo apt update
+					sudo apt install git vim vim-common python
+Quarta etapa..: Se autenticar no site do Github
+				(próximas etapas será passada em sala)

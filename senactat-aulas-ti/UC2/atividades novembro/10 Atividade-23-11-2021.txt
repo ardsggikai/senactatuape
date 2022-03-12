@@ -1,0 +1,33 @@
+Atividade de hoje: 23/11/2021
+
+Primeira etapa: pegar o seu Kit de Notebook, Fonte, Cabo de rede, 
+Ligar o seu Notebook com o Windows conectado na rede do SENAC
+
+Segunda etapa.: configurar o Nome do computador:
+Seu_Nome-Número_da_Máquina: allan-1
+Configurar o Gurpo de Trabalho: SENACTAT
+Utilizar o usuário: senac e senha: 123@senac
+(OBS: se você configurou diferente, você deve configurar  dessa 
+forma o usuário e senha inicial para as regras de Workgroup Funcione
+corretamente nos exercicios da aula de hoje)
+Windows + R: sysdm.cpl
+
+Terceira etapa: Configurar a rede em modo dinâmico (deve pegar o endereço IPv4
+                começando com: 10.26.45.x/24).
+                
+Quarta etapa..: configurar a rede em modo estática (seguindo a numeração donome da 
+                maquina na rede: 192.168.0.x/24 - Não precisa de Gateway e DNS).
+                
+Quinta etapa..: Pingar os seus colegas de grupo (que foi determinado na última aula).
+
+Sexta etapa...: Determinar as redes de cada Grupo (será explicado na aula)
+
+Sétima etapa..: Conexão do Switch com os Notebooks
+
+Oitiva etapa..: Criar o usuário: tatuapé com a senha: 123@mudar - trocar a senha no login
+
+Nona etapa....: Criar o compartilhamento de arquivos Público: c:\publico
+
+Décima etapa..: Criar os compartilhamento de arquivos Sistema, Departamento e seu Nome
+
+DESAFIO FINAL.: Integrar o Linux Mint do VirtualBOX no seu Switch 3Com (Rede em modo Bridge), pingar os Desktop

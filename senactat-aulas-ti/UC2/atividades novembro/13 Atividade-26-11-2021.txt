@@ -1,0 +1,25 @@
+Atividade de hoje: 26/11/2021 FINALIZAÇÃO PRÁTICAS COM KIT DE NOTEBOOK, SWITCH E ROTEADOR.
+
+Primeira etapa: Pegar o seu Kit do Grupo de Notebook, Fonte, Cabo de Rede, ligar o seu Notebook no Switch e iniciar o Windows 10, fazer todos os testes de conexão de rede (ping, \\, etc...)
+OBS: NÃO CONECTAR O SWITCH OU O NOTEBOOK NA REDE DO SENAC PARA NÃO ACONTECER A FALHA DE ENDEREÇAMENTO IPv4.
+
+OBS: FALHA DO COBIAN: CONFIGURAR O SERVIÇO COM O USUÁRO: SENAC E SENHA 123@senac, DESABILITAR NO BACKUP: CÓPIA DE SOMBRA (SHADOWN COPY)
+
+Segunda etapa.: Criação de Usuário, Grupos e Permissões Básicas
+				(será explicado em aula)
+Terceira etapa: Instalação do Sistema de Antivírus
+				(será explicado em aula)
+Quarta etapa..: Testar o Antivírus no site EICAR, se tiver CORAGEM testar uns Software Maliciosos no meu Github... kkkkkk
+Quinta etapa..: Documentar no Github - DEPOIS BYE BYE JHONNY.
+
+Links
+https://cartilha.cert.br/fasciculos/
+https://www.abc4.com/news/tech-social-media/these-are-the-most-common-passwords-of-2021/
+https://www.av-test.org/en/antivirus/home-windows/
+https://www.antivirusguide.com/best-antivirus-windows-10/
+https://softwarelab.org/pt/lp/melhor-antivirus
+https://www.pcmag.com/picks/the-best-antivirus-protection
+https://www.eicar.org/?page_id=3950
+https://www.kaspersky.com.br/
+https://nic.br/
+https://cartilha.cert.br/fasciculos/
