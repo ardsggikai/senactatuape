@@ -1,6 +1,6 @@
 autor:Allan Richard
-Version:1.20
-dataUltimaAtu:11-03-2022
+Version:1.30
+dataUltimaAtu:14-03-2022
 SW> enable
 SW#
 
