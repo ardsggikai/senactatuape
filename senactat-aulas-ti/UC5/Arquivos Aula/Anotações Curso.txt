@@ -164,6 +164,41 @@ router rip
  exit
 copy run star
 
+RJ (DCE) para Bahia (DTE)
+enable 
+ configure terminal
+ interface s1/0
+ description Porta WAN que liga RJ na Bahia
+ no shutdown
+ ip add 30.0.0.1 255.0.0.0
+ (colocar ''clock rate 250000'' em RJ ''DTE'')
+ bandwidth 256
+ exit
+router rip
+ net 30.0.0.0
+ net 192.168.210.0
+ exit
+ exit
+copy run star
+
+Bahia (DTE)
+enable 
+ configure terminal
+ interface f0/0
+ no shutdown
+ interface s1/2
+ description Porta WAN que liga RJ na Bahia
+ no shutdown
+ ip add 30.0.0.2 255.0.0.0
+ (colocar ''clock rate 250000'' em RJ ''DTE'')
+ bandwidth 256
+ exit
+router rip
+ net 30.0.0.0
+ net 192.168.210.0
+ exit
+ exit
+copy run star
 ///PCS
 
 PC1
@@ -185,6 +220,17 @@ PC4
 IP:192.168.200.11
 MK:255.255.255.0	
 GW:192.168.200.1
+
+PC5
+IP:192.168.210.10	
+MK:255.255.255.0	
+GW:192.168.210.1
+
+PC6
+IP:192.168.210.11	
+MK:255.255.255.0	
+GW:192.168.210.1
+ 
 ///
 
 LAN-SP
@@ -197,3 +243,7 @@ IP:192.168.200.x
 MK:255.255.255.0
 GW:192.168.200.1
 
+LAN-Bahia
+IP:192.168.210.x	
+MK:255.255.255.0
+GW:192.168.210.1
