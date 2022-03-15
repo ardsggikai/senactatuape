@@ -52,7 +52,7 @@ copy run star
 
 14-03-2022
 
-RJ (DCE) para Bahia (DTE)
+RJ (DCE) para BH (DTE)
 enable 
  configure terminal
  hostname RJ
@@ -150,7 +150,7 @@ enable
  no shutdown
  ip add 192.168.210.1 255.255.255.0
 exit 
- interface s0/0
+ interface s1/0
  ip add 11.0.0.1 255.0.0.0
  (colocar ''clock rate 250000'' em PR ''DCE'')
  bandwidth 256
@@ -171,7 +171,7 @@ enable
  no shutdown
  ip add 192.168.220.1 255.255.255.0
 exit
- interface s0/0
+ interface s1/2
  description Porta WAN que liga AM na BH
  no shutdown
  ip add 11.0.0.2 255.0.0.0
@@ -193,9 +193,10 @@ enable
  description porta LAN do PR
  no shutdown
  ip add 192.168.90.1 255.255.255.0
-exit 
+ exit
  interface s1/0
  description porta WAN Que liga PR em SP
+ no shutdown
  ip add 30.0.0.1 255.0.0.0
  (colocar ''clock rate 250000'' em PR ''DCE'')
  bandwidth 256
