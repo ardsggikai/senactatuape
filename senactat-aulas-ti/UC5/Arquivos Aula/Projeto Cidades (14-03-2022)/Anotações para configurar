@@ -196,12 +196,12 @@ enable
 exit 
  interface s1/0
  description porta WAN Que liga PR em SP
- ip add 11.0.0.1 255.0.0.0
+ ip add 30.0.0.1 255.0.0.0
  (colocar ''clock rate 250000'' em PR ''DCE'')
  bandwidth 256
  exit
 router rip
- net 11.0.0.0
+ net 30.0.0.0
  net 192.168.90.0
  exit
  exit
@@ -219,12 +219,12 @@ exit
  interface s1/2
  description Porta WAN que liga PR em SP
  no shutdown
- ip add 11.0.0.2 255.0.0.0
+ ip add 30.0.0.2 255.0.0.0
  (colocar ''clock rate 250000'' em RJ ''DCE'')
  bandwidth 256
  exit
 router rip
- net 11.0.0.0
+ net 30.0.0.0
  net 192.168.90.0
  exit
  exit
