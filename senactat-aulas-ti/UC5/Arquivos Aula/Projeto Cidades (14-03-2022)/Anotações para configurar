@@ -11,17 +11,20 @@ enable
   no shutdown
   ip add 192.168.100.1 255.255.255.0
   exit
- interface s0/0
+ interface s1/0
  description Porta WAN SP
  no shutdown
  ip add 20.0.0.1 255.0.0.0
  clock rate 128000 
  bandwidth 128
  exit
+enable
+ configure terminal
 router rip
  net 20.0.0.0
- net 192.168.100.0
+ net 192.168.200.0
  exit
+
  exit
 copy run star
 
@@ -34,17 +37,20 @@ enable
   no shutdown
   ip add 192.168.200.1 255.255.255.0
   exit
- interface s0/1
+ interface s1/1
  description Porta WAN que liga RJ em SP
  no shutdown
  ip add 20.0.0.2 255.0.0.0
  (colocar ''clock rate 128000'' em SP ''DCE'')
  bandwidth 128
  exit
+ enable
+ configure terminal
 router rip
  net 20.0.0.0
  net 192.168.200.0
  exit
+
  exit
 copy run star
 
@@ -59,17 +65,20 @@ enable
  interface f0/0
  description porta lan do rj
  ip add 192.168.200.1 255.255.255.0
- interface s0/0
+ interface s1/0
  description Porta WAN RJ
  no shutdown
  ip add 30.0.0.1 255.0.0.0
  (colocar ''clock rate 250000'' em RJ ''DCE'')
  bandwidth 256
  exit
+enable
+ configure terminal
 router rip
- net 30.0.0.0
- net 192.168.210.0
+ net 20.0.0.0
+ net 192.168.200.0
  exit
+
  exit
 copy run star
 
@@ -80,17 +89,20 @@ enable
  interface f0/0
  description porta lan do BH
  ip add 192.168.210.1 255.255.255.0
- interface s0/1
+ interface s1/1
  description Porta WAN que liga RJ na BH
  no shutdown
  ip add 30.0.0.2 255.0.0.0
  (colocar ''clock rate 250000'' em RJ ''DCE'')
  bandwidth 256
  exit
- router rip
- net 30.0.0.0
- net 192.168.210.0
+ enable
+ configure terminal
+router rip
+ net 20.0.0.0
+ net 192.168.200.0
  exit
+
  exit
 copy run star
 
@@ -105,15 +117,18 @@ enable
  no shutdown
  ip add 192.168.90.1 255.255.255.0
 exit 
- interface s0/0
+ interface s1/0
  ip add 11.0.0.1 255.0.0.0
  (colocar ''clock rate 250000'' em PR ''DCE'')
  bandwidth 256
  exit
+enable
+ configure terminal
 router rip
- net 11.0.0.0
- net 192.168.90.0
+ net 20.0.0.0
+ net 192.168.200.0
  exit
+
  exit
 copy run star
 
@@ -126,17 +141,20 @@ enable
  no shutdown
  ip add 192.168.100.1 255.255.255.0
 exit
- interface s0/1
+ interface s1/1
  description Porta WAN que liga PR na SP
  no shutdown
  ip add 11.0.0.2 255.0.0.0
  (colocar ''clock rate 250000'' em RJ ''DCE'')
  bandwidth 256
  exit
+enable
+ configure terminal
 router rip
- net 11.0.0.0
- net 192.168.90.0
+ net 20.0.0.0
+ net 192.168.200.0
  exit
+
  exit
 copy run star
 
@@ -150,15 +168,18 @@ enable
  no shutdown
  ip add 192.168.210.1 255.255.255.0
 exit 
- interface s0/0
+ interface s1/0
  ip add 11.0.0.1 255.0.0.0
  (colocar ''clock rate 250000'' em PR ''DCE'')
  bandwidth 256
  exit
+enable
+ configure terminal
 router rip
- net 11.0.0.0
- net 192.168.90.0
+ net 20.0.0.0
+ net 192.168.200.0
  exit
+
  exit
 copy run star
 
@@ -171,17 +192,20 @@ enable
  no shutdown
  ip add 192.168.220.1 255.255.255.0
 exit
- interface s0/1
+ interface s1/1
  description Porta WAN que liga AM na BH
  no shutdown
  ip add 11.0.0.2 255.0.0.0
  (colocar ''clock rate 250000'' em RJ ''DCE'')
  bandwidth 256
  exit
+enable
+ configure terminal
 router rip
- net 11.0.0.0
- net 192.168.90.0
+ net 20.0.0.0
+ net 192.168.200.0
  exit
+
  exit
 copy run star
 ---
@@ -194,17 +218,20 @@ enable
  no shutdown
  ip add 192.168.90.1 255.255.255.0
  exit
- interface s0/0
+ interface s1/0
  description porta WAN Que liga PR em SP
  no shutdown
  ip add 30.0.0.1 255.0.0.0
  (colocar ''clock rate 250000'' em PR ''DCE'')
  bandwidth 256
  exit
+enable
+ configure terminal
 router rip
- net 30.0.0.0
- net 192.168.90.0
+ net 20.0.0.0
+ net 192.168.200.0
  exit
+
  exit
 copy run star
 
@@ -217,25 +244,181 @@ enable
  no shutdown
  ip add 192.168.100.1 255.255.255.0 (Feito)
 exit
- interface s0/1
+ interface s1/1
  description Porta WAN que liga PR em SP
  no shutdown
  ip add 30.0.0.2 255.0.0.0
  (colocar ''clock rate 250000'' em RJ ''DCE'')
  bandwidth 256
  exit
+enable
+ configure terminal
 router rip
- net 30.0.0.0
- net 192.168.90.0
+ net 20.0.0.0
+ net 192.168.200.0
  exit
+
+ exit
+copy run star
+
+---
+(AM) (DCE) para (MG) (DTE)
+enable 
+ configure terminal
+ hostname (AM)
+ interface f0/0
+ description porta LAN do (AM)
+ no shutdown
+ ip add (192.168.220.1) 255.255.255.0
+ exit
+ interface s1/3
+ description porta WAN Que liga (AM) em (MG)
+ no shutdown
+ ip add (50.0.0.1) 255.0.0.0
+ (colocar ''clock rate 250000'' em AM ''DCE'')
+ bandwidth 256
+ exit
+enable
+ configure terminal
+router rip
+ net (50.0.0.0)
+ net (192.168.220.0)
+ exit
+
+ exit
+copy run star
+
+(MG) (DTE)
+enable 
+ configure terminal
+ hostname (MG)
+ interface f0/0
+ description porta LAN de (MG)
+ no shutdown
+ ip add (192.168.220.1) 255.255.255.0 
+exit
+ interface s0/0
+ description Porta WAN que liga (MG) em (AM)
+ no shutdown
+ ip add (50.0.0.2) 255.0.0.0
+ (colocar ''clock rate 250000'' em MG ''DCE'')
+ bandwidth 256
+ exit
+enable
+ configure terminal
+router rip
+ net (50.0.0.0)
+ net (192.168.220.0)
+ exit
+
+ exit
+copy run star
+
+---
+(AM) (DCE) para (AC) (DTE)
+enable 
+ configure terminal
+ hostname (AM)
+ interface f0/0
+ description porta LAN do (AM)
+ no shutdown
+ ip add (192.168.90.1) 255.255.255.0
+ exit
+ interface s1/0
+ description porta WAN Que liga (AM) em (AC)
+ no shutdown
+ ip add (30.0.0.1) 255.0.0.0
+ (colocar ''clock rate 250000'' em AM ''DCE'')
+ bandwidth 256
+ exit
+enable
+ configure terminal
+router rip
+ net (20.0.0.0)
+ net (192.168.200.0)
+ exit
+
+ exit
+copy run star
+
+(AC) (DTE)
+enable 
+ configure terminal
+ hostname (AC)
+ interface f0/0
+ description porta LAN de (AC)
+ no shutdown
+ ip add (0) 255.255.255.0 
+exit
+ interface s1/1
+ description Porta WAN que liga (AC) em (AM)
+ no shutdown
+ ip add (0) 255.0.0.0
+ (colocar ''clock rate 250000'' em AC ''DCE'')
+ bandwidth 256
+ exit
+enable
+ configure terminal
+router rip
+ net (0)
+ net (0)
+ exit
+
  exit
 copy run star
 ---
 
----
+(PR) (DCE) para (SC) (DTE)
+enable 
+ configure terminal
+ hostname (PR)
+ interface f0/0
+ description porta LAN do (PR)
+ no shutdown
+ ip add (192.168.90.1) 255.255.255.0
+ exit
+ interface s1/0
+ description porta WAN Que liga (PR) em (SC)
+ no shutdown
+ ip add (30.0.0.1) 255.0.0.0
+ (colocar ''clock rate 250000'' em PR ''DCE'')
+ bandwidth 256
+ exit
+enable
+ configure terminal
+router rip
+ net (20.0.0.0)
+ net (192.168.200.0)
+ exit
+ exit
+copy run star
 
+(SC) (DTE)
+enable 
+ configure terminal
+ hostname (SC)
+ interface f0/0
+ description porta LAN de (SC)
+ no shutdown
+ ip add (0) 255.255.255.0 
+exit
+ interface s1/1
+ description Porta WAN que liga (SC) em (PR)
+ no shutdown
+ ip add (0) 255.0.0.0
+ (colocar ''clock rate 250000'' em RJ ''DCE'')
+ bandwidth 256
+ exit
+enable
+ configure terminal
+router rip
+ net (0)
+ net (0)
+ exit
+ 
+ exit
+copy run star
 ---
-
 ///PCS
 
 PC1 (SP)
