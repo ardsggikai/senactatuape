@@ -48,6 +48,8 @@ router rip
  exit
 copy run star
 
+14-03-2022
+
 RJ (DCE) para Bahia (DTE)
 enable 
  configure terminal
