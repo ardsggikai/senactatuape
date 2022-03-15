@@ -1,119 +1,3 @@
-autor:Allan Richard
-Version:1.30
-dataUltimaAtu:14-03-2022
-SW> enable
-SW#
-
-…
-
-SW# conf t
-SW(config)# vlan 2
-SW(config-vlan)#name NOMEdaVLAN
-
-…
-
-SW(config-vlan)#end ou SW(config-vlan)# “CTRL+Z” ou SW(config-vlan)# exit
-
-…
-
-SW# Show Vlan Brief
-
-…
-
-SW(config)#interface f0/1
-SW(config-if)#switchport access vlan2
-^
-…
-
-SW# Show RUN
-
-SW#WR
-
-
------
-SW(config)#interface range fast 0/1-10
-SW(config-if-range)#switchport access vlan 35
------
-...........
-
-VLAN - 30 - Fabrica 1-10
-VLAN - 40 - Loja 11-18
-VLAN - 50 - ADM 19-24
-
-Write
-
-
---------
-aula 09-03-2022
-Enable
-SW# configure terminal
-SW(config)#Vlan 10
-SW(config-if)#name Verde
-exit
-SW(config)# interface range fast 0/1-12
-SW(config-if-range)#switchport access vlan 10
-SW(config)#Vlan 20
-SW(config-if)#name Vermelho
-exit
-SW(config)# interface range fast 0/13-24
-SW(config-if-range)#switchport access vlan 20
-exit
-SW(config)#interface Gigabit 0/1
-SW(config-if)#switchport mode trunk
-exit
-exit
-write
-show vlan brief
-
-
-LINK AGGREGATION (LACP)
-andar 1
-
-(CASO CONTINUAR NO PROJETO)
-enable
-SW#configure terminal
-SW(config)#interface range GigabitEthernet 0/1-2
-switchport mode trunk
-exit 
-
-(SE NÃO Começa AKI)
-enable
-SW#configure terminal
-SW#interface range gigabitethernet 0/1-2
-SW(config-if)channel-group 1 mode Active
-exit
-exit
-write
-
--------
-
-show vlan brief
-show etherchannel
-show interfaces etherchannel
-
-SW(config-if)channel-group ? (saber mais)
-SW(config-if)channel-group 1 mode ? (saber mais)
-interface bridge-aggregation 1 (ate 8 porta fast/giga)
-Tem que ter uma Ativa e uma Passiva
-
----
-
-andar 2
-
-enable
-SW#configure terminal
-SW#interface range gigabitethernet 0/1-2
-SW(config-if)channel-group 1 mode Passive
-exit
-exit
-write
-
----
-
-show vlan brief
-show etherchannel
-show interfaces etherchannel
-
 ---
 
 11-03-2022
@@ -154,7 +38,7 @@ enable
  description Porta WAN que liga RJ em SP
  no shutdown
  ip add 20.0.0.2 255.0.0.0
- (colocar ''clock rate 128000'' em SP ''DTE'')
+ (colocar ''clock rate 128000'' em SP ''DCE'')
  bandwidth 128
  exit
 router rip
@@ -164,14 +48,19 @@ router rip
  exit
 copy run star
 
+14-03-2022
+
 RJ (DCE) para Bahia (DTE)
 enable 
  configure terminal
+ interface f0/0
+ description porta lan do rj
+ ip add 192.168.210.1 255.255.255.0
  interface s1/0
  description Porta WAN que liga RJ na Bahia
  no shutdown
  ip add 30.0.0.1 255.0.0.0
- (colocar ''clock rate 250000'' em RJ ''DTE'')
+ (colocar ''clock rate 250000'' em RJ ''DCE'')
  bandwidth 256
  exit
 router rip
@@ -185,20 +74,68 @@ Bahia (DTE)
 enable 
  configure terminal
  interface f0/0
- no shutdown
+ description porta lan do Bahia
+ ip add 192.168.210.1 255.255.255.0
  interface s1/2
  description Porta WAN que liga RJ na Bahia
  no shutdown
  ip add 30.0.0.2 255.0.0.0
- (colocar ''clock rate 250000'' em RJ ''DTE'')
+ (colocar ''clock rate 250000'' em RJ ''DCE'')
  bandwidth 256
  exit
-router rip
+ router rip
  net 30.0.0.0
  net 192.168.210.0
  exit
  exit
 copy run star
+
+----
+
+PR (DCE) para SP (DTE)
+enable 
+ configure terminal
+ interface f0/0
+ description porta lan do Bahia
+ no shutdown
+ ip add 192.168.90.1 255.255.255.0
+exit 
+ interface s0/0
+ ip add 11.0.0.1 255.0.0.0
+ (colocar ''clock rate 250000'' em PR ''DCE'')
+ bandwidth 256
+ exit
+router rip
+ net 11.0.0.0
+ net 192.168.90.0
+ exit
+ exit
+copy run star
+
+SP (DTE)
+enable 
+ configure terminal
+ interface f0/0
+ description porta lan do Bahia
+ no shutdown
+ ip add 192.168.90.1 255.255.255.0
+exit
+ interface s0/0
+ description Porta WAN que liga RJ na Bahia
+ no shutdown
+ ip add 11.0.0.2 255.0.0.0
+ (colocar ''clock rate 250000'' em RJ ''DCE'')
+ bandwidth 256
+ exit
+router rip
+ net 11.0.0.0
+ net 192.168.90.0
+ exit
+ exit
+copy run star
+
+---
+
 ///PCS
 
 PC1
@@ -230,7 +167,16 @@ PC6
 IP:192.168.210.11	
 MK:255.255.255.0	
 GW:192.168.210.1
- 
+
+PC7
+IP:192.168.90.10	
+MK:255.255.255.0	
+GW:192.168.90.1
+
+PC8
+IP:192.168.90.11	
+MK:255.255.255.0	
+GW:192.168.90.1
 ///
 
 LAN-SP
@@ -247,3 +193,28 @@ LAN-Bahia
 IP:192.168.210.x	
 MK:255.255.255.0
 GW:192.168.210.1
+
+LAN-PR
+IP:192.168.90.x
+MK:255.255.255.0
+GW:192.168.90.1
+
+LAN-SC
+IP:192.168.80.X
+MK:255.255.255.0
+GW:192.168.80.1
+
+LAN-AM
+IP:192.168.220.X
+MK:255.255.255.0
+GW:192.168.220.1
+
+LAN-MG
+IP:192.168.240.X
+MK:255.255.255.0
+GW:192.168.240.1
+
+LAN-AC
+IP:192.168.230.X
+MK:255.255.255.0
+GW:192.168.230.1
