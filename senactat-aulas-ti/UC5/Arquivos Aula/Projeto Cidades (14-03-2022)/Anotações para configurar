@@ -12,7 +12,7 @@ enable
   ip add 192.168.100.1 255.255.255.0
   exit
  interface s1/0
- description Porta WAN que liga SP em RJ
+ description Porta WAN SP
  no shutdown
  ip add 20.0.0.1 255.0.0.0
  clock rate 128000 
@@ -48,16 +48,19 @@ router rip
  exit
 copy run star
 
+---
+
 14-03-2022
 
 RJ (DCE) para Bahia (DTE)
 enable 
  configure terminal
+ hostname RJ
  interface f0/0
  description porta lan do rj
- ip add 192.168.210.1 255.255.255.0
+ ip add 192.168.200.1 255.255.255.0
  interface s1/0
- description Porta WAN que liga RJ na Bahia
+ description Porta WAN RJ
  no shutdown
  ip add 30.0.0.1 255.0.0.0
  (colocar ''clock rate 250000'' em RJ ''DCE'')
@@ -70,14 +73,15 @@ router rip
  exit
 copy run star
 
-Bahia (DTE)
+BH (DTE)
 enable 
  configure terminal
+ hostname BH
  interface f0/0
- description porta lan do Bahia
+ description porta lan do BH
  ip add 192.168.210.1 255.255.255.0
  interface s1/2
- description Porta WAN que liga RJ na Bahia
+ description Porta WAN que liga RJ na BH
  no shutdown
  ip add 30.0.0.2 255.0.0.0
  (colocar ''clock rate 250000'' em RJ ''DCE'')
@@ -95,12 +99,13 @@ copy run star
 PR (DCE) para SP (DTE)
 enable 
  configure terminal
+ hostname PR
  interface f0/0
- description porta lan do Bahia
+ description porta LAN do PR
  no shutdown
  ip add 192.168.90.1 255.255.255.0
 exit 
- interface s0/0
+ interface s1/0
  ip add 11.0.0.1 255.0.0.0
  (colocar ''clock rate 250000'' em PR ''DCE'')
  bandwidth 256
@@ -115,13 +120,14 @@ copy run star
 SP (DTE)
 enable 
  configure terminal
+ hostname SP
  interface f0/0
- description porta lan do Bahia
+ description porta lan do SP
  no shutdown
- ip add 192.168.90.1 255.255.255.0
+ ip add 192.168.100.1 255.255.255.0
 exit
- interface s0/0
- description Porta WAN que liga RJ na Bahia
+ interface s1/2
+ description Porta WAN que liga PR na SP
  no shutdown
  ip add 11.0.0.2 255.0.0.0
  (colocar ''clock rate 250000'' em RJ ''DCE'')
@@ -135,13 +141,14 @@ router rip
 copy run star
 
 ---
-Bahia (DCE) para AM (DTE)
+BH (DCE) para AM (DTE)
 enable 
  configure terminal
+ hostname BH
  interface f0/0
- description porta lan do Bahia
+ description Porta LAN da Bahia
  no shutdown
- ip add 192.168.90.1 255.255.255.0
+ ip add 192.168.210.1 255.255.255.0
 exit 
  interface s0/0
  ip add 11.0.0.1 255.0.0.0
@@ -160,12 +167,12 @@ enable
  configure terminal
  hostname AM
  interface f0/0
- description porta lan do Bahia
+ description porta lan do AM
  no shutdown
- ip add 192.168.90.1 255.255.255.0
+ ip add 192.168.220.1 255.255.255.0
 exit
  interface s0/0
- description Porta WAN que liga RJ na Bahia
+ description Porta WAN que liga AM na BH
  no shutdown
  ip add 11.0.0.2 255.0.0.0
  (colocar ''clock rate 250000'' em RJ ''DCE'')
@@ -178,7 +185,50 @@ router rip
  exit
 copy run star
 ---
+PR (DCE) para SP (DTE)
+enable 
+ configure terminal
+ hostname PR
+ interface f0/0
+ description porta LAN do PR
+ no shutdown
+ ip add 192.168.90.1 255.255.255.0
+exit 
+ interface s1/0
+ description porta WAN Que liga PR em SP
+ ip add 11.0.0.1 255.0.0.0
+ (colocar ''clock rate 250000'' em PR ''DCE'')
+ bandwidth 256
+ exit
+router rip
+ net 11.0.0.0
+ net 192.168.90.0
+ exit
+ exit
+copy run star
 
+SP (DTE)
+enable 
+ configure terminal
+ hostname SP
+ interface f0/0
+ description porta LAN de SP
+ no shutdown
+ ip add 192.168.100.1 255.255.255.0 (Feito)
+exit
+ interface s1/2
+ description Porta WAN que liga PR em SP
+ no shutdown
+ ip add 11.0.0.2 255.0.0.0
+ (colocar ''clock rate 250000'' em RJ ''DCE'')
+ bandwidth 256
+ exit
+router rip
+ net 11.0.0.0
+ net 192.168.90.0
+ exit
+ exit
+copy run star
 ---
 
 ---
