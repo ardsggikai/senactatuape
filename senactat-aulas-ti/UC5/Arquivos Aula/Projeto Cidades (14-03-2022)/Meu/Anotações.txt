@@ -1,0 +1,309 @@
+---
+
+11-03-2022
+
+SP
+enable 
+ configure terminal
+ hostname SP
+ interface fast 0/0
+ description porta lan do SP
+  no shutdown
+  ip add 192.168.100.1 255.255.255.0
+  exit
+ interface s1/0
+ description Porta WAN que liga SP em RJ
+ no shutdown
+ ip add 20.0.0.1 255.0.0.0
+ clock rate 128000 
+ bandwidth 128
+ exit
+router rip
+ net 20.0.0.0
+ net 192.168.100.0
+ exit
+ exit
+copy run star
+
+RJ
+enable 
+ configure terminal
+ hostname RJ
+ interface fast 0/0
+ description porta lan do rj
+  no shutdown
+  ip add 192.168.200.1 255.255.255.0
+  exit
+ interface s1/2
+ description Porta WAN que liga RJ em SP
+ no shutdown
+ ip add 20.0.0.2 255.0.0.0
+ (colocar ''clock rate 128000'' em SP ''DCE'')
+ bandwidth 128
+ exit
+router rip
+ net 20.0.0.0
+ net 192.168.200.0
+ exit
+ exit
+copy run star
+
+14-03-2022
+
+RJ (DCE) para Bahia (DTE)
+enable 
+ configure terminal
+ interface f0/0
+ description porta lan do rj
+ ip add 192.168.210.1 255.255.255.0
+ interface s1/0
+ description Porta WAN que liga RJ na Bahia
+ no shutdown
+ ip add 30.0.0.1 255.0.0.0
+ (colocar ''clock rate 250000'' em RJ ''DCE'')
+ bandwidth 256
+ exit
+router rip
+ net 30.0.0.0
+ net 192.168.210.0
+ exit
+ exit
+copy run star
+
+Bahia (DTE)
+enable 
+ configure terminal
+ interface f0/0
+ description porta lan do Bahia
+ ip add 192.168.210.1 255.255.255.0
+ interface s1/2
+ description Porta WAN que liga RJ na Bahia
+ no shutdown
+ ip add 30.0.0.2 255.0.0.0
+ (colocar ''clock rate 250000'' em RJ ''DCE'')
+ bandwidth 256
+ exit
+ router rip
+ net 30.0.0.0
+ net 192.168.210.0
+ exit
+ exit
+copy run star
+
+----
+
+PR (DCE) para SP (DTE)
+enable 
+ configure terminal
+ interface f0/0
+ description porta lan do Bahia
+ no shutdown
+ ip add 192.168.90.1 255.255.255.0
+exit 
+ interface s0/0
+ ip add 11.0.0.1 255.0.0.0
+ (colocar ''clock rate 250000'' em PR ''DCE'')
+ bandwidth 256
+ exit
+router rip
+ net 11.0.0.0
+ net 192.168.90.0
+ exit
+ exit
+copy run star
+
+SP (DTE)
+enable 
+ configure terminal
+ interface f0/0
+ description porta lan do Bahia
+ no shutdown
+ ip add 192.168.90.1 255.255.255.0
+exit
+ interface s0/0
+ description Porta WAN que liga RJ na Bahia
+ no shutdown
+ ip add 11.0.0.2 255.0.0.0
+ (colocar ''clock rate 250000'' em RJ ''DCE'')
+ bandwidth 256
+ exit
+router rip
+ net 11.0.0.0
+ net 192.168.90.0
+ exit
+ exit
+copy run star
+
+---
+Bahia (DCE) para AM (DTE)
+enable 
+ configure terminal
+ interface f0/0
+ description porta lan do Bahia
+ no shutdown
+ ip add 192.168.90.1 255.255.255.0
+exit 
+ interface s0/0
+ ip add 11.0.0.1 255.0.0.0
+ (colocar ''clock rate 250000'' em PR ''DCE'')
+ bandwidth 256
+ exit
+router rip
+ net 11.0.0.0
+ net 192.168.90.0
+ exit
+ exit
+copy run star
+
+AM (DTE)
+enable 
+ configure terminal
+ hostname AM
+ interface f0/0
+ description porta lan do Bahia
+ no shutdown
+ ip add 192.168.90.1 255.255.255.0
+exit
+ interface s0/0
+ description Porta WAN que liga RJ na Bahia
+ no shutdown
+ ip add 11.0.0.2 255.0.0.0
+ (colocar ''clock rate 250000'' em RJ ''DCE'')
+ bandwidth 256
+ exit
+router rip
+ net 11.0.0.0
+ net 192.168.90.0
+ exit
+ exit
+copy run star
+---
+
+---
+
+---
+
+---
+
+///PCS
+
+PC1 (SP)
+IP:192.168.100.10	
+MK:255.255.255.0	
+GW:192.168.100.1
+ 
+PC2 (SP)
+IP:192.168.100.10	
+MK:255.255.255.0	
+GW:192.168.100.1
+ 
+PC3 (RJ)
+IP:192.168.200.10	
+MK:255.255.255.0	
+GW:192.168.200.1
+ 
+PC4 (RJ)
+IP:192.168.200.11
+MK:255.255.255.0	
+GW:192.168.200.1
+
+PC5 (BH)
+IP:192.168.210.10	
+MK:255.255.255.0	
+GW:192.168.210.1
+
+PC6 (BH)
+IP:192.168.210.11	
+MK:255.255.255.0	
+GW:192.168.210.1
+
+PC7
+IP:192.168.90.10	
+MK:255.255.255.0	
+GW:192.168.90.1
+
+PC8
+IP:192.168.90.11	
+MK:255.255.255.0	
+GW:192.168.90.1
+
+PC9 (AM)
+IP:192.168.80.10
+MK:255.255.255.0
+GW:192.168.80.1
+
+PC10 (AM)
+IP:192.168.80.11
+MK:255.255.255.0
+GW:192.168.80.1
+
+PC11 (AC)
+IP:
+MK:
+GW:
+
+PC12 (AC)
+IP:
+MK:
+GW:
+
+PC13
+IP:
+MK:
+GW:
+
+PC14
+IP:
+MK:
+GW:
+
+PC15
+IP:
+MK:
+GW:
+
+PC16
+IP:
+MK:
+GW:
+///
+
+LAN-SP
+IP:192.168.100.x	
+MK:255.255.255.0
+GW:192.168.100.1
+ 
+LAN-RJ
+IP:192.168.200.x	
+MK:255.255.255.0
+GW:192.168.200.1
+
+LAN-Bahia
+IP:192.168.210.x	
+MK:255.255.255.0
+GW:192.168.210.1
+
+LAN-PR
+IP:192.168.90.x
+MK:255.255.255.0
+GW:192.168.90.1
+
+LAN-SC
+IP:192.168.80.X
+MK:255.255.255.0
+GW:192.168.80.1
+
+LAN-AM
+IP:192.168.220.X
+MK:255.255.255.0
+GW:192.168.220.1
+
+LAN-MG
+IP:192.168.240.X
+MK:255.255.255.0
+GW:192.168.240.1
+
+LAN-AC
+IP:192.168.230.X
+MK:255.255.255.0
+GW:192.168.230.1
