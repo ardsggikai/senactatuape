@@ -1,18 +1,18 @@
 ---
-
+ (padrão)
 11-03-2022
 
 SP
 enable 
  configure terminal
  hostname SP
- interface fast 0/0
+ interface fast0/0
  description porta lan do SP
   no shutdown
   ip add 192.168.100.1 255.255.255.0
   exit
- interface s1/0
- description Porta WAN que liga SP em RJ
+ interface s0/0
+ description Porta WAN SP
  no shutdown
  ip add 20.0.0.1 255.0.0.0
  clock rate 128000 
@@ -21,73 +21,76 @@ enable
 router rip
  net 20.0.0.0
  net 192.168.100.0
- exit
- exit
+ end
 copy run star
 
 RJ
 enable 
  configure terminal
  hostname RJ
- interface fast 0/0
+ interface fast0/0
  description porta lan do rj
   no shutdown
   ip add 192.168.200.1 255.255.255.0
   exit
- interface s1/2
+ interface s0/1
  description Porta WAN que liga RJ em SP
  no shutdown
  ip add 20.0.0.2 255.0.0.0
- (colocar ''clock rate 128000'' em SP ''DCE'')
+ clock rate 128000
  bandwidth 128
  exit
 router rip
  net 20.0.0.0
  net 192.168.200.0
- exit
- exit
+ end
 copy run star
+
+---
 
 14-03-2022
 
-RJ (DCE) para Bahia (DTE)
+RJ (DCE) para BH (DTE)
 enable 
  configure terminal
+ hostname RJ
  interface f0/0
  description porta lan do rj
- ip add 192.168.210.1 255.255.255.0
- interface s1/0
- description Porta WAN que liga RJ na Bahia
+ no shutdown
+ ip add 192.168.200.1 255.255.255.0
+ interface s0/0
+ description Porta WAN RJ
  no shutdown
  ip add 30.0.0.1 255.0.0.0
- (colocar ''clock rate 250000'' em RJ ''DCE'')
+ clock rate 250000
  bandwidth 256
  exit
 router rip
- net 30.0.0.0
- net 192.168.210.0
- exit
- exit
+ net 20.0.0.0
+ net 192.168.200.0
+ end
 copy run star
 
-Bahia (DTE)
+BH (DTE)
 enable 
  configure terminal
+ hostname BH
  interface f0/0
- description porta lan do Bahia
+ description porta lan do BH
+ no shutdown
  ip add 192.168.210.1 255.255.255.0
- interface s1/2
- description Porta WAN que liga RJ na Bahia
+ exit
+ interface s0/1
+ description Porta WAN que liga RJ na BH
  no shutdown
  ip add 30.0.0.2 255.0.0.0
- (colocar ''clock rate 250000'' em RJ ''DCE'')
+ clock rate 250000
  bandwidth 256
  exit
- router rip
- net 30.0.0.0
- net 192.168.210.0
- exit
- exit
+router rip
+ net 20.0.0.0
+ net 192.168.200.0
+end
 copy run star
 
 ----
@@ -95,64 +98,64 @@ copy run star
 PR (DCE) para SP (DTE)
 enable 
  configure terminal
+ hostname PR
  interface f0/0
- description porta lan do Bahia
+ description porta LAN do PR
  no shutdown
  ip add 192.168.90.1 255.255.255.0
 exit 
  interface s0/0
  ip add 11.0.0.1 255.0.0.0
- (colocar ''clock rate 250000'' em PR ''DCE'')
+ clock rate 250000
  bandwidth 256
  exit
 router rip
- net 11.0.0.0
- net 192.168.90.0
- exit
- exit
+ net 20.0.0.0
+ net 192.168.200.0
+ end
 copy run star
 
 SP (DTE)
 enable 
  configure terminal
+ hostname SP
  interface f0/0
- description porta lan do Bahia
+ description porta lan do SP
  no shutdown
- ip add 192.168.90.1 255.255.255.0
+ ip add 192.168.100.1 255.255.255.0
 exit
- interface s0/0
- description Porta WAN que liga RJ na Bahia
+ interface s0/1
+ description Porta WAN que liga PR na SP
  no shutdown
  ip add 11.0.0.2 255.0.0.0
- (colocar ''clock rate 250000'' em RJ ''DCE'')
+ clock rate 250000
  bandwidth 256
  exit
 router rip
- net 11.0.0.0
- net 192.168.90.0
- exit
- exit
+ net 20.0.0.0
+ net 192.168.200.0
+ end
 copy run star
 
 ---
-Bahia (DCE) para AM (DTE)
+BH (DCE) para AM (DTE)
 enable 
  configure terminal
+ hostname BH
  interface f0/0
- description porta lan do Bahia
+ description Porta LAN da Bahia
  no shutdown
- ip add 192.168.90.1 255.255.255.0
+ ip add 192.168.210.1 255.255.255.0
 exit 
  interface s0/0
  ip add 11.0.0.1 255.0.0.0
- (colocar ''clock rate 250000'' em PR ''DCE'')
+ clock rate 250000
  bandwidth 256
  exit
 router rip
- net 11.0.0.0
- net 192.168.90.0
- exit
- exit
+ net 20.0.0.0
+ net 192.168.200.0
+end
 copy run star
 
 AM (DTE)
@@ -160,31 +163,202 @@ enable
  configure terminal
  hostname AM
  interface f0/0
- description porta lan do Bahia
+ description porta lan do AM
  no shutdown
- ip add 192.168.90.1 255.255.255.0
+ ip add 192.168.220.1 255.255.255.0
 exit
- interface s0/0
- description Porta WAN que liga RJ na Bahia
+ interface s0/1
+ description Porta WAN que liga AM na BH
  no shutdown
  ip add 11.0.0.2 255.0.0.0
- (colocar ''clock rate 250000'' em RJ ''DCE'')
+ clock rate 250000
  bandwidth 256
  exit
 router rip
- net 11.0.0.0
- net 192.168.90.0
+ net 20.0.0.0
+ net 192.168.200.0
+ end
+copy run star
+---
+PR (DCE) para SP (DTE)
+enable 
+ configure terminal
+ hostname PR
+ interface f0/0
+ description porta LAN do PR
+ no shutdown
+ ip add 192.168.90.1 255.255.255.0
  exit
+ interface s0/0
+ description porta WAN Que liga PR em SP
+ no shutdown
+ ip add 30.0.0.1 255.0.0.0
+ clock rate 250000
+ bandwidth 256
  exit
+router rip
+ net 20.0.0.0
+ net 192.168.200.0
+end
+copy run star
+
+SP (DTE)
+enable 
+ configure terminal
+ hostname SP
+ interface f0/0
+ description porta LAN de SP
+ no shutdown
+ ip add 192.168.100.1 255.255.255.0 (Feito)
+exit
+ interface s0/1
+ description Porta WAN que liga PR em SP
+ no shutdown
+ ip add 30.0.0.2 255.0.0.0
+ clock rate 250000
+ bandwidth 256
+ exit
+router rip
+ net 20.0.0.0
+ net 192.168.200.0
+ end
+copy run star
+
+---
+(AM) (DCE) para (MG) (DTE)
+enable 
+ configure terminal
+ hostname (AM)
+ interface f0/0
+ description porta LAN do (AM)
+ no shutdown
+ ip add (192.168.220.1) 255.255.255.0
+ exit
+ interface s1/3
+ description porta WAN Que liga (AM) em (MG)
+ no shutdown
+ ip add (50.0.0.1) 255.0.0.0
+ clock rate 250000
+ bandwidth 256
+ exit
+router rip
+ net (50.0.0.0)
+ net (192.168.220.0)
+ end
+copy run star
+
+(MG) (DTE)
+enable 
+ configure terminal
+ hostname (MG)
+ interface f0/0
+ description porta LAN de (MG)
+ no shutdown
+ ip add (192.168.220.1) 255.255.255.0 
+exit
+ interface s0/0
+ description Porta WAN que liga (MG) em (AM)
+ no shutdown
+ ip add (50.0.0.2) 255.0.0.0
+ clock rate 250000
+ bandwidth 256
+ exit
+router rip
+ net (50.0.0.0)
+ net (192.168.220.0)
+ end
+copy run star
+
+---
+(AM) (DCE) para (AC) (DTE)
+enable 
+ configure terminal
+ hostname (AM)
+ interface f0/0
+ description porta LAN do (AM)
+ no shutdown
+ ip add (192.168.220.1) 255.255.255.0
+ exit
+ interface s1/0
+ description porta WAN Que liga (AM) em (AC)
+ no shutdown
+ ip add (50.0.0.1) 255.0.0.0
+ clock rate 250000
+ bandwidth 256
+ exit
+router rip
+ net (50.0.0.0)
+ net (192.168.220.0)
+end
+copy run star
+
+(AC) (DTE)
+enable 
+ configure terminal
+ hostname (AC)
+ interface f0/0
+ description porta LAN de (AC)
+ no shutdown
+ ip add (192.168.230.1) 255.255.255.0 
+exit
+ interface s1/1
+ description Porta WAN que liga (AC) em (AM)
+ no shutdown
+ ip add (50.0.0.2) 255.0.0.0
+ clock rate 250000
+ bandwidth 256
+ exit
+router rip
+ net (50.0.0.0)
+ net (192.168.220.0)
+ end
 copy run star
 ---
 
----
+(PR) (DCE) para (SC) (DTE)
+enable 
+ configure terminal
+ hostname (PR)
+ interface f0/0
+ description porta LAN do (PR)
+ no shutdown
+ ip add (192.168.90.1) 255.255.255.0
+ exit
+ interface s1/1
+ description porta WAN Que liga (PR) em (SC)
+ no shutdown
+ ip add (9.0.0.1) 255.0.0.0
+ clock rate 250000
+ bandwidth 256
+ exit
+router rip
+ net (9.0.0.0)
+ net (192.168.80.0)
+ end
+copy run star
 
+(SC) (DTE)
+enable 
+ configure terminal
+ hostname (SC)
+ interface f0/0
+ description porta LAN de (SC)
+ no shutdown
+ ip add (192.168.80.1) 255.255.255.0 
+exit
+ interface s1/0
+ description Porta WAN que liga (SC) em (PR)
+ no shutdown
+ ip add (9.0.0.2) 255.0.0.0
+ clock rate 250000
+ bandwidth 256
+ exit
+router rip
+ net (9.0.0.0)
+ net (192.168.80.0)
+ end
+copy run star
 ---
-
----
-
 ///PCS
 
 PC1 (SP)
@@ -193,7 +367,7 @@ MK:255.255.255.0
 GW:192.168.100.1
  
 PC2 (SP)
-IP:192.168.100.10	
+IP:192.168.100.11	
 MK:255.255.255.0	
 GW:192.168.100.1
  
@@ -217,12 +391,12 @@ IP:192.168.210.11
 MK:255.255.255.0	
 GW:192.168.210.1
 
-PC7
+PC7 (PR)
 IP:192.168.90.10	
 MK:255.255.255.0	
 GW:192.168.90.1
 
-PC8
+PC8 (PR)
 IP:192.168.90.11	
 MK:255.255.255.0	
 GW:192.168.90.1
@@ -238,34 +412,35 @@ MK:255.255.255.0
 GW:192.168.80.1
 
 PC11 (AC)
-IP:
-MK:
-GW:
+IP:192.168.230.10
+MK:255.255.255.0
+GW:192.168.230.1
 
 PC12 (AC)
-IP:
-MK:
-GW:
+IP:192.168.230.11
+MK:255.255.255.0
+GW:192.168.230.1
 
-PC13
-IP:
-MK:
-GW:
+PC13 (SC)
+IP:192.168.80.10
+MK:255.255.255.0
+GW:192.168.80.1
 
-PC14
-IP:
-MK:
-GW:
+PC14 (SC)
+IP:192.168.80.11
+MK:255.255.255.0
+GW:192.168.80.1
 
-PC15
-IP:
-MK:
-GW:
+PC15 (MG)
+IP:192.168.240.10
+MK:255.255.255.0
+GW:192.168.240.1
 
-PC16
-IP:
-MK:
-GW:
+PC16 (MG)
+IP:192.168.240.11
+MK:255.255.255.0
+GW:192.168.240.1
+
 ///
 
 LAN-SP
