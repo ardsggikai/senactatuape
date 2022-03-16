@@ -18,14 +18,10 @@ enable
  clock rate 128000 
  bandwidth 128
  exit
-enable
- configure terminal
 router rip
  net 20.0.0.0
  net 192.168.200.0
- exit
-
- exit
+ end
 copy run star
 
 RJ
@@ -44,14 +40,10 @@ enable
  (colocar ''clock rate 128000'' em SP ''DCE'')
  bandwidth 128
  exit
- enable
- configure terminal
 router rip
  net 20.0.0.0
  net 192.168.200.0
- exit
-
- exit
+ end
 copy run star
 
 ---
@@ -72,14 +64,10 @@ enable
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net 20.0.0.0
  net 192.168.200.0
- exit
-
- exit
+ end
 copy run star
 
 BH (DTE)
@@ -96,14 +84,10 @@ enable
  clock rate 250000
  bandwidth 256
  exit
- enable
- configure terminal
 router rip
  net 20.0.0.0
  net 192.168.200.0
- exit
-
- exit
+end
 copy run star
 
 ----
@@ -122,14 +106,10 @@ exit
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net 20.0.0.0
  net 192.168.200.0
- exit
-
- exit
+ end
 copy run star
 
 SP (DTE)
@@ -148,14 +128,10 @@ exit
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net 20.0.0.0
  net 192.168.200.0
- exit
-
- exit
+ end
 copy run star
 
 ---
@@ -173,14 +149,10 @@ exit
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net 20.0.0.0
  net 192.168.200.0
- exit
-
- exit
+end
 copy run star
 
 AM (DTE)
@@ -199,14 +171,10 @@ exit
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net 20.0.0.0
  net 192.168.200.0
- exit
-
- exit
+ end
 copy run star
 ---
 PR (DCE) para SP (DTE)
@@ -225,14 +193,10 @@ enable
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net 20.0.0.0
  net 192.168.200.0
- exit
-
- exit
+end
 copy run star
 
 SP (DTE)
@@ -251,14 +215,10 @@ exit
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net 20.0.0.0
  net 192.168.200.0
- exit
-
- exit
+ end
 copy run star
 
 ---
@@ -278,14 +238,10 @@ enable
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net (50.0.0.0)
  net (192.168.220.0)
- exit
-
- exit
+ end
 copy run star
 
 (MG) (DTE)
@@ -304,14 +260,10 @@ exit
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net (50.0.0.0)
  net (192.168.220.0)
- exit
-
- exit
+ end
 copy run star
 
 ---
@@ -331,14 +283,10 @@ enable
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net (50.0.0.0)
  net (192.168.220.0)
- exit
-
- exit
+end
 copy run star
 
 (AC) (DTE)
@@ -357,14 +305,10 @@ exit
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net (50.0.0.0)
  net (192.168.220.0)
- exit
-
- exit
+ end
 copy run star
 ---
 
@@ -384,13 +328,10 @@ enable
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net (9.0.0.0)
  net (192.168.80.0)
- exit
- exit
+ end
 copy run star
 
 (SC) (DTE)
@@ -409,14 +350,10 @@ exit
  clock rate 250000
  bandwidth 256
  exit
-enable
- configure terminal
 router rip
  net (9.0.0.0)
  net (192.168.80.0)
- exit
-
- exit
+ end
 copy run star
 ---
 ///PCS
