@@ -37,7 +37,7 @@ enable
  description Porta WAN que liga RJ em SP
  no shutdown
  ip add 20.0.0.2 255.0.0.0
- (colocar ''clock rate 128000'' em SP ''DCE'')
+ clock rate 128000
  bandwidth 128
  exit
 router rip
