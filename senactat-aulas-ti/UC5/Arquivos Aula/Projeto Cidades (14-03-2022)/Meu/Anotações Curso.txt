@@ -42,7 +42,7 @@ enable
       no shutdown 
 	  exit
   interface serial 0/0/0
-      description INTERFACE WAN QUE LIGA BA A RJ
+      description INTERFACE WAN QUE LIGA RJ A BA
 	  ip address 30.0.0.1 255.0.0.0
       bandwidth 128
       no shutdown 
@@ -69,7 +69,7 @@ enable
 	  clock rate 128000
       no shutdown 
 	  exit
-    interface serial 0/1
+    interface serial 0/0/1
       description INTERFACE WAN QUE LIGA PR A SC
 	  ip address 9.0.0.1 255.0.0.0
       bandwidth 128
@@ -97,7 +97,7 @@ enable
       no shutdown 
 	  exit
 	interface serial 0/0/0
-      description INTERFACE WAN QUE LIGA AM A BA
+      description INTERFACE WAN QUE LIGA BA A AM
 	  ip address 40.0.0.1 255.0.0.0
       bandwidth 128
       no shutdown 
@@ -123,13 +123,13 @@ enable
       bandwidth 128
       no shutdown 
 	  exit
-    interface serial 1/2
+    interface serial 0/1/0
       description INTERFACE WAN QUE LIGA AM A AC
 	  ip address 60.0.0.1 255.0.0.0
       bandwidth 128
       no shutdown 
 	  exit
-    interface serial 1/3
+    interface serial 0/0/0
       description INTERFACE WAN QUE LIGA AM A MG
 	  ip address 50.0.0.1 255.0.0.0
       bandwidth 128
@@ -151,13 +151,13 @@ enable
       ip address 192.168.230.1 255.255.255.0
       no shutdown 
 	  exit
-	interface serial 0/0
+	interface serial 0/0/1
       description INTERFACE WAN QUE LIGA AC A AM
 	  ip address 60.0.0.2 255.0.0.0
       bandwidth 128
       no shutdown 
 	  exit
-    interface serial 0/1
+    interface serial 0/0/0
       description INTERFACE WAN QUE LIGA AC A SC
     ip address 8.0.0.2 255.0.0.0
       bandwidth 128
@@ -166,8 +166,8 @@ enable
 	  exit
     router rip
 	network 192.168.230.0
-	network 50.0.0.0
   network 60.0.0.0
+  network 8.0.0.0
 	end
 wr
 
@@ -179,7 +179,7 @@ enable
       ip address 192.168.240.1 255.255.255.0
       no shutdown 
 	  exit
-	interface serial 0/0
+	interface serial 0/0/1
       description INTERFACE WAN QUE LIGA MG A AM
 	  ip address 50.0.0.2 255.0.0.0
       bandwidth 128
@@ -199,21 +199,14 @@ enable
       ip address 192.168.80.1 255.255.255.0
       no shutdown 
 	  exit
-	  interface serial 0/1/1
-      description INTERFACE WAN QUE LIGA SC A AC
-	  ip address 60.0.0.1 255.0.0.0
-      bandwidth 128
-	  clock rate 128000
-      no shutdown 
-	  exit
-    interface serial 0/0
+    interface serial 0/0/0
       description INTERFACE WAN QUE LIGA SC A PR
 	  ip address 9.0.0.2 255.0.0.0
       bandwidth 128
 	  clock rate 128000
       no shutdown 
 	  exit
-    interface serial 0/1
+    interface serial 0/1/0
       description INTERFACE WAN QUE LIGA SC A AC
     ip address 8.0.0.1 255.0.0.0
       bandwidth 128
@@ -222,14 +215,12 @@ enable
 	  exit
 	router rip
   network 192.168.80.0
-	network 60.0.0.0
   network 9.0.0.0
   network 8.0.0.0
   
 	end
 wr
 
-PR não Pinga SC
 
 ---
 
