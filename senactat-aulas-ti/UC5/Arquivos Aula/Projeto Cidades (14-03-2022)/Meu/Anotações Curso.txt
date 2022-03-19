@@ -77,6 +77,13 @@ enable
       clock rate 128000
 	  no shutdown
 	  exit 
+	interface serial 0/0/1
+	    description INTERFACE WAN QUE LIGA SP AO PR
+	ip address 11.0.0.2 255.0.0.0
+	  no shutdown
+	  bandwidth 128
+	  clock rate 128000
+	  exit
 	router rip
 	network 192.168.100.0
 	network 20.0.0.0
