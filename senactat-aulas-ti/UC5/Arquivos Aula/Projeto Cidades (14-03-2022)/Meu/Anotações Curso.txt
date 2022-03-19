@@ -1,31 +1,89 @@
+!Autor: Allan Gomes  
+!Data de criação: 19/03/2022  
+!Data de atualização: 19/03/2022  
+!Versão: 1.10
+
 enable
   configure terminal
-    hostname SP
+    hostname SC
     interface gigabitEthernet 0/0
-      description LAN DE SAO PAULO
-      ip address 192.168.100.1 255.255.255.0
-      no shutdown
-	  exit 
+      description LAN DE SANTA CATARINA
+      ip address 192.168.80.1 255.255.255.0
+      no shutdown 
+	  exit
 	interface serial 0/0/0
-      description INTERFACE WAN QUE LIGA SP AO RJ
-	  ip address 20.0.0.1 255.0.0.0
-      bandwidth 128
-      clock rate 128000
-	  no shutdown
-	  exit 
-  interface serial 0/0/1
-  description INTERFACE WAN QUE LIGA SP AO PR
-  ip address 90.0.0.2 255.0.0.0
+      description INTERFACE WAN QUE LIGA SC A PR
+	  ip address 7.0.0.1 255.0.0.0
       bandwidth 128
 	  clock rate 128000
       no shutdown 
 	  exit
+	interface serial 0/0/1
+	    description INTERFACE WAN QUE LIGA SC A AC
+	  ip address 8.0.0.1 255.0.0.0
+	bandwidth 128
+	clock rate 128000
+	no shutdown
+	exit
+	router rip
+	network 192.168.80.0
+	network 7.0.0.0
+  network 8.0.0.0
+	end
+wr
+
+enable
+  configure terminal
+    hostname PR
+  interface gigabitEthernet 0/0
+      description LAN DO PARANA
+    ip address 192.168.90.1 255.255.255.0
+      no shutdown 
+	  exit
+	interface serial 0/0/0
+      description INTERFACE WAN QUE LIGA PR A SP
+	  ip address 11.0.0.1 255.0.0.0
+      no shutdown
+      bandwidth 128
+	  clock rate 128000
+      no shutdown 
+	  exit
+	interface serial 0/0/1
+      description INTERFACE WAN QUE LIGA PR A SC
+	  ip address 8.0.0.2 255.0.0.0
+      bandwidth 128
+	  no shutdown 
+	  exit
+	router rip
+	network 192.168.90.0
+	network 8.0.0.0
+	network 11.0.0.0
+	end
+wr
+
+enable
+  configure terminal
+    hostname SP
+    interface gigabitEthernet 0/0
+        description LAN DE SAO PAULO
+      ip address 192.168.100.1 255.255.255.0
+      no shutdown
+	  exit 
+	interface serial 0/0/0
+        description INTERFACE WAN QUE LIGA SP AO RJ
+    ip address 20.0.0.1 255.0.0.0
+      no shutdown
+      bandwidth 128
+      clock rate 128000
+	  no shutdown
+	  exit 
 	router rip
 	network 192.168.100.0
 	network 20.0.0.0
-  network 90.0.0.0
 	end
 wr
+
+(talvez Precise adicionar Ip address na interface s0/0/1)
 
 enable
   configure terminal
@@ -41,56 +99,26 @@ enable
       bandwidth 128
       no shutdown 
 	  exit
-  interface serial 0/0/0
+	interface serial 0/0/0
       description INTERFACE WAN QUE LIGA RJ A BA
 	  ip address 30.0.0.1 255.0.0.0
-      bandwidth 128
+      bandwidth 256
+	  clock rate 250000
       no shutdown 
 	  exit
 	router rip
 	network 192.168.200.0
 	network 20.0.0.0
-  network 30.0.0.0
+	network 30.0.0.0
 	end
 wr
-
-enable
-  configure terminal
-    hostname PR
-    interface gigabitEthernet 0/0
-      description LAN DO PARANA
-      ip address 192.168.90.1 255.255.255.0
-      no shutdown 
-	  exit
-	interface serial 0/0/0
-      description INTERFACE WAN QUE LIGA PR A SP
-	  ip address 90.0.0.1 255.0.0.0
-      bandwidth 128
-	  clock rate 128000
-      no shutdown 
-	  exit
-    interface serial 0/0/1
-      description INTERFACE WAN QUE LIGA PR A SC
-	  ip address 8.0.0.1 255.0.0.0
-      bandwidth 128
-	  clock rate 128000
-      no shutdown 
-	  exit
-    router rip
-	network 192.168.90.0
-	network 90.0.0.0
-  network 8.0.0.0
-	end
-wr
-
-X
 
 enable
   configure terminal
     hostname BA
-    interface gigabitEthernet 0/0
+  interface gigabitEthernet 0/0
       description LAN DA BAHIA
-      ip address 192.168.210.1 255.255.255.0
+    ip address 192.168.210.1 255.255.255.0
       no shutdown 
 	  exit
 	interface serial 0/0/1
@@ -102,22 +130,23 @@ enable
 	interface serial 0/0/0
       description INTERFACE WAN QUE LIGA BA A AM
 	  ip address 40.0.0.1 255.0.0.0
-      bandwidth 128
+      bandwidth 256
+	  clock rate 250000
       no shutdown 
 	  exit
 	router rip
 	network 192.168.210.0
 	network 30.0.0.0
-  network 40.0.0.0
+	network 40.0.0.0
 	end
 wr
 
 enable
   configure terminal
     hostname AM
-    interface gigabitEthernet 0/0
+  interface gigabitEthernet 0/0
       description LAN DO AMAZONAS
-      ip address 192.168.220.1 255.255.255.0
+    ip address 192.168.220.1 255.255.255.0
       no shutdown 
 	  exit
 	interface serial 0/0/1
@@ -126,189 +155,170 @@ enable
       bandwidth 128
       no shutdown 
 	  exit
-    interface serial 0/1/0
+	interface serial 0/0/0
       description INTERFACE WAN QUE LIGA AM A AC
-	  ip address 60.0.0.1 255.0.0.0
-      bandwidth 128
-      no shutdown 
-	  exit
-    interface serial 0/0/0
-      description INTERFACE WAN QUE LIGA AM A MG
 	  ip address 50.0.0.1 255.0.0.0
       bandwidth 128
+	  clock rate 128000
       no shutdown 
 	  exit
-    router rip
+	interface serial 0/1/0
+      description INTERFACE WAN QUE LIGA AM A MG
+	  ip address 60.0.0.1 255.0.0.0
+      bandwidth 128
+	  clock rate 128000
+      no shutdown 
+	  exit
+	router rip
 	network 192.168.220.0
 	network 40.0.0.0
-  network 50.0.0.0
-  network 60.0.0.0
+	network 50.0.0.0
+	network 60.0.0.0
 	end
 wr
 
 enable
   configure terminal
     hostname AC
-    interface gigabitEthernet 0/0
+  interface gigabitEthernet 0/0
       description LAN DO ACRE
-      ip address 192.168.230.1 255.255.255.0
+    ip address 192.168.230.1 255.255.255.0
       no shutdown 
 	  exit
 	interface serial 0/0/1
       description INTERFACE WAN QUE LIGA AC A AM
-	  ip address 60.0.0.2 255.0.0.0
+	  ip address 50.0.0.2 255.0.0.0
       bandwidth 128
       no shutdown 
 	  exit
-    interface serial 0/0/0
+	interface serial 0/0/0
       description INTERFACE WAN QUE LIGA AC A SC
-    ip address 9.0.0.2 255.0.0.0
+	  ip address 7.0.0.2 255.0.0.0
       bandwidth 128
-	  clock rate 128000
       no shutdown 
 	  exit
-    router rip
+	router rip
 	network 192.168.230.0
-  network 60.0.0.0
-  network 8.0.0.0
+	network 50.0.0.0
+	network 7.0.0.0
 	end
 wr
 
 enable
   configure terminal
     hostname MG
-    interface gigabitEthernet 0/0
+  interface gigabitEthernet 0/0
       description LAN DE MINAS GERAIS
-      ip address 192.168.240.1 255.255.255.0
+    ip address 192.168.240.1 255.255.255.0
       no shutdown 
 	  exit
 	interface serial 0/0/1
       description INTERFACE WAN QUE LIGA MG A AM
-	  ip address 50.0.0.2 255.0.0.0
+	  ip address 60.0.0.2 255.0.0.0
       bandwidth 128
       no shutdown 
 	  exit
 	router rip
 	network 192.168.240.0
-	network 50.0.0.0
+	network 60.0.0.0
 	end
 wr
 
-enable
-  configure terminal
-    hostname SC
-    interface gigabitEthernet 0/0
-      description LAN DE SANTA CATARINA
-      ip address 192.168.80.1 255.255.255.0
-      no shutdown 
-	  exit
-    interface serial 0/0/1
-      description INTERFACE WAN QUE LIGA SC A PR
-    ip address 8.0.0.2 255.0.0.0
-      bandwidth 128
-	  clock rate 128000
-      no shutdown 
-	  exit
-    interface serial 0/1/0
-      description INTERFACE WAN QUE LIGA SC A AC
-	  ip address 9.0.0.1 255.0.0.0
-      bandwidth 128
-	  clock rate 128000
-      no shutdown 
-	  exit
-	router rip
-  network 192.168.80.0
-  network 9.0.0.0
-  network 8.0.0.0
-	end
-wr
-
-X
 
 ---
 
 ///PCS
 
-PC1 (SP)
-IP:192.168.100.10	
-MK:255.255.255.0	
-GW:192.168.100.1
- 
-PC2 (SP)
-IP:192.168.100.10	
-MK:255.255.255.0	
-GW:192.168.100.1
- 
-PC3 (RJ)
-IP:192.168.200.10	
-MK:255.255.255.0	
-GW:192.168.200.1
- 
-PC4 (RJ)
-IP:192.168.200.11
-MK:255.255.255.0	
-GW:192.168.200.1
-
-PC5 (BA)
-IP:192.168.210.10	
-MK:255.255.255.0	
-GW:192.168.210.1
-
-PC6 (BA)
-IP:192.168.210.11	
-MK:255.255.255.0	
-GW:192.168.210.1
-
-PC7
-IP:192.168.220.10	
-MK:255.255.255.0	
-GW:192.168.220.1
-
-PC8
-IP:192.168.220.11	
-MK:255.255.255.0	
-GW:192.168.220.1
-
-PC9 (SC)
+PC (SC)
 IP:192.168.80.10
 MK:255.255.255.0
 GW:192.168.80.1
 
-PC10 (SC)
+PC (SC)
 IP:192.168.80.11
 MK:255.255.255.0
 GW:192.168.80.1
 
-PC11 (AC)
-IP:192.168.230.10
-MK:255.255.255.0
-GW:192.168.230.1
-
-PC12 (AC)
-IP:192.168.230.11
-MK:255.255.255.0
-GW:192.168.230.1
-
-PC13 (PR)
+PC (PR)
 IP:192.168.90.10
 MK:255.255.255.0
 GW:192.168.80.1
 
-PC14 (PR)
+PC (PR)
 IP:192.168.90.11
 MK:255.255.255.0
 GW:192.168.80.1
 
-PC15 (MG)
+PC (SP)
+IP:192.168.100.10	
+MK:255.255.255.0	
+GW:192.168.100.1
+ 
+PC (SP)
+IP:192.168.100.11	
+MK:255.255.255.0	
+GW:192.168.100.1
+ 
+PC (RJ)
+IP:192.168.200.10	
+MK:255.255.255.0	
+GW:192.168.200.1
+ 
+PC (RJ)
+IP:192.168.200.11
+MK:255.255.255.0	
+GW:192.168.200.1
+
+PC (BA)
+IP:192.168.210.10	
+MK:255.255.255.0	
+GW:192.168.210.1
+
+PC (BA)
+IP:192.168.210.11	
+MK:255.255.255.0	
+GW:192.168.210.1
+
+PC (AM)
+IP:192.168.220.10	
+MK:255.255.255.0	
+GW:192.168.220.1
+
+PC (AM)
+IP:192.168.220.11	
+MK:255.255.255.0	
+GW:192.168.220.1
+
+PC (AC)
+IP:192.168.230.10
+MK:255.255.255.0
+GW:192.168.230.1
+
+PC (AC)
+IP:192.168.230.11
+MK:255.255.255.0
+GW:192.168.230.1
+
+PC (MG)
 IP:192.168.240.10
 MK:255.255.255.0
 GW:192.168.240.1
 
-PC16 (MG)
+PC (MG)
 IP:192.168.240.11
 MK:255.255.255.0
 GW:192.168.240.1
 ///
+
+LAN-SC
+IP:192.168.80.X
+MK:255.255.255.0
+GW:192.168.80.1
+
+LAN-PR
+IP:192.168.90.x
+MK:255.255.255.0
+GW:192.168.90.1
 
 LAN-SP
 IP:192.168.100.x	
@@ -325,27 +335,17 @@ IP:192.168.210.x
 MK:255.255.255.0
 GW:192.168.210.1
 
-LAN-PR
-IP:192.168.90.x
-MK:255.255.255.0
-GW:192.168.90.1
-
-LAN-SC
-IP:192.168.80.X
-MK:255.255.255.0
-GW:192.168.80.1
-
 LAN-AM
 IP:192.168.220.X
 MK:255.255.255.0
 GW:192.168.220.1
 
-LAN-MG
-IP:192.168.240.X
-MK:255.255.255.0
-GW:192.168.240.1
-
 LAN-AC
 IP:192.168.230.X
 MK:255.255.255.0
 GW:192.168.230.1
+
+LAN-MG
+IP:192.168.240.X
+MK:255.255.255.0
+GW:192.168.240.1
