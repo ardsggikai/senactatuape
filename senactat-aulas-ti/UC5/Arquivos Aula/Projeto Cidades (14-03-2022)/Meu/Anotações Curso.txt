@@ -1,7 +1,7 @@
 !Autor: Allan Gomes  
 !Data de criação: 19/03/2022  
 !Data de atualização: 19/03/2022  
-!Versão: 1.10
+!Versão: 1.91
 
 enable
   configure terminal
@@ -13,14 +13,14 @@ enable
 	  exit
 	interface serial 0/0/0
       description INTERFACE WAN QUE LIGA SC A PR
-	  ip address 7.0.0.1 255.0.0.0
+	  ip address 8.0.0.1 255.0.0.0
       bandwidth 128
 	  clock rate 128000
       no shutdown 
 	  exit
 	interface serial 0/0/1
 	    description INTERFACE WAN QUE LIGA SC A AC
-	  ip address 8.0.0.1 255.0.0.0
+	  ip address 7.0.0.1 255.0.0.0
 	bandwidth 128
 	clock rate 128000
 	no shutdown
@@ -87,10 +87,9 @@ enable
 	router rip
 	network 192.168.100.0
 	network 20.0.0.0
+	network 11.0.0.0
 	end
 wr
-
-(talvez Precise adicionar Ip address na interface s0/0/1)
 
 enable
   configure terminal
