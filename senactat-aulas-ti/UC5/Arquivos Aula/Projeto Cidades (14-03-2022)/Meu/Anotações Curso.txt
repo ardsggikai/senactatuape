@@ -1,7 +1,7 @@
 !Autor: Allan Gomes  
 !Data de criação: 19/03/2022  
 !Data de atualização: 19/03/2022  
-!Versão: 1.91
+!Versão: 1.20
 
 enable
   configure terminal
