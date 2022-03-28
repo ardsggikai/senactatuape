@@ -10,8 +10,8 @@
 # LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Github: https://github.com/vaamonde
 # Data de criação: 23/07/2021
-# Data de atualização: 26/11/2021
-# Versão: 0.05
+# Data de atualização: 28/03/2022
+# Versão: 0.06
 # Testado e homologado no Linux Mint 20.x e VSCode 1.58.x
 #
 O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft para Windows, 
@@ -30,10 +30,10 @@ https://code.visualstudio.com/download
 	Versão: .deb (Debian, Ubuntu 64 Bits)
 		Salvar aquivo
 #
-# 02_ Instalando o Vim, Git e o Python no Linux Mint 20.x
+# 02_ Instalando o Vim, Git, Cloc e o Python no Linux Mint 20.x
 Terminal (Ctrl+Alt+T)
 	sudo apt update 
-	sudo apt install vim git python 
+	sudo apt install vim git python cloc 
 	exit
 #
 # 03_ Instalando o VSCode utilizando o Gdebi-Gtk do Linux Mint 20.x
@@ -61,7 +61,7 @@ Menu
 	Busca Indexada
 		vscode
 			Dark Theme
-			Notifications: Pacote PT-BR
+			Install: Notifications: Portuguese (Brazil) Language Pack for Visual Studio Code
 			Disable: Mostrar página inicial na inicialização
 #
 # 06_ Configurando o VSCode como Aplicativo de Preferência no Linux Mint 20.x
@@ -71,7 +71,7 @@ Menu
 			Texto puro: Visual Studio Code
 			Código fonte: Visual Studio Code
 #
-# 07_ Instalando e Configurando as Principais Extensões que utilizo no Meu Dia a Dia
+# 07_ Instalação e Configuração das Principais Extensões do VSCode
 Portuguese (Brazil) Language Pack for Visual Studio Code
 	(Sem necessidade de configuração)
 
@@ -84,8 +84,22 @@ Manter selecionado a extensão: Brazilian Portuguese - Code Spell Checker
 					English (en_us)
 					Portuguese (pt_br)
 					Portuguese - Brazil (pt-br)
-				File Types and Programming Languages
-					shellscript, python, markdown, etc...
+				Enable: File Types and Programming Languages
+					bat
+					ini
+					log
+					Log
+					makefile
+					perl
+					powershell
+					shellscript
+					sql
+					tex
+					vb
+					xml
+
+Code Spell Checker Language Pack
+	(Sem necessidade de configuração)
 
 Bats (Bash Automated Testing System)
 	(Sem necessidade de configuração)
@@ -98,30 +112,15 @@ Shell-Format
 
 ShellCheck
 	(Sem necessidade de configuração)
-
-Cisco IOS Systax
-	(Sem necessidade de configuração)
-
-Cisco IOS-XR Systax
-	(Sem necessidade de configuração)
-
-Cisco Config Highlight
-	(Sem necessidade de configuração)
-
-Pylance
-	(Sem necessidade de configuração)
-
-Python
-	(Sem necessidade de configuração)
 #
 # 08_ Configurações principais do VSCode para funcionar perfeitamente no Linux Mint
 Gerenciar
 	Configurações
 		Code Spell Checker
-			C Spell: Enabled Language Ids: 
+			C Spell: Enabled Language Ids:
 				Adicionar Item: shellscript
 			C Spell: Language: en,pt,pt-BR
-			C Spell: Max Duplicate Problems: 5000
+			C Spell: Max Duplicate Problems: 500000
 			C Spell: Max Number Of Problems: 100000
 		Editor
 			Editor: Tab Size: 4
@@ -129,3 +128,12 @@ Gerenciar
 			Editor: Insert Spaces: False (Off)
 		Files
 			Files: Eol: \n (LF)
+
+# 09_ Configurações Globais do Git para funcionar com o VSCode
+Atalho: Ctrl + J
+	Terminal
+		git config --global user.name "Seu Nome Completo"
+		git config --global user.email "seuemaildogithub@provedor.com"
+		git config --global core.editor vim
+		git config --global merge.tool vimdiff
+		git config --global color.ui true
