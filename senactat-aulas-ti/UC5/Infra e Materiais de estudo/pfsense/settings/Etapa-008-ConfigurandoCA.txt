@@ -68,7 +68,7 @@ System
 					Key length: 2048
 					Digest Algorithm: sha256
 					Lifetime (days): 3650
-					Common Name: firewall.SEU_DOMINIO.intra 
+					Common Name: fwSEU_NOME.SEU_DOMINIO.intra 
 					Country Code: BR
 					State or Province: Sao Paulo
 					City: Sao Paulo
@@ -78,8 +78,8 @@ System
 					Certificate Type: Server Certificate
 					Alternative Names:
 						IP Address: 172.16.??.254 +Add
-						FQDN or Hostname: firewall +Add
-						FQDN or Hostname: firewall.SEU_DOMINIO.intra
+						FQDN or Hostname: fwSEU_NOME +Add
+						FQDN or Hostname: fwSEU_NOME.SEU_DOMINIO.intra
 			Save
 
 Configurando o Suporte ao HTTPS do pfSense
