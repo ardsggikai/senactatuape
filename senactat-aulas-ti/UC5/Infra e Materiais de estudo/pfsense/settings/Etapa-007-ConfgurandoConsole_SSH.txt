@@ -22,14 +22,20 @@ Migração para o pfSense Plus+ 22.01: https://docs.netgate.com/pfsense/en/lates
 Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
 Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
 
+
+Instalando os software SetSerial e TTYLog para o gerenciamento da Porta Serial do VirtualBOX
+Terminal 
+	sudo apt update
+	sudo apt install setserial ttylog
+
 Configuração da Porta Serial no Oracle VirtualBOX
 Configurações
 	Portas Seriais
 		Porta 1
 			Habilitar Porta Serial (yes)
-			Número da Porta: COM3 - IRQ: 4 Endereço I/O: 0x3E8
+			Número da Porta: COM1 - IRQ: 4 Endereço I/O: 0x3F8
 			Modo da Porta: Dispositivo no Hospedeiro
-			Caminho/Endereço: /dev/ttyS0 (Linux) ou (Windows)
+			Caminho/Endereço: /dev/ttyS2 (Linux) ou COM3 (Windows)
 
 Configuração do Serviço do SSH (Secure Shell) do pfSense
 System
