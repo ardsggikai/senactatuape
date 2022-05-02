@@ -1,0 +1,156 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 14/04/2022
+#Data de atualização: 15/04/2022
+#Versão: 0.02
+******************************************************************************************
+GPOS
+******************************************************************************************
+GPO-USERS-BLOQUEIA-PAINEL-DE-CONTROLE
+GPO Status: Computer User configuration settings disabled
+User Configuration/Policies/Administrative Templates/Control Panel
+Prohibit access to Control Panel and PC settings: Enabled
+******************************************************************************************
+Default Domain Policy
+Computer Configuration/Policies/Windows Settings/Security Settings/Account Policies/Password Policy
+Enforce password history 4 passwords remembered 
+Maximum password age 90 days 
+Minimum password age 7 days 
+Minimum password length 8 characters 
+Password must meet complexity requirements Enabled 
+Store passwords using reversible encryption Disabled
+******************************************************************************************
+Criar o diretório braga no caminho \\braga.intra\netlogon
+Copiar os arquivos Bginfo.exe, servers.bgi e Logon.vbs para o diretório \\braga.intra\netlogon\braga
+******************************************************************************************
+GPO-COMP-AUTOMACOES
+GPO Status: User configuration settings disabled
+
+Computer Configuration/Preferences/Windows Settings/Folders
+Action: Update
+Path: C:\TI
+
+Computer Configuration/Preferences/Windows Settings/Files
+Action: Update
+Source file(s): \\braga.intra\NETLOGON\braga\Bginfo.exe
+Destination File: C:\TI\Bginfo.exe
+
+Action: Update
+Source file(s): \\braga.intra\NETLOGON\braga\Logon.vbs
+Destination File: C:\TI\Logon.vbs
+
+Action: Update
+Source file(s): \\braga.intra\NETLOGON\braga\servers.bgi
+Destination File: C:\TI\servers.bgi
+******************************************************************************************
+GPO-USERS-BGINFO
+GPO Status: Computer User configuration settings disabled
+User Configuration/Policies/Windows Settings/Scripts/Logon
+Add
+Script Name: C:\TI\Logon.vbs 
+******************************************************************************************
+GPO-COMP-DESABILITA-IPV6
+GPO Status: User configuration settings disabled
+Computer Configuration/Preferences/Windows Settings/Registry/
+Action: Update 
+Hive: HKEY_LOCAL_MACHINE 
+Key path: System\CurrentControlSet\Services\Tcpip6\Parameters 
+Value name: DisabledComponents 
+Value type: REG_DWORD 
+Value data: 0xFF
+******************************************************************************************
+GPO-USERS-PAPEL-DE-PAREDE
+GPO Status: Computer User configuration settings disabled
+User Configuration/Policies/Administrative Templates
+Desktop/Desktop
+Desktop Wallpaper: Enabled  
+Wallpaper Name: C:\TI\wallpaper.jpg 
+Wallpaper Style: Stretch 
+Enable Active Desktop Enabled
+******************************************************************************************
+GPO para Configuração de NTP nos Clientes
+WMI Filters, New
+Name: LOCALIZA-PDC
+ADD
+Query: Select * from Win32_ComputerSystem where DomainRole = 5
+OK
+******************************************************************************************
+GPO-COMP-CLIENTE-NTP
+Details: This GPO is linked to the following WMI filter:
+LOCALIZA-PDC
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Administrative Templates/System/Windows Time Service/Time Providers
+Configure Windows NTP Client: Enabled  
+NtpServer a.st1.ntp.br,0x9 b.st1.ntp.br,0x9 c.st1.ntp.br,0x9 
+Type NT5DS 
+CrossSiteSyncFlags 2 
+ResolvePeerBackoffMinutes 15 
+ResolvePeerBackoffMaxTimes 7 
+SpecialPollInterval 1024 
+EventLogFlags 0 
+ 
+Enable Windows NTP Client: Enabled
+******************************************************************************************
+GPO-COMP-BLOQUEIA-PC
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Security Settings/Local Policies/Security Options
+Interactive logon: Machine inactivity limit 300 seconds 
+******************************************************************************************
+GPO-COMP-MOTD
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Security Settings/Local Policies/Security Options
+Interactive logon: Interactive logon: Message text for users attempting to log on: Esse sistema é restrito a usuários autorizados. Os indivíduos que tentarem acesso não autorizado serão processados. Se você não estiver autorizado, termine o acesso agora. Clique em OK para indicar sua aceitação dessas informações.
+Interactive logon: Message title for users attempting to log on: "Bem vindo a Rede Corporativa BRAGA" 
+******************************************************************************************
+GPO-COMP-CERTIFICADOS
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Security Settings/Public Key Policies
+Certificate Services Client - Auto-Enrollment Settings
+Configuration Model: Enabled 
+Renew expired certificates, update pending certificates, and remove revoked certificates
+Update certificates that use certificate templates
+ 
+Trusted Root Certification Authorities
+Import
+Next
+File name: \\braga.intra\netlogon\braga\braga-ca.cert
+******************************************************************************************
+GPO-COMP-BLOQUEIA-GPO-LOCAL
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Administrative Templates/System/Group Policy
+Turn off Local Group Policy Objects processing: Enabled  
+******************************************************************************************
+GPO-USERS-REMOVER-DESLIGAR-RDS
+GPO Status: Computer User configuration settings disabled
+User Configuration/Policies/Administrative Templates/Start Menu and Taskbar
+Remove and prevent access to the Shutdown, Restart, Sleep, and Hibernate commands: Enabled
+******************************************************************************************
+GPO-USERS-MAPEIA-IMPRESSORA
+GPO Status: Computer User configuration settings disabled
+User Configuration/Preferences/Control Panel Settings/Printers
+New, Shared Printer
+Action: Update
+Share path: \\SRVFAGNER\IMP-TI-001
+Set this printer as default printer True
+OBS: Os computadores precisam possuir os drivers instalados para que o Mapeamento ocorra
+******************************************************************************************
+GPO-COMP-CERT-FIREFOX
+GPO Status: User configuration settings disabled
+Computer Configuration/Preferences/Windows Settings/Files
+
+Action: Update
+Source file(s): \\Braga.intra\netlogon\braga\umbrella.cfg
+Destination file C:\Program Files\Mozilla Firefox\umbrella.cfg
+
+Action: Update
+Source file(s): \\Braga.intra\netlogon\braga\umbrella.cfg
+Destination file C:\Program Files (x86)\Mozilla Firefox\defaults\pref\local-settings.js
+
+Action: Update
+Source file(s): \\Braga.intra\netlogon\braga\local-settings.js
+Destination file C:\Program Files\Mozilla Firefox\defaults\pref\local-settings.js
+
+Action: Update
+Source file(s): \\Braga.intra\netlogon\braga\local-settings.js
+Destination file C:\Program Files (x86)\Mozilla Firefox\defaults\pref\local-settings.js
+******************************************************************************************
+
