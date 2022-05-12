@@ -38,7 +38,7 @@ Computer Configuration > Policies > Windows Settings > Security Settings > Local
 Acesse a opção chamada Status da conta de Convidado.
 Desative a conta do usuário convidado.
 -----------------------------------------------------------------------------------------------------------
-GPO - Evitar alterações nas configurações do Proxy
+GPO-EVITAR-ALTERAÇÕES-NAS-CONFIGURAÇÕES-DO-PROXY
 Computer Configuration > Administrative Templates > Windows Components > Internet Explorer
 Acesse a pasta de configuração do Internet Explorer.
 Acesse e habilite a opção chamada Impedir a alteração das configurações de proxy.
@@ -54,7 +54,7 @@ Aqui está a tela de configuração do Proxy, antes de nossa configuração.
 
 
 -----------------------------------------------------------------------------------------------------------
-GPO - Script de configuração automática de Proxy
+GPO-SCRIPT-DE-CONFIGURAÇÃO-AUTOMÁTICA-DE-PROXY
 Instale um servidor IIS para tornar o script de configuração de Proxy públicamente disponível.
 
 Abra o aplicativo Server Manager.
