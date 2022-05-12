@@ -70,23 +70,23 @@ GPO-COMP-NAVEGADORES
 GPO Status: User configuration settings disabled
 Computer Configuration/Policies/Administrative Templates/Google/Google Chrome/Startup, Home page and New Tab page 
 Configure the home page URL: Enabled  
-Home page URL http://wp.braga.intra/wp 
+Home page URL http://wp.allan.intra/wp 
  
 Show Home button on toolbar: Enabled  
 URLs to open on startup: Enabled  
-URLs to open on startup: http://wp.braga.intra/wp 
+URLs to open on startup: http://wp.allan.intra/wp 
  
 Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page
 Configure the home page URL: Enabled  
-Home page URL: http://wp.braga.intra/wp 
+Home page URL: http://wp.allan.intra/wp 
 Show Home button on toolbar: Enabled 
 
 Microsoft Edge/Startup, home page and new tab page
 Configure the home page URL: Enabled  
-Home page URL: http://wp.braga.intra/wp 
+Home page URL: http://wp.allan.intra/wp 
  
 Configure the new tab page URL: Enabled  
-New tab page URL: http://wp.braga.intra/wp 
+New tab page URL: http://wp.allan.intra/wp 
  
 Show Home button on toolbar: Enabled  
 
@@ -94,7 +94,7 @@ Mozilla/Firefox/Home page
 Start Page: Enabled  
  
 URL for Home page Enabled  
-URL:  http://wp.braga.intra/wp 
+URL:  http://wp.allan.intra/wp 
 Don't allow the homepage to be changed.: Enabled 
 ******************************************************************************************
 GPO-COMP-REMOTE-DESKTOP
