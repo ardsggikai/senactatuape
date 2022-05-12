@@ -20,7 +20,7 @@ Minimum password length 8 characters
 Password must meet complexity requirements Enabled 
 Store passwords using reversible encryption Disabled
 ******************************************************************************************
-Criar o diretório braga no caminho \\braga.intra\netlogon
+Criar o diretório allan no caminho \\allan.intra\netlogon
 Copiar os arquivos Bginfo.exe, servers.bgi e Logon.vbs para o diretório \\braga.intra\netlogon\braga
 ******************************************************************************************
 GPO-COMP-AUTOMACOES
@@ -32,15 +32,15 @@ Path: C:\TI
 
 Computer Configuration/Preferences/Windows Settings/Files
 Action: Update
-Source file(s): \\braga.intra\NETLOGON\braga\Bginfo.exe
+Source file(s): \\allan.intra\NETLOGON\allan\Bginfo.exe
 Destination File: C:\TI\Bginfo.exe
 
 Action: Update
-Source file(s): \\braga.intra\NETLOGON\braga\Logon.vbs
+Source file(s): \\allan.intra\NETLOGON\allan\Logon.vbs
 Destination File: C:\TI\Logon.vbs
 
 Action: Update
-Source file(s): \\braga.intra\NETLOGON\braga\servers.bgi
+Source file(s): \\allan.intra\NETLOGON\allan\servers.bgi
 Destination File: C:\TI\servers.bgi
 ******************************************************************************************
 GPO-USERS-BGINFO
@@ -113,7 +113,7 @@ Update certificates that use certificate templates
 Trusted Root Certification Authorities
 Import
 Next
-File name: \\braga.intra\netlogon\braga\braga-ca.cert
+File name: \\allan.intra\netlogon\allan\allan-ca.cert
 ******************************************************************************************
 GPO-COMP-BLOQUEIA-GPO-LOCAL
 GPO Status: User configuration settings disabled
@@ -130,7 +130,7 @@ GPO Status: Computer User configuration settings disabled
 User Configuration/Preferences/Control Panel Settings/Printers
 New, Shared Printer
 Action: Update
-Share path: \\SRVFAGNER\IMP-TI-001
+Share path: \\SRVARDSG\IMP-TI-001
 Set this printer as default printer True
 OBS: Os computadores precisam possuir os drivers instalados para que o Mapeamento ocorra
 ******************************************************************************************
@@ -139,19 +139,19 @@ GPO Status: User configuration settings disabled
 Computer Configuration/Preferences/Windows Settings/Files
 
 Action: Update
-Source file(s): \\Braga.intra\netlogon\braga\umbrella.cfg
+Source file(s): \\allan.intra\netlogon\allan\umbrella.cfg
 Destination file C:\Program Files\Mozilla Firefox\umbrella.cfg
 
 Action: Update
-Source file(s): \\Braga.intra\netlogon\braga\umbrella.cfg
+Source file(s): \\allan.intra\netlogon\allan\umbrella.cfg
 Destination file C:\Program Files (x86)\Mozilla Firefox\defaults\pref\local-settings.js
 
 Action: Update
-Source file(s): \\Braga.intra\netlogon\braga\local-settings.js
+Source file(s): \\allan.intra\netlogon\allan\local-settings.js
 Destination file C:\Program Files\Mozilla Firefox\defaults\pref\local-settings.js
 
 Action: Update
-Source file(s): \\Braga.intra\netlogon\braga\local-settings.js
+Source file(s): \\allan.intra\netlogon\allan\local-settings.js
 Destination file C:\Program Files (x86)\Mozilla Firefox\defaults\pref\local-settings.js
 ******************************************************************************************
 
