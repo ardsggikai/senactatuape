@@ -5,3 +5,6 @@
 No controlador de domínio, abra a ferramenta de gerenciamento de políticas de grupo.
 Crie uma nova política de grupo.
 Digite um nome para a nova política do grupo. (GPO-DESATIVAR-CORTANA)
+Computer Configuration > Policies > Administrative Templates > Windows Components > Search
+Desabilitar a opção chamada Permitir Cortana.
+Para salvar a configuração da política de grupo, você precisa fechar o editor de Política de Grupo.
