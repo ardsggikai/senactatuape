@@ -1,0 +1,5 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 12/05/2022
+#Data de atualização: 12/05/2022
+#Versão: 0.02
+No controlador de domínio, abra a ferramenta de gerenciamento de políticas de grupo.
