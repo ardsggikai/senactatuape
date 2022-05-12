@@ -12,3 +12,5 @@ No WINDOWS SERVER 2012 R2 (Não Tem essa Politica)
 -----------------------------------------------------------------------------------------------------------
 GPO-IMPEDIR-ACESSO-AO-PAINEL-DE-CONTROLE
 User Configuration > Policies > Administrative Templates > Control Panel
+Habilite o item chamado Proibir o acesso ao Painel de Controle e às configurações do PC.
+-----------------------------------------------------------------------------------------------------------
