@@ -34,3 +34,89 @@ Na tela do item de configuração, você precisa definir o seguinte protetor de 
 Este comando bloqueará a tela do computador imediatamente em vez de mostrar um protetor de tela.
 -----------------------------------------------------------------------------------------------------------
 GPO-DESATIVAR-A-CONTA-DE-CONVIDADO
+Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options
+Acesse a opção chamada Status da conta de Convidado.
+Desative a conta do usuário convidado.
+-----------------------------------------------------------------------------------------------------------
+GPO - Evitar alterações nas configurações do Proxy
+Computer Configuration > Administrative Templates > Windows Components > Internet Explorer
+
+-----------------------------------------------------------------------------------------------------------
+GPO - Script de configuração automática de Proxy
+Instale um servidor IIS para tornar o script de configuração de Proxy públicamente disponível.
+
+Abra o aplicativo Server Manager.
+
+Acesse o menu Gerenciar e clique em Adicionar funções e recursos.
+
+Na tela Funções do servidor, selecione a opção nomeada: IIS do Servidor Web.
+
+Clique no botão Avançar.
+
+Na tela a seguir, clique no botão Adicionar recursos.
+
+Na tela Recursos, clique no botão Avançar.
+Na tela de serviço Role, clique no botão Avançar.
+Na tela Resumo, clique no botão Instalar.
+
+No aplicativo IIS Manager, selecione o nome do servidor IIS.
+
+Na parte direita da tela, acesse a opção nomeada: MIME Types
+
+Adicione uma nova extensão de arquivo nomeada (.pac) usando o seguinte tipo MIME.
+
+application/x-ns-proxy-autoconfig
+
+Como exemplo, aqui está nossa configuração.
+
+Tutorial Windows - Criando um arquivo PAC
+
+Inicie o aplicativo Bloco de Notas e crie um script de configuração automática de Proxy, também conhecido como PAC.
+
+var NETINT="192.168.0.0“;
+var NETMASK="255.255.255.0";
+
+function FindProxyForURL(url, host)
+{
+if (isInNet(host, NETINT, NETMASK))
+ 	{
+  		return "DIRECT";
+ 	}
+else
+ 	{
+  		return "PROXY 192.168.0.1:3128;";
+}
+}
+
+Este arquivo Proxy PAC especifica que o acesso à rede interna 192.168.0.0/24 deve ser direto.
+
+O acesso à rede interna não deve usar um servidor Proxy.
+
+Para todos os outros acessos, o computador deve usar o servidor Proxy 192.168.0.1 e a porta TCP 3128.
+
+Salve o script de configuração automática do Proxy na raiz do servidor IIS.
+
+C:\inetpub\wwwroot\Proxy.pac
+
+Como exemplo, aqui está nossa configuração.
+
+Você terminou a criação do script automático de configuração do Proxy.
+
+Tutorial GPO - Script automático de configuração do Proxy
+
+No controlador de domínio, abra a ferramenta de gerenciamento de políticas de grupo.
+
+Crie uma nova política de grupo.
+
+User Configuration > Preferences > Control Panel Settings > Internet Settings
+
+Clique com o botão direito do mouse na opção Configurações da Internet e crie um novo item de configuração para o Explorador de Internet (10).
+Acesse a guia Conexões e clique no botão de configurações LAN.
+
+Digite a URL no Script de configuração automática do Proxy.
+O sistema criará uma preferência de grupo.
+Para salvar a configuração da política de grupo, você precisa fechar o editor de Política de Grupo.
+
+Parabéns! Você terminou a criação do GPO.
+
+-----------------------------------------------------------------------------------------------------------
