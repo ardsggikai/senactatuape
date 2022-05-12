@@ -8,3 +8,7 @@ Digite um nome para a nova política do grupo. (GPO-DESATIVAR-CORTANA)
 Computer Configuration > Policies > Administrative Templates > Windows Components > Search
 Desabilitar a opção chamada Permitir Cortana.
 Para salvar a configuração da política de grupo, você precisa fechar o editor de Política de Grupo.
+No WINDOWS SERVER 2012 R2 (Não Tem essa Politica)
+-----------------------------------------------------------------------------------------------------------
+GPO-IMPEDIR-ACESSO-AO-PAINEL-DE-CONTROLE
+User Configuration > Policies > Administrative Templates > Control Panel
