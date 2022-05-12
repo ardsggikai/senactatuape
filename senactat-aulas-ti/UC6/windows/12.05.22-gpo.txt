@@ -40,6 +40,18 @@ Desative a conta do usuário convidado.
 -----------------------------------------------------------------------------------------------------------
 GPO - Evitar alterações nas configurações do Proxy
 Computer Configuration > Administrative Templates > Windows Components > Internet Explorer
+Acesse a pasta de configuração do Internet Explorer.
+Acesse e habilite a opção chamada Impedir a alteração das configurações de proxy.
+Para salvar a configuração da política de grupo, você precisa fechar o editor de Política de Grupo.
+
+Parabéns! Você terminou a criação do GPO, Ainda Falta Aplicar..
+Na tela de gerenciamento de políticas do Grupo, você precisa clicar com o botão direito do mouse na Unidade Organizacional desejada e selecionar a opção de vincular um GPO existente.
+Em nosso exemplo, vamos vincular a política de grupo chamada MY-GPO à raiz do domínio.
+Depois de aplicar o GPO você precisa esperar por 10 ou 20 minutos.
+Durante este tempo, o GPO será replicado para outros controladores de domínio.
+Para testar a configuração, abra a configuração de Proxy do Internet Explorer.
+Aqui está a tela de configuração do Proxy, antes de nossa configuração.
+
 
 -----------------------------------------------------------------------------------------------------------
 GPO - Script de configuração automática de Proxy
