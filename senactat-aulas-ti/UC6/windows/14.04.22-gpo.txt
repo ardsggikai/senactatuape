@@ -21,7 +21,7 @@ Password must meet complexity requirements Enabled
 Store passwords using reversible encryption Disabled
 ******************************************************************************************
 Criar o diretório allan no caminho \\allan.intra\netlogon
-Copiar os arquivos Bginfo.exe, servers.bgi e Logon.vbs para o diretório \\braga.intra\netlogon\braga
+Copiar os arquivos Bginfo.exe, servers.bgi e Logon.vbs para o diretório \\allan.intra\netlogon\allan
 ******************************************************************************************
 GPO-COMP-AUTOMACOES
 GPO Status: User configuration settings disabled
