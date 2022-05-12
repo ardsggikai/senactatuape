@@ -2,6 +2,7 @@
 #Data de criação: 12/05/2022
 #Data de atualização: 12/05/2022
 #Versão: 0.02
+-----------------------------------------------------------------------------------------------------------
 No controlador de domínio, abra a ferramenta de gerenciamento de políticas de grupo.
 Crie uma nova política de grupo.
 Digite um nome para a nova política do grupo. (GPO-DESATIVAR-CORTANA)
@@ -14,3 +15,22 @@ GPO-IMPEDIR-ACESSO-AO-PAINEL-DE-CONTROLE
 User Configuration > Policies > Administrative Templates > Control Panel
 Habilite o item chamado Proibir o acesso ao Painel de Controle e às configurações do PC.
 -----------------------------------------------------------------------------------------------------------
+GPO-BLOQUEAR-TELA-DO-WINDOWS-APÓS-INATIVIDADE
+• User Configuration > Policies > Administrative Templates > Control Panel > Personalization
+À direita, serão apresentados os itens de configuração disponíveis para personalização do painel de controle.
+Clique duas vezes no item de configuração chamado Habilitar protetor de tela.
+Na tela do item de configuração, você precisa selecionar a opção Habilitada.
+Clique duas vezes no item de configuração chamado Senha proteja o protetor de tela.
+Na tela do item de configuração, você precisa selecionar a opção Habilitada.
+Clique duas vezes no item de configuração chamado Tempo limite de salvamento de tela.
+Na tela do item de configuração, você precisa selecionar a opção Habilitada.
+Defina a quantidade de tempo IDLE que você deseja esperar antes de bloquear a tela do computador.
+Em nosso exemplo, estabelecemos um limite de 600 segundos.
+Clique duas vezes no item de configuração chamado Economia de tela específica da Força.
+Na tela do item de configuração, você precisa definir o seguinte protetor de tela específico:
+
+%windir%\system32\rundll32.exe user32.dll,LockWorkStation
+
+Este comando bloqueará a tela do computador imediatamente em vez de mostrar um protetor de tela.
+-----------------------------------------------------------------------------------------------------------
+GPO-DESATIVAR-A-CONTA-DE-CONVIDADO
