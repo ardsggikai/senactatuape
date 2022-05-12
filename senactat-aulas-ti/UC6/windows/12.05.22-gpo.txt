@@ -3,3 +3,5 @@
 #Data de atualização: 12/05/2022
 #Versão: 0.02
 No controlador de domínio, abra a ferramenta de gerenciamento de políticas de grupo.
+Crie uma nova política de grupo.
+Digite um nome para a nova política do grupo. (GPO-DESATIVAR-CORTANA)
