@@ -31,7 +31,7 @@ Na tela do item de configuração, você precisa definir o seguinte protetor de 
 
 %windir%\system32\rundll32.exe user32.dll,LockWorkStation
 
-Este comando bloqueará a tela do computador imediatamente em vez de mostrar um protetor de tela.
+Este comando bloqueará a tela do computador em 10 Minutos vez de mostrar um protetor de tela.
 -----------------------------------------------------------------------------------------------------------
 GPO-DESATIVAR-A-CONTA-DE-CONVIDADO
 Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options
@@ -100,11 +100,11 @@ else
 }
 }
 
-Este arquivo Proxy PAC especifica que o acesso à rede interna 192.168.0.0/24 deve ser direto.
+Este arquivo Proxy PAC especifica que o acesso à rede interna 172.16.4.0/24 deve ser direto.
 
 O acesso à rede interna não deve usar um servidor Proxy.
 
-Para todos os outros acessos, o computador deve usar o servidor Proxy 192.168.0.1 e a porta TCP 3128.
+Para todos os outros acessos, o computador deve usar o servidor Proxy 172.16.4.254 e a porta TCP 3128.
 
 Salve o script de configuração automática do Proxy na raiz do servidor IIS.
 
