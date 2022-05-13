@@ -86,7 +86,7 @@ Tutorial Windows - Criando um arquivo PAC
 Inicie o aplicativo Bloco de Notas e crie um script de configuração automática de Proxy, também conhecido como PAC.
 
 var NETINT="172.16.4.254“;
-var NETMASK="255.255.255.0";
+var NETMASK="255.255.0.0";
 
 function FindProxyForURL(url, host)
 {
