@@ -132,3 +132,5 @@ Para salvar a configuração da política de grupo, você precisa fechar o edito
 Parabéns! Você terminou a criação do GPO.
 
 -----------------------------------------------------------------------------------------------------------
+
+gpupdate /force
