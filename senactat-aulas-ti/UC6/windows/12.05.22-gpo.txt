@@ -85,19 +85,27 @@ Tutorial Windows - Criando um arquivo PAC
 
 Inicie o aplicativo Bloco de Notas e crie um script de configuração automática de Proxy, também conhecido como PAC.
 
-var NETINT="172.16.4.254“;
-var NETMASK="255.255.0.0";
-
 function FindProxyForURL(url, host)
 {
-if (isInNet(host, NETINT, NETMASK))
- 	{
-  		return "DIRECT";
- 	}
-else
- 	{
-  		return "PROXY 172.16.4.254:3128;";
-}
+if (
+     (isPlainHostName(host)) ||
+     (isInNet(host, "127.0.0.1", "255.0.0.0")) ||
+     (isInNet(host, "192.168.1.0", "255.255.255.0")) ||
+     (isInNet(host, "169.254.0.0", "255.255.0.0"))
+     (isInNet(host, "172.16.4.0", "255.255.0.0"))
+     (isInNet(host, "10.26.44.0", "255.255.0.0"))
+     (isInNet(host, "10.0.4.0", "255.0.0.0"))
+   )
+     return "DIRECT";
+
+ else
+
+if (
+     (isInNet(myIpAddress(), "172.16.4.254", "255.255.0.0"))
+     (isInNet(myIpAddress(), "10.26.44.65", "255.0.0.0"))
+     (isInNet(myIpAddress(), "10.0.4.15", "255.0.0.0"))
+   )
+     return "PROXY 172.16.4.254:3128";
 }
 
 Este arquivo Proxy PAC especifica que o acesso à rede interna 172.16.4.0/24 deve ser direto.
