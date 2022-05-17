@@ -5,35 +5,6 @@
 Modificado por Allan 
 ******************************************************************************************
 GPOS
-******************************************************************************************
-GPO-COMP-ENERGIA
-GPO Status: User configuration settings disabled
-Computer Configuration/Preferences/Control Panel Settings/Power Options/
-New, Power Plan (At least Windows 7)
-Action: Update
-High performance
-Set as the active power plan
-
-When computer is: 					Plugged in 			Running on batteries 
-Require a password on wakeup: 		Yes 				Yes 
-Turn off hard disk after: 			Never 				Never 
-Sleep after: 						Never 				Never 
-Allow hybrid sleep: 				Off 				Off 
-Hibernate after: 					Never 				Never 
-Lid close action: 					Do nothing 			Do nothing 
-Power button action: 				Shutdown 			Shutdown 
-Start menu power button: 			Do nothing 			Do nothing 
-Link State Power Management: 		Off 				Off 
-Minimum processor state: 			After 100 minutes 	After 5 minutes 
-Maximum processor state: 			After 100 minutes 	After 100 minutes 
-Turn off display after: 			After 10 minutes 	Never 
-Adaptive display: 					On 					On 
-Critical battery action: 			Do nothing 			Shutdown 
-Low battery level: 					After 10 minutes 	After 10 minutes 
-Critical battery level: 			After 5 minutes 	After 5 minutes 
-Low battery notification: 			Off 				Off 
-Low battery action: 				Do nothing 			Do nothing 
-******************************************************************************************
 GPO-COMP-FIREWALL
 GPO Status: User configuration settings disabled
 Computer Configuration/Policies/Windows Settings/Security Settings/Windows Firewall with Advanced Security
