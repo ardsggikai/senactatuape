@@ -160,6 +160,16 @@ Critical battery level: 			After 5 minutes 	After 5 minutes
 Low battery notification: 			Off 				Off 
 Low battery action: 				Do nothing 			Do nothing 
 ******************************************************************************************
+GPO-COMP-REMOTE-DESKTOP
+GPO Status: User configuration settings disabled
+Computer Configuration/Preferences/Control Panel Settings/Local Users and Groups
+New Local Group
+Action Update 
+Group Name: Remote Desktop Users (built-in)
+Add 
+ALLAN\G-TI-REMOTE-DESKTOP
+******************************************************************************************
+
 
 gpupdate /force
 
