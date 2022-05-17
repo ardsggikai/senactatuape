@@ -55,35 +55,31 @@ Aqui está a tela de configuração do Proxy, antes de nossa configuração.
 
 -----------------------------------------------------------------------------------------------------------
 GPO-SCRIPT-DE-CONFIGURAÇÃO-AUTOMÁTICA-DE-PROXY
-Instale um servidor IIS para tornar o script de configuração de Proxy públicamente disponível.
 
-Abra o aplicativo Server Manager.
+Vamos combinar o proxy do IPFIRE com o DHCP do Windows Server?
 
-Acesse o menu Gerenciar e clique em Adicionar funções e recursos.
+Tendo como partida que têm o Servidor DHCP configurado e ativo no Server 2012 R2, vamos então atribuir uma configuração WPAD.
 
-Na tela Funções do servidor, selecione a opção nomeada: IIS do Servidor Web.
+Abrir gestor do DHCP com o comando:
 
-Clique no botão Avançar.
+dhcpmgmt.msc
 
-Na tela a seguir, clique no botão Adicionar recursos.
+    Expandir DHCP/HOST/IPV4
+    Botão direito sobre IPV4 e escolher opção “Set Predefined Options”
+    Na caixa de diálogo que surgir, clique em Adicionar (Add).
+    Agora na caixa que surgir, registe os seguintes valores:
+        Em Name: WPAD
+        Em Data type: String
+        Em Code: 252.
+        Em Description: WPAD IPFIRE
+        Carregue agora em OK
+        Agora em Value/String escreva o caminho do seu PAC
 
-Na tela Recursos, clique no botão Avançar.
-Na tela de serviço Role, clique no botão Avançar.
-Na tela Resumo, clique no botão Instalar.
+ex:
 
-No aplicativo IIS Manager, selecione o nome do servidor IIS.
+http://172.16.4.254:3128/proxy.pac
 
-Na parte direita da tela, acesse a opção nomeada: MIME Types
-
-Adicione uma nova extensão de arquivo nomeada (.pac) usando o seguinte tipo MIME.
-
-application/x-ns-proxy-autoconfig
-
-Como exemplo, aqui está nossa configuração.
-
-Tutorial Windows - Criando um arquivo PAC
-
-Inicie o aplicativo Bloco de Notas e crie um script de configuração automática de Proxy, também conhecido como PAC.
+Este ficheiro deverá ser algo do genero:
 
 function FindProxyForURL(url, host)
 {
@@ -116,28 +112,12 @@ Para todos os outros acessos, o computador deve usar o servidor Proxy 172.16.4.2
 
 Salve o script de configuração automática do Proxy na raiz do servidor IIS.
 
-C:\inetpub\wwwroot\Proxy.pac
+\\srvardsg\NETLOGON
 
-Como exemplo, aqui está nossa configuração.
 
-Você terminou a criação do script automático de configuração do Proxy.
-
-Tutorial GPO - Script automático de configuração do Proxy
-
-No controlador de domínio, abra a ferramenta de gerenciamento de políticas de grupo.
-
-Crie uma nova política de grupo.
-
-User Configuration > Preferences > Control Panel Settings > Internet Settings
-
-Clique com o botão direito do mouse na opção Configurações da Internet e crie um novo item de configuração para o Explorador de Internet (10).
-Acesse a guia Conexões e clique no botão de configurações LAN.
-
-Digite a URL no Script de configuração automática do Proxy.
-O sistema criará uma preferência de grupo.
-Para salvar a configuração da política de grupo, você precisa fechar o editor de Política de Grupo.
-
-Parabéns! Você terminou a criação do GPO.
+    Expandir DHCP/HOST/IPV4/SCOPE/
+    Botão direito sobre Scope Options e activar a opção 252 WPAD
+    Entrar OK e está pronto.
 
 -----------------------------------------------------------------------------------------------------------
 GPO-COMP-ENERGIA
