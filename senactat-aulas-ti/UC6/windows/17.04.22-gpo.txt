@@ -75,7 +75,7 @@ New Local Group
 Action Update 
 Group Name: Remote Desktop Users (built-in)
 Add 
-BRAGA\G-TI-REMOTE-DESKTOP
+ALLAN\G-TI-REMOTE-DESKTOP
 ******************************************************************************************
 
  
