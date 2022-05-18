@@ -49,16 +49,6 @@ User Configuration/Policies/Windows Settings/Scripts/Logon
 Add
 Script Name: C:\TI\Logon.vbs 
 ******************************************************************************************
-GPO-COMP-DESABILITA-IPV6
-GPO Status: Computer configuration settings 
-Computer Configuration/Preferences/Windows Settings/Registry/
-Action: Update 
-Hive: HKEY_LOCAL_MACHINE 
-Key path: System\CurrentControlSet\Services\Tcpip6\Parameters 
-Value name: DisabledComponents 
-Value type: REG_DWORD 
-Value data: 0xFF
-******************************************************************************************
 GPO-USERS-PAPEL-DE-PAREDE
 GPO Status: Computer User configuration settings disabled
 User Configuration/Policies/Administrative Templates
