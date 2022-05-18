@@ -50,7 +50,7 @@ Add
 Script Name: C:\TI\Logon.vbs 
 ******************************************************************************************
 GPO-COMP-DESABILITA-IPV6
-GPO Status: User configuration settings disabled
+GPO Status: Computer configuration settings 
 Computer Configuration/Preferences/Windows Settings/Registry/
 Action: Update 
 Hive: HKEY_LOCAL_MACHINE 
