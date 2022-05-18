@@ -1,0 +1,320 @@
+
+
+IP-FIXO
+Matriz Higor Ribeiro    
+
+Server-VPN
+Client-VPN
+IP-WAN-VIVO
+DDNS-VIVO
+
+IP-QUENTE= 10.26.44.51 Higor Ribeiro
+
+------------------------------------
+Instruções para Matriz
+Acessar Firewall
+Entrar no https://172.16.4.254:10443/vpn_ipsec.php
+
+VPN/IPsec/Tunnels
+->*Tunnels*/ Mobile Clients/ Pre-Shared Keys/ Advanced Settings
+
+*Add P1*
+
+General Information
+Description: VPN-IPSEC Matriz Para Filial
+Disabled: ( ) Não Marcado
+
+IKE EndPoint Configuration 
+Key Exchange version= IKEv2
+Internet Protocol= IPv4 (caso queira IPv6 fazer duas fases IPv4 e IPv6)
+
+Interface= VIVO
+
+Remote Gateway: 10.26.44.65
+
+---
+
+Phase 1 Proposital (Authentication)
+
+Authentication Method Mutual PSK
+
+My identifier My IP address
+
+Peer identifier Peer IP address
+
+Pre-Shared Key: 123@senac
+
+---
+
+Phase 1 Proposal (Encryption Algorithm)
+
+Encryption Algorithm AES/256Bits/SHA256/14 (2048)
+
+Expiration and Replacement
+
+Life Time: 28800
+
+Rekey Time: 25920
+
+Reauth Time: 0
+
+Rand Time:2880
+
+---
+
+Advanced Options
+
+Child SA Start Action: Default
+
+Child SA Close Action: Default
+
+NAT Traversal= Auto
+
+MOBIKE= Disable
+
+Gateway duplicates= Não Marcado
+
+Split connections= Não Marcado
+
+PRF Selection= Não Marcado
+
+Custom IKE/NAT-T Ports= Remote IKE Port/ Remote NAT-T Port
+
+Dead Peer Detection= Enable DPD
+
+Delay= 10
+
+Max failures= 5
+
+Save
+------------------------------------
+
+VPN/IPsec/Tunnels
+->*Tunnels*/ Mobile Clients/ Pre-Shared Keys/ Advanced Settings
+
+*Add P2*
+
+General Information
+Description: Fase-2 VPN-IPSEC Matriz Para Filial
+
+Disabled: ( ) Não Marcado
+
+IKE EndPoint Configuration 
+Key Exchange version= IKEv2
+Internet Protocol= IPv4 (caso queira IPv6 fazer duas fases IPv4 e IPv6)
+Phase 1 VPN-IPSEC Matriz para Filial (IKE ID1)
+
+Networks
+
+Local Network LAN subnet
+NAT/BINAT translation (None)
+Remote Network= Network Adress= 172.16.4.0/24
+
+
+
+---
+
+Phase 2 Proposal (SA/Key Exchange)
+
+Protocol= ESP
+Encryption Algorithms Ativado AES
+                      Ativado AES128-GCM
+
+Hash Algorithms= OFF (MD5) OFF (SHA1) ON (SHA25) OFF (SHA38)
+---
+
+Expiration and Replacement
+Life Time= 3600
+Rekey Time= 3240
+Rand Time= 360
+
+---
+
+Keep Alive
+
+Automatically ping host= 172.16.4.254
+
+Keep Alive= OFF
+
+Save
+
+------------------------------------
+IP-FIXO
+Filial Allan Richard
+
+Client-VPN
+Server-VPN
+IP-WAN-VIVO
+DDNS-VIVO
+
+IP-QUENTE= 10.26.44.65 Allan Richard
+------------------------------------
+Instruções para Filial
+Acessar Firewall
+Entrar no https://172.16.4.254:10443/vpn_ipsec.php
+
+VPN/IPsec/Tunnels
+->*Tunnels*/ Mobile Clients/ Pre-Shared Keys/ Advanced Settings
+
+*Add P1*
+
+General Information
+Description: VPN-IPSEC Filial Para Matriz
+Disabled: ( ) Não Marcado
+
+IKE EndPoint Configuration
+
+---
+
+Key Exchange version= IKEv2
+
+Internet Protocol= IPv4 (caso queira IPv6 
+fazer duas fases IPv4 e IPv6)
+
+Interface= VIVO
+
+Remote Gateway: 10.26.44.51
+
+---
+
+Phase 1 Proposital (Authentication)
+
+Authentication Method Mutual PSK
+
+My identifier My IP address
+
+Peer identifier Peer IP address
+
+Pre-Shared Key: 123@senac
+
+---
+
+Phase 1 Proposal (Encryption Algorithm)
+
+Encryption Algorithm AES/256Bits/SHA256/14 (2048)
+
+Expiration and Replacement
+
+Life Time: 28800
+
+Rekey Time: 25920
+
+Reauth Time: 0
+
+Rand Time:2880
+
+---
+
+Advanced Options
+
+Child SA Start Action: Default
+
+Child SA Close Action: Default
+
+NAT Traversal
+
+MOBIKE
+
+Gateway duplicates
+
+Split connections
+
+PRF Selection
+
+Custom IKE/NAT-T Ports
+
+Dead Peer Detection
+
+Delay
+
+Max failures
+
+Save
+ 
+
+------------------------------------
+VPN/IPsec/Tunnels
+->*Tunnels*/ Mobile Clients/ Pre-Shared Keys/ Advanced Settings
+
+*Add P2*
+
+General Information
+Description: Fase-2 VPN-IPSEC Filial Para Matriz
+
+Disabled: ( ) Não Marcado
+
+IKE EndPoint Configuration 
+Key Exchange version= IKEv2
+Internet Protocol= IPv4 (caso queira IPv6 fazer duas fases IPv4 e IPv6)
+Phase 1 VPN-IPSEC Matriz para Filial (IKE ID1)
+
+Networks
+
+Local Network LAN subnet
+NAT/BINAT translation (None)
+Remote Network= Network Adress= 172.16.27.0 /24
+
+
+
+---
+
+Phase 2 Proposal (SA/Key Exchange)
+
+Protocol= ESP
+Encryption Algorithms Ativado AES
+                      Ativado AES128-GCM
+
+Hash Algorithms= OFF (MD5) OFF (SHA1) ON (SHA25) OFF (SHA38)
+---
+
+Expiration and Replacement
+Life Time= 3600
+Rekey Time= 3240
+Rand Time= 360
+
+---
+
+Keep Alive
+
+Automatically ping host= 172.16.27.254
+
+Keep Alive= OFF
+
+Save
+
+------------------------------------
+Firewall/Rules/Ipsec
+
+IPsec
+
+Add
+
+Edit Firewall Rule
+
+Action= Pass
+Disabled= OFF
+Interface= IPsec
+Address Family= IPv4
+Protocol= Any
+
+---
+
+Source
+
+Source= Opção Invert Match (OFF) Option= any
+
+Destination= Opção Invert Match (OFF) Option= any
+
+---
+
+Extra Options
+
+Log= ON
+
+Description= Liberalçao da Conexão do IPSEC-VPN Filial/Matriz
+
+Não Mecher Nas Advanced Options (Display Advanced)
+
+Save
+
+------------------------------------
