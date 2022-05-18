@@ -110,7 +110,6 @@ O acesso à rede interna não deve usar um servidor Proxy.
 
 Para todos os outros acessos, o computador deve usar o servidor Proxy 172.16.4.254 e a porta TCP 3128.
 
-Salve o script de configuração automática do Proxy na raiz do servidor IIS.
 
 \\srvardsg\NETLOGON
 
