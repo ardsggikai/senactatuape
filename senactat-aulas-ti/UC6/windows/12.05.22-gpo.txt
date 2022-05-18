@@ -118,7 +118,17 @@ Para todos os outros acessos, o computador deve usar o servidor Proxy 172.16.4.2
     Botão direito sobre Scope Options e activar a opção 252 WPAD
     Entrar OK e está pronto.
 
------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
+GPO-COMP-DESABILITA-IPV6
+GPO Status: Computer configuration settings 
+Computer Configuration/Preferences/Windows Settings/Registry/
+Action: Update 
+Hive: HKEY_LOCAL_MACHINE 
+Key path: System\CurrentControlSet\Services\Tcpip6\Parameters 
+Value name: DisabledComponents 
+Value type: REG_DWORD 
+Value data: 0xFF
+---------------------------------------------------------------------------------------------
 GPO-COMP-ENERGIA
 GPO Status: User configuration settings disabled
 Computer Configuration/Preferences/Control Panel Settings/Power Options/
