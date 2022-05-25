@@ -2,6 +2,7 @@
 #Data de criação: 30/03/2022
 #Data de atualização: 30/03/2022
 #Versão: 0.01
+Modificado por
 ******************************************************************************************
 Webserver-Ubuntu-20.04
 RAM: 2GB
@@ -20,7 +21,7 @@ Processador:
     Habilitar VT-x/AMD-V Aninhado
 ******************************************************************************************    
 Guia Armazenamento
-Drive Óptico Controladora IDE - Apontar caminho da ISO do Ubuntu-20.04
+Drive Óptico Controladora IDE - Apontar caminho da ISO do Ubuntu-22.04
 Disco Rígido SATA 1 - Drive de estado sólido
 ******************************************************************************************
 Monitor
@@ -49,7 +50,7 @@ Network connections
 	 		Address: 172.16.10.20
 	 		Gateway: 172.16.10.254
 	 		Name servers: 172.16.10.254
-	 		Search domains: braga.intra
+	 		Search domains: allan.intra
 Configure proxy
 	<Done>
 Configure Ubuntu archive mirror
