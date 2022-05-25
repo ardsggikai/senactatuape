@@ -72,8 +72,8 @@ Storage configuration
 Confirm destructive action
 	<Continue>
 Profile setup
-	Your name: Fagner Geraldes Braga
-	Your server's name: wsfagner
+	Your name: Allan Gomes
+	Your server's name: wsardsg
 	Pick a username: senac
 	Choose a passwords: 123@senac
 	Confirm your passwords: 123@senac
