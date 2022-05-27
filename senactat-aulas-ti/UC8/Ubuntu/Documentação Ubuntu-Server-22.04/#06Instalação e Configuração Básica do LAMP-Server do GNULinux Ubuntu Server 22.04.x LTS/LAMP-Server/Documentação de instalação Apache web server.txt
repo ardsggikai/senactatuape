@@ -1,3 +1,8 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 27/05/2022
+#Versão: 0.02
+
 Os pacotes do servidor Web Apache estão disponíveis nos repositórios oficiais do Ubuntu 22.04/20.04. Tudo o que é necessário é a execução do comando install com sudo.
 
 sudo apt install -y apache2 apache2-utils
