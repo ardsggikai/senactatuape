@@ -1,0 +1,6 @@
+OpenSSH
+MariaDB
+Apache Web Server
+PHP
+
+
