@@ -1,2 +1,7 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 27/05/2022
+#Versão: 0.02
+
 Server version: Apache/2.4.52 (Ubuntu)
 Server built:   2022-03-25T00:35:40
