@@ -1,3 +1,8 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 27/05/2022
+#Versão: 0.02
+
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
  Your MariaDB connection id is 41
  Server version: 10.6.7-MariaDB-2build1 Ubuntu 22.04
