@@ -1,3 +1,8 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 27/05/2022
+#Versão: 0.02
+
 Agora que temos o Apache e o MariaDB instalados, a peça que falta é o PHP. Vamos instalar o PHP e as extensões padrão que são comumente usadas.
 
 sudo apt install php libapache2-mod-php php-cli php-fpm php-json php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear php-bcmath
