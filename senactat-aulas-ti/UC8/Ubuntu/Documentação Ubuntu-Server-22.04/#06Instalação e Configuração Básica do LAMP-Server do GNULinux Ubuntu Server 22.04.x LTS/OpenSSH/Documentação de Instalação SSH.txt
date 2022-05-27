@@ -1,5 +1,10 @@
-Step 1) Install OpenSSH Server packages on Ubuntu 22.04|20.04
-We shall start with OpenSSH server installation process onUbuntu 22.04|20.04. But first, update OS package list as configured in sources repositories:
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 27/05/2022
+#Versão: 0.02
+
+Etapa 1) Instale os pacotes do OpenSSH Server no Ubuntu 22.04|20.04
+Vamos começar com o processo de instalação do servidor OpenSSH no Ubuntu 22.04|20.04. Mas primeiro, atualize a lista de pacotes do SO conforme configurado nos repositórios de fontes:
 
 $ sudo apt update
 
