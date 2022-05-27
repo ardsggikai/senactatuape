@@ -1,3 +1,8 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 27/05/2022
+#Versão: 0.02
+
 $sudo apt update
 $sudo apt install mariadb-server mariadb-client
 Após a instalação, certifique-se de proteger o servidor de banco de dados. Isso inclui:
