@@ -1,3 +1,8 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 27/05/2022
+#Versão: 0.02
+
 PHP 8.1.2 (cli) (built: Apr 7 2022 17:46:26) ( NTS )
 Copyright (c) The PHP Group
 Zend Engine v4.1.2, Copyright (c) Zend Technologies
