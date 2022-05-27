@@ -1,7 +1,7 @@
 #Autor: Fagner Geraldes Braga
 #Data de criação: 30/03/2022
 #Data de atualização: 30/03/2022
-#Versão: 0.01
+#Versão: 0.02
 Modificado por Allan
 ******************************************************************************************
 Webserver-Ubuntu-20.04
@@ -106,9 +106,11 @@ sudo reboot
 ******************************************************************************************
 Linux Mint
 ping 172.16.10.20
+ping 172.16.2.20
 ******************************************************************************************
 Acesso via SSH
 ssh senac@172.16.10.20
+ssh senac@172.16.2.20
 ******************************************************************************************
 # Configuração do Locale (Localidade) do Sistema Operacional Ubuntu Server
 sudo localectl
