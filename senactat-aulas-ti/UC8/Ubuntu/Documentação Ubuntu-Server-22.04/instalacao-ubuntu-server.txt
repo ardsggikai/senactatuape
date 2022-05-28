@@ -33,7 +33,8 @@ Desmarcar opção Habilitar Áudio
 ******************************************************************************************
 Guia Rede
 Adaptador 1 - Habilitar Placa de Rede (Interna)
-Guia Rede Habilitar Placa de Rede Em Modo Bridge (caso esteja em casa ip 192.168.*.*)
+Adaptador 1 (Rede Habilitar Placa de Rede Em Modo Bridge caso esteja em casa ip 192.168.*.*)
+(Se Não sera necessario de um PfSense pra Redirecionar IP)
 ******************************************************************************************
 Instalação
 
