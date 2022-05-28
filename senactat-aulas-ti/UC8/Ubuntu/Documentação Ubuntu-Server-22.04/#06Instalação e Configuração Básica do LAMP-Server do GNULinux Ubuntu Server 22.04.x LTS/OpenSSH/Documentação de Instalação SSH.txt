@@ -1,7 +1,7 @@
 #Autor: Allan Richard De Souza Gomes
 #Data de criação: 26/05/2022
 #Data de atualização: 27/05/2022
-#Versão: 0.02
+#Versão: 0.003
 
 Etapa 1) Instale os pacotes do OpenSSH Server no Ubuntu 22.04|20.04
 Vamos começar com o processo de instalação do servidor OpenSSH no Ubuntu 22.04|20.04. Mas primeiro, atualize a lista de pacotes do SO conforme configurado nos repositórios de fontes:
@@ -77,24 +77,25 @@ Gere chaves SSH se você ainda não as tiver no SO da estação de trabalho – 
 $ ssh-keygen
  
 Gerando par de chaves rsa pública/privada.
-Digite o arquivo no qual salvar a chave (/home/computingforgeeks/.ssh/id_rsa): 
+#Aki é o Nome da Chave
+Key (/home/computingforgeeks/.ssh/id_rsa): 
 Digite a senha (Deixe Vazio Para Deixar Sem Senha): 
 Digite a senha Novamente: 
 Sua identificação foi salva em /home/computingforgeeks/.ssh/id_rsa
 Sua chave pública foi salva em /home/computingforgeeks/.ssh/id_rsa.pub
 The key fingerprint is:
-SHA256:OYXlyX/3nXMdSz581TDOnl78PPXAv31h03GI39bu9x8 computingforgeeks@myarch
+SHA256:/ltTfWwh4+ZX3Hs29IX2V13jJYB1Sl+3g1wXdVdcFjQ ardsg@wsardsg
 The key's randomart image is:
 +---[RSA 3072]----+
-|          .      |
-|         = .     |
-|        . =  .o. |
-|         o ..o.+o|
-|        S   .o++O|
-|         .   oBB#|
-|              +E&|
-|             . +#|
-|              .o#|
+|           0+,oE/|
+|          o.o=.oB|
+|           o.+o+o|
+|            . =*B|
+|       S     o+o%|
+|     .      oo.oB|
+|       .    o. +*|
+|         . . ...+|
+|          o.     |
 +----[SHA256]-----+
 Obtenha o endereço IP privado ou privado do sistema Ubuntu remoto:
 
@@ -144,7 +145,7 @@ ubuntu é a conta de usuário remoto
 172.16.2.20 is the IP address of remote Ubuntu system
 Test SSH connectivity to remote Ubuntu system after copying SSH Pubkey. You should not be prompted for User Password, but maybe SSH private key keyphrase if it was set.
 
-$ ssh  ubuntu@172.16.2.20
+$ ssh  "ubuntu"@172.16.2.20
 
 Warning: Permanently added '172.16.2.20' (ECDSA) to the list of known hosts.
 Enter passphrase for key '/Users/jmutai/.ssh/id_rsa':
@@ -160,7 +161,7 @@ To see these additional updates run: apt list --upgradable
 Your Hardware Enablement Stack (HWE) is supported until April 2025.
 Last login: Thu Mai 27 13:55:16 2022 from 172.16.2.1
 
-Etapa 3) Desativando o SSH remoto para usuário root (opcional)
+Desativando o SSH remoto para usuário root (opcional)
 Para obter segurança aprimorada em seu sistema Ubuntu remoto, considere desabilitar o login ssh do usuário root.
 
 No sistema Ubuntu remoto, edite o arquivo de configuração do servidor SSH e defina o parâmetro para desabilitar o acesso root através do ssh:
@@ -192,7 +193,7 @@ sudo systemctl restart ssh
 
 systemctl status ssh
 
-Etapa 4) Desativando a autenticação de senha SSH (opcional)
+Desativando a autenticação de senha SSH (opcional)
 A autenticação de senha no SSH pode ser totalmente desativada. A única maneira de fazer login por SSH será com o uso de chaves SSH.
 
 Defina a palavra-chave PasswordAuthentication como no para impedir a autenticação de senha para todos os usuários:
@@ -208,7 +209,7 @@ $ sudo systemctl restart ssh
 A autenticação SSH sem uma chave pública definitivamente falhará.
 
 $ ssh ubuntu@172.16.2.20
-ubuntu@172.16.2.20: Permission denied (publickey).
+ubuntu2@172.16.2.20: Permission denied (publickey).
 When SSH Public key is not in the default ~/.ssh/id_rsa, use -i to pass manual path for the identity:
 
 $ ssh ubuntu@172.16.2.20 -i /path/to/privkey
