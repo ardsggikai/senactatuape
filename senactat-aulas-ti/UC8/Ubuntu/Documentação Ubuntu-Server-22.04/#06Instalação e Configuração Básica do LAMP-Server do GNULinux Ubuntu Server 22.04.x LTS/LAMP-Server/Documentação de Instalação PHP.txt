@@ -10,6 +10,7 @@ sudo apt install php libapache2-mod-php php-cli php-fpm php-json php-mysql php-z
 Habilite o módulo Apache se ainda não estiver habilitado e reinicie o Servidor Web.
 
 # Ubuntu 22.04
+
 $sudo a2enmod php8.1 (essa é a versão do meu atual)
 
 pode ja estar ativado mas não custa testar
