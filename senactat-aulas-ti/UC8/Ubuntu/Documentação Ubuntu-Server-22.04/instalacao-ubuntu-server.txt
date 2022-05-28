@@ -40,6 +40,12 @@ Instalação
 
 Use UP, DOWN and ENTER keys to select your language
 	English - <Enter>
+Installer update available
+Version 22.05.1 of the installer is now available (22.04.2 is currently runnig).
+
+Escolha a opção [ Continue without updating ]
+Caso escolha [ Update to the new installer ] vai atualizar e continuar a configuração
+
 Keyboard configuration
 	Layout: [Portuguese (Brazil)]
 	Variant: [Portuguese (Brazil)]
