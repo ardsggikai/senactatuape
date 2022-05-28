@@ -35,21 +35,24 @@ Need to get 446 kB of archives.
 After this operation, 1,765 kB of additional disk space will be used.
 Do you want to continue? [Y/n] y
 
-After the installation of OpenSSH server, start ssh service:
-sudo systemctl start ssh
+Após a instalação do servidor OpenSSH, inicie o serviço ssh:
 
-It is recommended to enable the service to start with the OS. This will ensure you’re not logged out of the system it the system is rebooted.
+$ sudo systemctl start ssh
+
+Recomenda-se habilitar o serviço para iniciar com o SO. Isso garantirá que você não seja desconectado do sistema se o sistema for reinicializado.
 
 $ sudo systemctl enable ssh
+
 Synchronizing state of ssh.service with SysV service script with /lib/systemd/systemd-sysv-install.
 Executing: /lib/systemd/systemd-sysv-install enable ssh
-The command below will show the status of the service. If everything went as expected it should be in running state..
+
+O comando abaixo mostrará o status do serviço. Se tudo correu como esperado, deve estar em estado de execução.
 
 $ systemctl status ssh
 
 ● ssh.service - OpenBSD Secure Shell server
      Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
-     Active: active (running) since Thu 2021-11-11 12:12:16 EAT; 1h 47min ago
+     Active: active (running) since Thu 2022-05-27 13:54:16 EAT; 1h 47min ago
        Docs: man:sshd(8)
              man:sshd_config(5)
    Main PID: 657 (sshd)
@@ -125,6 +128,7 @@ round-trip min/avg/max/stddev = 181.137/187.297/192.178/4.597 ms
 After confirming you can access remote Ubuntu server from your Workstation, copy SSH public key:
 
 $ ssh-copy-id ubuntu@172.16.2.20
+
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
 Warning: Permanently added '172.16.2.20' (ECDSA) to the list of known hosts.
@@ -141,6 +145,7 @@ ubuntu é a conta de usuário remoto
 Test SSH connectivity to remote Ubuntu system after copying SSH Pubkey. You should not be prompted for User Password, but maybe SSH private key keyphrase if it was set.
 
 $ ssh  ubuntu@172.16.2.20
+
 Warning: Permanently added '172.16.2.20' (ECDSA) to the list of known hosts.
 Enter passphrase for key '/Users/jmutai/.ssh/id_rsa':
 Welcome to Ubuntu Jammy Jellyfish (development branch) (GNU/Linux 5.13.0-19-generic x86_64)
@@ -170,6 +175,7 @@ PermitRootLogin prohibit-password
 Com as configurações acima, poderemos fazer login como usuário root com a chave privada SSH. Somente essa chave pública SSH deve ter sido copiada para o sistema antes que o serviço do servidor SSH seja reiniciado:
 
 $ ssh-copy-id root@172.16.2.20
+
 /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/Users/jmutai/.ssh/id_rsa.pub"
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
@@ -183,6 +189,7 @@ e verifique se apenas a(s) chave(s) desejada(s) foi(são) adicionada(s).
 Reinicie o serviço SSH para aplicar novas configurações no arquivo.
 
 sudo systemctl restart ssh
+
 systemctl status ssh
 
 Etapa 4) Desativando a autenticação de senha SSH (opcional)
