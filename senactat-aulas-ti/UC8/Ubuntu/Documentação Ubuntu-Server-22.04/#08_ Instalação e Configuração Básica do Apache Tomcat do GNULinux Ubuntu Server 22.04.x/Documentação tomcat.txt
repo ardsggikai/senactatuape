@@ -1,0 +1,93 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 28/05/2022
+#Versão: 0.002
+
+Passo 1: Instalação do Java
+Antes de iniciar a instalação do Apache Tomcat Server, é essencial ter “Java” em seu sistema. Para isso, execute o seguinte comando para instalar o “OpenJDK 11”:
+
+$ sudo apt install openjdk-11-jdk
+
+Em seguida, verifique a versão do Java instalado:
+
+$ java -version 
+
+OpenJDK version "11.0.15" 2022-04-19
+OpenJDK Runtime Environment (Build 11.0.15+10-Ubuntu-0ubuntu0.22.04.1)
+OpenJDK 64-Bit Server VM (Build 11.0.15+10-Ubuntu-0ubuntu0.22.04.1, mixed mode, sharing)
+
+Etapa 2: verifique a disponibilidade do pacote Apache Tomcat
+Após cumprir os requisitos, verifique a disponibilidade do pacote Apache Tomcat no repositório:
+
+$ sudo apt-cache search tomcat
+
+A saída fornecida significa que o pacote “tomcat9” para download:
+
+Etapa 3: Instale o servidor Apache Tomcat no Ubuntu 22.04
+Depois de encontrar o pacote Apache Tomcat necessário, vamos instalá-lo no Ubuntu 22.04 com a ajuda do comando abaixo:
+
+$ sudo apt install tomcat9 tomcat9-admin
+
+Etapa 4: verifique as portas do servidor Apache Tomcat
+No Ubuntu 22.04, o Apache Tomcat Server começa a funcionar automaticamente após a conclusão da instalação. Para validar esta operação, você pode utilizar o comando “ss” para exibir as informações relacionadas ao soquete de rede:
+
+$ ss -ltn
+
+A porta padrão para o servidor Apache Tomcat é “8080” e pode ser visto na saída a seguir que a porta “8080” está escutando todas as conexões de entrada:
+
+Etapa 5: abrir portas para o servidor Apache Tomcat
+Caso o firewall UFW esteja ativado em seu sistema, ele poderá causar problemas ao conectar dispositivos externos. Portanto, para permitir a entrada de qualquer tipo de fonte na porta “8080”, escreva o seguinte comando “ufw”:
+
+$ sudo ufw allow from any to any port 8080 proto tcp
+
+Etapa 6: Testar o funcionamento do Apache Tomcat Server
+Se você seguiu cuidadosamente todos os dados anteriores, neste ponto, o Apache Tomcat Server deve estar sendo executado no Ubuntu 22.04. Para testar seu funcionamento, especifique o endereço de loopback do sistema com o número da porta aberta para o Apache Tomcat Server:
+
+http://172.16.2.20:8080
+
+Etapa 7: criando um usuário do Tomcat
+Primeiramente, abra o arquivo “tomcat-users.xml” no editor “vim”:
+
+$ sudo vim /etc/tomcat9/tomcat-users.xml
+
+Recomendo ver o Site para Maior Clareza
+https://mkyong.com/tomcat/tomcat-default-administrator-password/
+https://linuxhint.com/install_apache_tomcat_server_ubuntu/
+
+#OBSERVAÇÂO O Meu Ficou Assim
+
+$TOMCAT_HOME/conf/tomcat-users.xml (Original)
+
+<tomcat-users>
+<!--
+  <role rolename="tomcat"/>
+  <role rolename="role1"/>
+  <user username="tomcat" password="tomcat" roles="tomcat"/>
+  <user username="both" password="tomcat" roles="tomcat,role1"/>
+  <user username="role1" password="tomcat" roles="role1"/>
+-->
+</tomcat-users>
+$TOMCAT_HOME/conf/tomcat-users.xml (Updated)
+
+<tomcat-users>
+<!--
+  <role rolename="tomcat"/>
+  <role rolename="role1"/>
+  <user username="tomcat" password="tomcat" roles="tomcat"/>
+  <user username="both" password="tomcat" roles="tomcat,role1"/>
+  <user username="role1" password="tomcat" roles="role1"/>
+-->
+
+	<role rolename="manager-gui"/>
+	<user username="grupo2" password="123@grupo2" roles="manager-gui"/>
+        <role rolename="admin-gui"/>
+	<user username="grupo2" password="123@grupo2" roles="admin-gui"/>
+
+
+</tomcat-users>
+
+Etapa 7: reinicie o servidor Tomcat
+Após criar uma conta Tomcat, reinicie o Apache Tomcat Server:
+
+$ sudo systemctl restart tomcat9
+
