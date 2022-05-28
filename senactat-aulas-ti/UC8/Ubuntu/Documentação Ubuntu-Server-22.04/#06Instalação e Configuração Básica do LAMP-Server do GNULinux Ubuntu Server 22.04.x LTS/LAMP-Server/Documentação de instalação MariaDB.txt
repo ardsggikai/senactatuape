@@ -5,7 +5,8 @@
 
 $sudo apt update
 
-$sudo apt install mariadb-server mariadb-client
+#OBSERVAÇÃO (Y)
+$sudo apt install mariadb-server mariadb-client 
 
 Após a instalação, certifique-se de proteger o servidor de banco de dados. Isso inclui:
 Configurando uma senha de root forte
@@ -16,7 +17,7 @@ Execute o comando abaixo para proteger seu servidor de banco de dados.
 
 $sudo mysql_secure_installation
 
-#OBSERVAÇÃO Yes no UNIX (sem ele da b.o no PHP)
+#OBSERVAÇÃO YES no UNIX_Socket Authentication (sem ele da b.o no PHP)
 NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
        SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
  In order to log into MariaDB to secure it, we'll need the current
