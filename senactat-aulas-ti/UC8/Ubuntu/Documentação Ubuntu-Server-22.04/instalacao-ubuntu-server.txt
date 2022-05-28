@@ -101,6 +101,7 @@ ip route
 sudo systemd-resolve --status
 ping google.com
 ******************************************************************************************
+
 Atualização
 sudo apt update
 sudo apt upgrade
@@ -110,6 +111,10 @@ sudo apt autoremove
 sudo apt autoclean
 sudo apt clean
 sudo reboot
+
+Package configuration (Fundo rosa/roxo)
+vai aparecer os serviços que vao ser reiniciados (ja vão estar selecionados) aperta o tab e vai pro <OK>
+
 ******************************************************************************************
 Linux Mint
 ping 172.16.10.20
