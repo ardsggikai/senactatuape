@@ -1,7 +1,7 @@
 #Autor: Allan Richard De Souza Gomes
 #Data de criação: 27/05/2022
 #Data de atualização: 28/05/2022
-#Versão: 0.01
+#Versão: 0.002
 ******************************************************************************************
 Webserver-Ubuntu-22.04
 RAM: 2GB
@@ -53,10 +53,10 @@ Network connections
 	enp0s3 eth 
 		Edit IPv4
 		IPv4 Method: Manual
-			Subnet: 172.16.10.0/24 (op: 192.168.10.0/24 )
-	 		Address: 172.16.10.20 (op: 192.168.10.20 )
-	 		Gateway: 172.16.10.254 (op: 192.168.10.254 )
-	 		Name servers: 172.16.10.254 (op: 192.168.10.254 )
+			Subnet: 172.16.10.0/24 
+	 		Address: 172.16.10.20 
+	 		Gateway: 172.16.10.254 
+	 		Name servers: 172.16.10.254 
 	 		Search domains:  allan.intra (Dominio)
 Configure proxy
 	<Done>
@@ -102,14 +102,14 @@ sudo systemd-resolve --status
 ping google.com
 ******************************************************************************************
 Atualização
-sudo apt update
-sudo apt upgrade
-sudo apt full-upgrade
-sudo apt dist-upgrade
-sudo apt autoremove
-sudo apt autoclean
-sudo apt clean
-sudo reboot
+$ sudo apt update
+$ sudo apt upgrade
+$ sudo apt full-upgrade
+$ sudo apt dist-upgrade
+$ sudo apt autoremove
+$ sudo apt autoclean
+$ sudo apt clean
+$ sudo reboot
 
 Package configuration (Fundo rosa/roxo)
 vai aparecer os serviços que vao ser reiniciados (ja vão estar selecionados) aperta o tab e vai pro <OK>
@@ -151,10 +151,10 @@ $ sudo timedatectl set-timezone "America/Sao_Paulo"
 # mais no Brasil
 
 #OBSERVAÇÃO (vai mostrar "America/Sao_Paulo")
-sudo cat /etc/timezone 
+$ sudo cat /etc/timezone 
 
 #OBSERVAÇÃO (vai mostrar)
-sudo cat /etc/systemd/timesyncd.conf
+$ sudo cat /etc/systemd/timesyncd.conf
 [Time]
 #NTP=
 #FallbackNTP=ntp.ubuntu.com
@@ -165,7 +165,7 @@ sudo cat /etc/systemd/timesyncd.conf
 #OBSERVAÇÃO (Abrir Vim pra Modificar para)
 #OBSERVAÇÃO 2 (Apertar Tecla Insert,Para Escrever,Depois de tudo terminado ESQ Depois Shift+: ((x minusculo para Salvar)
 
-sudo vim /etc/systemd/timesyncd.conf 
+$ sudo vim /etc/systemd/timesyncd.conf 
 	[Time]
 	#NTP=a.st1.ntp.br
 	#FallbackNTP=a.ntp.br
