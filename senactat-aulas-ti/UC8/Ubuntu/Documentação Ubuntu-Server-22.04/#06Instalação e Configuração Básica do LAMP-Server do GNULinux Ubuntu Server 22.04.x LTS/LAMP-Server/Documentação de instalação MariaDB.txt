@@ -4,7 +4,9 @@
 #Versão: 0.02
 
 $sudo apt update
+
 $sudo apt install mariadb-server mariadb-client
+
 Após a instalação, certifique-se de proteger o servidor de banco de dados. Isso inclui:
 Configurando uma senha de root forte
 Removendo usuários anônimos
