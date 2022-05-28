@@ -53,4 +53,4 @@ $sudo apache2ctl fullstatus
 
 vai ver um monte de documentação 
 
-Server Version: Apache/2.4.52 (Debian)
+Server Version: Apache/2.4.52 (Ubuntu)
