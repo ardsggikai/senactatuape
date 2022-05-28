@@ -118,11 +118,16 @@ ftp> ls
 drwxr-x---    2 1001     1001         4096 Feb 11 00:39 ftpdir
 226 Directory send OK.
 ftp>
-Step 5: Vsftpd Firewall Configuration
-Now, allow FTP traffic on port 20, FTP data on port 21, and passive connection with vsftpd on ports 30000-31000.
-sudo ufw allow 20:21/tcp
-sudo ufw allow 30000:31000/tcp
-Reload firewall to take effect .
+ftp>exit
+
+Etapa 5: configuração do firewall Vsftpd
+Agora, permita tráfego FTP na porta 20, dados FTP na porta 21 e conexão passiva com vsftpd nas portas 30000-31000.
+
+$sudo ufw allow 20:21/tcp
+
+$sudo ufw allow 30000:31000/tcp
+
+$Reload firewall to take effect .
 
 $sudo ufw disable
 
