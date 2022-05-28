@@ -3,6 +3,7 @@ Antes de realizar qualquer instalação no Linux, você deve atualizar os pacote
 Execute o seguinte comando para atualizar o Ubuntu 22.04|20.04|18.04:
 
 $sudo apt update
+
 $sudo apt upgrade -y
 
 Passo 2: Instale o Vsftpd no Ubuntu 22.04|20.04|18.04
@@ -40,6 +41,7 @@ Retype new password: <RE-ENTER PASSWORD>
 passwd: password updated successfully
 Changing the user information for ftpuser
 
+#OBSERVAÇÃO (Recomendo deixar tudo sem nada "Default" Só de enter), Se for mudar e não funcionar do jeito esperado.. Vai ter que refazer Praticamente
 Enter the new value, or press ENTER for the default
 	Full Name []: 
 	Room Number []: 
@@ -52,7 +54,9 @@ Is the information correct? [Y/n] y
 Agora, crie um diretório FTP e atribua as permissões e propriedade apropriadas.
 
 $sudo mkdir -p /home/ftpuser/ftpdir
+
 $sudo chmod -R 750 /home/ftpuser/ftpdir
+
 $sudo chown ftpuser: /home/ftpuser/ftpdir
 
 Para permitir o acesso do usuário ao servidor vsftpd, adicione o usuário FTP ao arquivo /etc/vsftpd.user_list.
@@ -70,7 +74,7 @@ local_enable=YES
 
 Permitir que o usuário faça qualquer operação de FTP, incluindo download, upload, exclusão e adição de arquivos descomentando a linha write_enable=YES.
 
-write_enable=YES
+write_enable=YES (essa linha vai estar comitada #)
 Permitir que apenas o diretório inicial do usuário seja acessado por linha de descomentário chroot_local_user=YES.
 
 chroot_local_user=YES
@@ -121,6 +125,7 @@ sudo ufw allow 30000:31000/tcp
 Reload firewall to take effect .
 
 $sudo ufw disable
+
 $sudo ufw enable
 
 Etapa 6: teste o Vsftpd com o cliente FTP FileZilla
