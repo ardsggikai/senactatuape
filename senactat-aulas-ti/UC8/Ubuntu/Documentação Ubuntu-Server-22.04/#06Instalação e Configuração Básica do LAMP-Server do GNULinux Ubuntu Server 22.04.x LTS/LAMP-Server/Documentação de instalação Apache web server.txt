@@ -38,6 +38,7 @@ $systemctl status apache2
 Você pode reiniciar o serviço ou recarregar quando uma alteração for feita usando o comando systemctl.
 
 $sudo systemctl reload apache2
+
 $sudo systemctl enable apache2
 
 Para habilitar o serviço para iniciar na inicialização, use
@@ -47,6 +48,7 @@ $sudo systemctl is-enabled apache2
 Para visualizar o status completo do servidor Apache, use o comando apache2ctl.
 
 $sudo apt install elinks
+
 $sudo apache2ctl fullstatus 
 
 vai ver um monte de documentação 
