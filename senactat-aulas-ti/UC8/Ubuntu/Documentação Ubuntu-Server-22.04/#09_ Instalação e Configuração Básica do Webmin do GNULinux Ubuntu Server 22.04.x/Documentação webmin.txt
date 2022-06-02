@@ -1,0 +1,59 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 29/05/2022
+#Versão: 0.03
+
+https://www.digitalocean.com/community/tutorials/how-to-install-webmin-on-ubuntu-20-04-pt
+Passo 1 — Instalando o Webmin
+Primeiro, precisamos adicionar o repositório do Webmin para que possamos instalar e atualizá-lo usando nosso gerenciador de pacotes. Fazemos isso adicionando o repositório ao arquivo /etc/apt/sources.list.
+
+Abra o arquivo em seu editor preferido. Aqui, usaremos o nano:
+
+sudo vim /etc/apt/sources.list
+Então, adicione esta linha ao final do arquivo para adicionar o novo repositório:
+
+deb http://download.webmin.com/download/repository sarge contrib
+Salve o arquivo e saia do editor. 
+
+Em seguida, você adicionará a chave Webmin PGP para que seu sistema confie no novo repositório: No entanto, para fazer isso, você precisa instalar o pacote gnupg1, que é a ferramenta do GNU para comunicação e armazenamento de dados seguros.
+
+Atualize o índice de pacotes do seu servidor caso ainda não tenha feito isso recentemente:
+
+sudo apt update
+Em seguida, baixe a chave Webmin PGP com o wget e a adicione à lista de chaves do seu sistema:
+
+wget -q -O- http://www.webmin.com/jcameron-key.asc | sudo apt-key add
+Em seguida, atualize novamente a lista de pacotes para incluir o repositório Webmin, que agora é confiável:
+
+sudo apt update
+Então, instale o Webmin:
+
+sudo apt install webmin
+Assim que a instalação terminar, você será apresentado com o seguinte resultado:
+
+Output
+. . .
+Webmin install complete. You can now login to
+https://your_server:10000 as root with your
+root password, or as any user who can use sudo.
+Nota: se você instalou e habilitou o ufw durante o passo pré-requisito, você precisará executar o seguinte comando para permitir o Webmin pelo firewall:
+
+sudo ufw allow 10000
+Para uma maior segurança, você pode querer configurar seu firewall para somente permitir o acesso a esta porta a partir de um certo intervalo de IPs.
+
+#depois disso ainda vai dar um erro de This web server is running in SSL mode. Try the URL
+
+$sudo vim /etc/webmin/miniserv.conf
+
+#trocar o ssl=1 para ssl=0
+
+Salvar ESC Shift+: aperta x e depois enter
+
+$ sudo systemctl restart webmin
+
+
+
+
+
+
+
