@@ -2,6 +2,7 @@
 #Data de criação: 26/05/2022
 #Data de atualização: 29/05/2022
 #Versão: 0.03
+
 #Etapa 1: atualização do sistema
 #Antes de realizar qualquer instalação no Linux, você deve atualizar os pacotes do sistema.
 #Execute o seguinte comando para atualizar o Ubuntu 22.04|20.04|18.04:
