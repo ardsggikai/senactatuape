@@ -1,7 +1,7 @@
 #Autor: Allan Richard De Souza Gomes
 #Data de criação: 26/05/2022
-#Data de atualização: 29/05/2022
-#Versão: 0.03
+#Data de atualização: 02/06/2022
+#Versão: 0.05
 
 #Passo 1: Instalação do Java
 #Antes de iniciar a instalação do Apache Tomcat Server, é essencial ter “Java” em seu sistema. Para isso, #execute o seguinte comando para instalar o “OpenJDK 11”:
@@ -79,6 +79,7 @@
 #Etapa 6: Testar o funcionamento do Apache Tomcat Server
 #Se você seguiu cuidadosamente todos os dados anteriores, neste ponto, o Apache Tomcat Server deve estar sendo #executado no Ubuntu 22.04. Para testar seu funcionamento, especifique o endereço de loopback do sistema com o #número da porta aberta para o Apache Tomcat Server:
 
+#Link http://192.168.0.82
 #Link http://172.16.2.20:8080
 
 #Etapa 7: criando um usuário do Tomcat
@@ -150,7 +151,6 @@
 ---------------------------------------------------------------------
 #OBSERVAÇÂO O Meu Ficou Assim
 
-<tomcat-users>
 <!--
   <role rolename="tomcat"/>
   <role rolename="role1"/>
@@ -159,13 +159,11 @@
   <user username="role1" password="tomcat" roles="role1"/>
 -->
 
-	<role rolename="manager-gui"/>
-	<user username="grupo2" password="123@grupo2" roles="manager-gui"/>
-        <role rolename="admin-gui"/>
-	<user username="grupo2" password="123@grupo2" roles="admin-gui"/>
-
+  <role rolename="manager-gui"/>
+  <user username="grupo2" password="123@grupo2" roles="manager-gui,admin-gui"/>
 
 </tomcat-users>
+    
 
 Etapa 7: reinicie o servidor Tomcat
 Após criar uma conta Tomcat, reinicie o Apache Tomcat Server:
