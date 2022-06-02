@@ -1,7 +1,7 @@
 #Autor: Allan Richard De Souza Gomes
 #Data de criação: 26/05/2022
 #Data de atualização: 29/05/2022
-#Versão: 0.03
+#Versão: 0.05
 
 sudo apt update
 
@@ -39,8 +39,13 @@ Reloading privilege tables..
 
 You already have your root account protected, so you can safely answer 'n'.
 
-Change the root password? [Y/n] n
- ... skipping.
+Change the root password? [Y/n] y
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
 
 By default, a MariaDB installation has an anonymous user, allowing anyone
 to log into MariaDB without having to have a user account created for
