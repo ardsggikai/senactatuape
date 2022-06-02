@@ -1,0 +1,67 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 29/05/2022
+#Versão: 0.05
+
+Como instalar webmin
+
+Passo 1 — Instalando o Webmin
+Primeiro, atualize o índice de pacotes do seu servidor se você não tiver feito isso recentemente:
+
+sudo apt update
+
+Então você precisa adicionar o repositório Webmin para que você possa instalar e atualizar o Webmin usando seu gerenciador de pacotes. Para que seu sistema confie neste novo repositório, primeiro você baixará a chave PGP do Webmin e depois a converterá para um formato que o apt possa usar para verificar os arquivos:
+
+curl -fsSL https://download.webmin.com/jcameron-key.asc | sudo gpg --dearmor -o /usr/share/keyrings/webmin.gpg
+
+Essa chave baixada é a mesma que foi usada pelo criador do Webmin para assinar o pacote, e você usará essa chave para verificar a autenticidade do pacote. Para converter o arquivo .asc em um arquivo .gpg funcional, é necessário o comando gpg --dearmor.
+
+Em seguida, você adicionará este repositório ao seu arquivo /etc/apt/sources.list, enquanto faz referência ao seu arquivo recém-convertido que você acabou de adquirir na etapa anterior.
+
+Abra o arquivo em seu editor preferido. Aqui, você usará o vim:
+
+sudo vim /etc/apt/sources.list
+
+Em seguida, adicione esta linha ao final do arquivo para adicionar o novo repositório:
+
+/etc/apt/sources.list
+. . .
+deb [signed-by=/usr/share/keyrings/webmin.gpg] http://download.webmin.com/download/repository sarge contrib
+
+Salve o arquivo e saia do editor. Se você usou o vim para editar, pode sair pressionando Shift+:, x!, depois ENTER.
+
+Em seguida, atualize a lista de pacotes novamente para incluir o repositório Webmin agora confiável:
+
+sudo apt update
+
+Em seguida, instale o Webmin:
+
+sudo apt install webmin
+
+Quando a instalação terminar, você verá a seguinte saída:
+
+Output
+. . .
+Webmin install complete. You can now login to
+https://your_server:10000 as root with your
+root password, or as any user who can use sudo.
+Note: Assuming you installed and enabled ufw during the prerequisite step, you will need to run the following command in order to allow Webmin through the firewall:
+
+sudo ufw allow 10000
+
+Para segurança extra, você pode querer configurar seu firewall para permitir o acesso a esta porta somente a partir de determinados intervalos de IP.
+
+Output
+. . .
+
+#depois disso ainda vai dar um erro de This web server is running in SSL mode. Try the URL
+
+$sudo vim /etc/webmin/miniserv.conf
+
+#trocar o ssl=1 para ssl=0
+
+Salvar ESC Shift+: aperta x e depois enter
+
+$ sudo systemctl restart webmin
+
+https://www.digitalocean.com/community/tutorials/how-to-install-webmin-on-ubuntu-22-04
