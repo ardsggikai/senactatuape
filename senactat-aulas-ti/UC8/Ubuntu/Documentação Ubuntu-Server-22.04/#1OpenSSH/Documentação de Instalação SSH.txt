@@ -199,7 +199,7 @@ Test SSH connectivity to remote Ubuntu system after copying SSH Pubkey. You shou
  ssh grupo2@192.168.0.81
 
 Warning: Permanently added '172.16.2.20' (ECDSA) to the list of known hosts.
-Enter passphrase for key '/Users/jmutai/.ssh/id_rsa':
+Enter passphrase for key '/Users/grupo2/.ssh/id_rsa':
 Welcome to Ubuntu Jammy Jellyfish (development branch) (GNU/Linux 5.13.0-19-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
