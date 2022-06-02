@@ -10,7 +10,6 @@ sudo apt install mariadb-server && sudo apt install mariadb-client -y
 #Após a instalação, certifique-se de proteger o servidor de banco de dados. Isso inclui:
 #Configurando uma senha de root forte
 #Removendo usuários anônimos
-#Desativando o login remoto para usuário root.
 #Removendo o banco de dados de teste e acesso a ele
 #Execute o comando abaixo para proteger seu servidor de banco de dados.
 
