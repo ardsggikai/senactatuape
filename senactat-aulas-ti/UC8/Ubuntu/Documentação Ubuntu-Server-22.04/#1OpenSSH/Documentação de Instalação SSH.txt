@@ -196,7 +196,7 @@ ubuntu é a conta de usuário remoto
 Test SSH connectivity to remote Ubuntu system after copying SSH Pubkey. You should not be prompted for User Password, but maybe SSH private key keyphrase if it was set.
 
  ssh grupo2@172.16.2.20
- ssh grupo2@192.168.0.81
+ #IGNORA ssh grupo2@192.168.0.81
 
 Warning: Permanently added '172.16.2.20' (ECDSA) to the list of known hosts.
 Enter passphrase for key '/Users/jmutai/.ssh/id_rsa':
