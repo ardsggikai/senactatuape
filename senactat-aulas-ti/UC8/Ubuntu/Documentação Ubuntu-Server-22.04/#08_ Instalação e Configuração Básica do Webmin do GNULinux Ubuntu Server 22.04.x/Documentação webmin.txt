@@ -56,3 +56,13 @@ Finalmente, para acessar o Webmin, inicie seu navegador e naveguee address:
 https://192.168.0.84:10000/
 https://172.16.2.20:10000/
 https://10.26.45.59:10000/
+
+#depois disso ainda vai dar um erro de This web server is running in SSL mode. Try the URL
+
+$sudo vim /etc/webmin/miniserv.conf
+
+#trocar o ssl=1 para ssl=0
+
+Salvar ESC Shift+: aperta x e depois enter
+
+$ sudo systemctl restart webmin
