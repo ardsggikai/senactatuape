@@ -1,7 +1,7 @@
 #Autor: Allan Richard De Souza Gomes
 #Data de criação: 27/05/2022
 #Data de atualização: 28/05/2022
-#Versão: 0.02
+#Versão: 0.01
 ******************************************************************************************
 Webserver-Ubuntu-22.04
 RAM: 2GB
@@ -33,9 +33,11 @@ Desmarcar opção Habilitar Áudio
 ******************************************************************************************
 Guia Rede
 
-Adaptador 1 (Rede Habilitar Placa de Rede Em Modo Bridge caso esteja em casa/Ou Ambiente de Teste)
-(Se Não sera necessario de um PfSense pra Redirecionar IP)
-Adaptador 2 - Habilitar Placa de Rede (Interna)
+Adaptador 1 (Rede Habilitar Placa de Rede Em Modo Bridge 
+(caso esteja em casa/Ou Ambiente de Teste)
+
+Adaptador 2 - Habilitar Placa de Rede 
+(Interna) (Desabilitado, Coloque na Opção Não Conectado) só ative quando finalizar tudo
 ******************************************************************************************
 Instalação
 
