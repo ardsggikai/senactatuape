@@ -18,7 +18,7 @@ Etapa 2: importar a chave do repositório Webmin
 Tendo atualizado o sistema e instalado os pacotes, vamos anexar a chave GPG do Webmin conforme mostrado.
 
 $ wget https://download.webmin.com/jcameron-key.asc 
- cat jcameron-key.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/jcameron-key.gpg
+$ cat jcameron-key.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/jcameron-key.gpg
  >/dev/null
 Em seguida, adicione o repositório Webmin ao arquivo de lista de fontes conforme mostrado.
 
