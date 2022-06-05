@@ -1,0 +1,57 @@
+#=============================================================================================
+#                      VARIÁVEIS UTILIZADAS NO SCRIPT: 13-wordpress.sh                       #
+#=============================================================================================
+#
+# Arquivos de configuração (conf) do Site CMS Wordpress utilizados nesse script
+# 01. /var/www/html/wp/wp-config.php = arquivo de configuração do site Wordpress
+# 02. /var/www/html/wp/.htaccess = arquivo de segurança de páginas e diretórios do Wordpress
+# 03. /etc/vsftpd.allowed_users = arquivo de configuração da base de dados de usuários do VSFTPd
+# 04. /etc/apache2/sites-available/wordpress.conf = arquivo de configuração do Virtual Host
+#
+# Arquivos de monitoramento (log) do Site do Wordpress utilizado nesse script
+# 01. tail -f /var/log/apache2/access-wordpress.log = log de acesso ao Wordpress
+# 02. tail -f /var/log/apache2/error-wordpress.log = log de erro de acesso ao Wordpress
+#
+# Declarando as variáveis utilizadas nas configurações do Site do Wordpress
+#
+# Variável de localização da instalação do diretório do Wordpress
+PATHWORDPRESS="/var/www/wp"
+#
+# Variável do download do Wordpress (Link atualizado em: 11/01/2022)
+WORDPRESS="https://br.wordpress.org/latest-pt_BR.zip"
+#
+# Variável do download do Wordpress Salt (Link atualizado em: 11/01/2022)
+WORDPRESSSALT="https://api.wordpress.org/secret-key/1.1/salt/"
+#
+# Declarando as variáveis para criação da Base de Dados do Wordpress
+# opções do comando CREATE: create (criação), database (base de dados), base (banco de dados)
+# opções do comando CREATE: create (criação), user (usuário), identified by (identificado por
+# senha do usuário), password (senha)
+# opções do comando GRANT: grant (permissão), usage (uso em | uso na), *.* (todos os bancos/
+# tabelas), to (para), user (usuário), identified by (identificado por - senha do usuário), 
+# password (senha)
+# opões do comando GRANT: grant (permissão), all (todos privilégios), on (em ou na | banco ou 
+# tabela), *.* (todos os bancos/tabelas), to (para), user@'%' (usuário @ localhost), identified 
+# by (identificado por - senha do usuário), password (senha)
+# opções do comando FLUSH: flush (atualizar), privileges (recarregar as permissões)
+#
+# OBSERVAÇÃO: NO SCRIPT: 11-WORDPRESS.SH É UTILIZADO AS VARIÁVEIS DO MYSQL DE USUÁRIO E SENHA
+# DO ROOT DO MYSQL CONFIGURADAS NO BLOCO DAS LINHAS: 366 até 371, VARIÁVEIS UTILIZADAS NO SCRIPT: 
+# 07-lamp.sh LINHAS: 261 até 262
+CREATE_DATABASE_WORDPRESS="CREATE DATABASE wordpress;"
+CREATE_USER_DATABASE_WORDPRESS="CREATE USER 'wordpress' IDENTIFIED BY 'wordpress';"
+GRANT_DATABASE_WORDPRESS="GRANT USAGE ON *.* TO 'wordpress';"
+GRANT_ALL_DATABASE_WORDPRES="GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress';"
+FLUSH_WORDPRESS="FLUSH PRIVILEGES;"
+#
+# Variáveis de usuário e senha do FTP para acessar o diretório raiz da instalação do Wordpress
+USERFTPWORDPRESS="wordpress"
+PASSWORDFTPWORDPRESS=$SENHADEFAULT
+#
+# Variável da instalação das dependências do Wordpress
+# opção do caractere: \ (contra barra): utilizado para quebra de linha em comandos grandes
+WORDPRESSDEPINSTALL="unzip ghostscript libapache2-mod-php php-bcmath php-curl php-imagick \
+php-intl php-json php-mbstring php-mysql php-xml php-zip php-soap zlibc zlib1g-dev"
+#
+# Variável das dependências do laço de loop do Wordpress
+WORDPRESSDEP="mysql-server mysql-common apache2 php vsftpd bind9 openssl"

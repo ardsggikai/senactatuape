@@ -1,0 +1,94 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 29/05/2022
+#Versão: 0.05
+# httpsbr.atsit.inarchives163547 ( link tem imagens para melhor compreensão )
+#Antes de realizar qualquer instalação no Linux, você deve atualizar os pacotes do sistema.
+#Execute o seguinte comando para atualizar o Ubuntu 22.04|20.04|18.04:
+
+sudo apt update && sudo apt upgrade -y
+
+#Passo 1: Como configurar um servidor FTP no Ubuntu com Webmin
+
+Deseja configurar um servidor FTP em seu sistema Ubuntu Server, mas não quer lidar com arquivos de configuração? Se sim, o Webmin é para você! O Webmin é uma excelente ferramenta que permite aos usuários gerenciar servidores do tipo UNIX com uma interface da web fácil de usar. Veja como usar o Webmin para configurar um servidor FTP no Ubuntu.
+
+
+
+Configure o Webmin no Ubuntu Server
+O Webmin precisa ser instalado no Ubuntu Server antes de criar um servidor FTP com a interface da IU da web. Felizmente, o Webmin suporta o Ubuntu muito bem. Para fazer o aplicativo funcionar, vá para o site oficial do Webmin .
+
+Uma vez no site do Webmin, localize “Debian Clique no botão de download do pacote e clique nele com o mouse. Quando você seleciona este botão, o Webmin pacote DEB fará o download para o seu computador.
+
+Depois que o download for concluído, faça login no sistema Ubuntu usando SSH por meio de um terminal em sua área de trabalho Linux. Alternativamente, sente-se em seu sistema Ubuntu e faça login nele usando o console TTY.
+
+Quando você tiver acesso ao terminal, transfira o pacote Webmin DEB para o servidor Ubuntu. Em seguida, instale o pacote DEB no Ubuntu para fazer o Webmin funcionar.
+
+Com o Webmin funcionando no Ubuntu Server, abra um navegador da web em seu computador. Em seguida, visite o seguinte URL para acessar a IU da web.
+
+
+
+http://YOUR_UBUNTU_SERVER_IP_OR_HOSTNAME: 10000
+
+Senha root para Webmin
+O Webmin não fornece aos usuários um nome de usuário ou senha padrão. Em vez disso, ele depende inteiramente da conta root existente do sistema. No entanto, o Ubuntu desativa esta conta root por padrão, então você deve reativá-la antes de fazer o login.
+
+
+
+Para reativar a senha root dentro do Ubuntu (caso tenha desativado), use o sudo-s comando para entrar na janela do terminal como root. Então, uma vez que a janela do terminal é root, execute o comando passwd para definir uma nova senha de root.
+
+sudo-s (passwd)
+
+Certifique-se de definir a senha de root no Ubuntu para algo memorável e seguro.
+
+Instalando o módulo ProFTPD Webmin
+O módulo de servidor FTP incluído no Webmin não é muito bom. Em vez disso, usaremos o módulo ProFTPD. Infelizmente, este módulo é de terceiros, portanto, precisará ser instalado antes de ser usado.
+
+Para instalar o módulo ProFTPD na instalação do Webmin, siga as instruções passo a passo abaixo.
+
+
+
+Etapa 1: primeiro, selecione este link para baixar o versão mais recente do módulo ProFTPD para o seu computador. 
+
+#recomendo baixar em uma maquina pelo link (da pra fazer pelo wget mas pra mim não funcionou)
+http://www.webmin.com/webmin/download/modules/proftpd.wbm.gz
+
+Etapa 2: depois de baixar a versão mais recente do módulo ProFTPD, abra a IU da web do Webmin e faça login em sua conta de usuário. Em seguida, encontre a opção “Webmin” na barra lateral e clique nela com o mouse.
+
+Etapa 3: Depois de selecionar a opção Webmin na barra lateral, selecione “ Configuração do Webmin ”para acessar a área de configuração do Webmin.
+
+Passo 4: Dentro da área de configuração do Webmin, encontre o botão “Módulos Webmin” e clique nele com o mouse. Selecionar este botão carregará a área Módulos Webmin.
+
+Etapa 5: procure a seção “Instalar módulo” e clique em “From uploaded file”. Em seguida, clique no ícone do clipe de papel para navegar até o módulo ProFTPD Webmin em seu computador.
+ 
+Etapa 6: Clique no botão verde“ Instalar Módulo ”para instalar o módulo ProFTPD em seu Webmin web UI. Quando a instalação do módulo for concluída, 
+
+Etapa 7: The following modules have been successfully installed and added to your access control list :
+( Clique Em ProFTPD Server ) in /usr/share/webmin/proftpd (1892 kB) under category Servers
+
+Etapa 8: Depois The ProFTPD server /usr/sbin/proftpd could not be found on your system. Maybe it is not installed, or your module configuration is incorrect.
+The ProFTPd package can be automatically installed by Webmin using APT.
+
+( Clique em Install Now )
+
+Etapa 9: Clique em Install Now
+
+Configurando o servidor FTP
+Para configure seu servidor FTP no Webmin, siga as instruções passo a passo abaixo.
+
+Passo 1: Clique em “Sistema” na barra lateral do Webmin. Em seguida, escolha a seção “Usuários e grupos”. Em seguida, crie uma conta de usuário para usar com seu servidor FTP. Sinta-se à vontade para criar mais de uma conta, se necessário.
+
+Ao criar sua conta de usuário no Webmin, certifique-se de adicionar o usuário aos seguintes grupos.
+
+adm cdrom dip lxd plugdev sudo
+
+Etapa 2: depois de criar sua (s) conta (s) de usuário, clique na seção “Servidores” na barra lateral do Webmin. Em seguida, clique em “Servidor ProFTPD” para acessar a seção Servidor ProFTPD.
+
+Etapa 3: Veja “Configuração Global” e altere as configurações que deseja alterar. Não se preocupe se não quiser alterar nenhuma configuração na área de configuração do Servidor ProFTPD. As configurações padrão funcionam bem.
+
+
+
+Etapa 4: Depois de definir todas as configurações na área do Servidor ProFTPD, encontre o botão “Aplicar alterações” e clique nele com o mouse. Selecionar este botão irá parar o servidor ProFTP, reiniciá-lo e aplicar suas novas configurações.
+
+Conectando ao servidor FTP
+Existem muitas maneiras de se conectar a um servidor FTP no Linux. Se você não tiver certeza de como fazer isso, verifique o aplicativo Filezilla . É um cliente FTP que facilita a conexão ao FTP e o gerenciamento de servidores.
+
