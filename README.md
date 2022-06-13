@@ -29,3 +29,11 @@ Softwares para benchmarking e manutenção de computadores
 ## UC-5
 Infraestrutura de Redes
 
+## UC-6
+Windows Server e Ubuntu Server
+
+## UC-7
+GPO
+
+## UC-8
+JavaScript
