@@ -39,4 +39,4 @@ GPO
 Projeto Ubuntu/Windows Server e Firewall
 
 ## UC-9
-Javascript (Desenvolvimento)
+Java (Desenvolvimento)
