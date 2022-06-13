@@ -36,4 +36,7 @@ Windows Server e Ubuntu Server
 GPO
 
 ## UC-8
-JavaScript
+Projeto Ubuntu/Windows Server e Firewall
+
+## UC-9
+Javascript
