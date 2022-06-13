@@ -1,0 +1,60 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 13/06/2022
+#Data de atualização: 13/06/2022
+#Versão: 0.01
+
+Conversa Sobre Desenvolvimento 
+--------
+Games
+--------
+
+Cientista de dados
+->Big Data
+Analise de dados
+Ferramentas/Competencias
+->Banco de dados
+Python
+Power BI
+
+------------
+
+App - Mobile - Java
+             - Swift
+             - JS-React
+             
+------------
+
+Front-End    - Web 
+Back-End     - e-commerce (Dentro do Site)
+FullStack    - Infra (tudo)
+
+F- html, css, js
+B- banco de dados, linguagens, php/java, asp.net js+node
+Full= html, css, js / banco de dados, linguagens, php/java, asp.net js+node / Infra (tudo)
+
+-----------
+DESKTOP
+-> C# (CSHarp)
+-> Java + Banco De Dados  (Vamos Ter)
+-----------
+Robótica, Automação, IOT
+Linguagem C / Arduino
+-----------
+I.A
+BlockChain->Criptomoedas
+-----------
+-> APinfo (Site para Empregos)
+-> Tiobe (Rank de Linguagens Mais Usadas,Atualiza Mensalmente)
+-----------
+Lógica de Programação
+Material de apoio (slides)
+https://www.slideshare.net/josedeassisfilho/java-primeiros-passos
+Preparação do ambiente de desenvolvimento:
+https://www.eclipse.org/downloads/
+1) Instalar o JDK
+2) Instalar o eclipse (Versão Enterprise Java and Web Developers)
+-------------
+pynative.com (python3)
+f12 (console) (java)
+Dev C ++ (C)
+------------
