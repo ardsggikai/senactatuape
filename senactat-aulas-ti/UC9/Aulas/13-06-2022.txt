@@ -59,3 +59,4 @@ pynative.com (python3)
 f12 (console) (java)
 Dev C ++ (C)
 ------------
+"java -jar" (hello1.jar) /comando para executar programas Java
