@@ -59,4 +59,10 @@ pynative.com (python3)
 f12 (console) (java)
 Dev C ++ (C)
 ------------
-"java -jar" (hello1.jar) /comando para executar programas Java
+Para gerar o executável, selecionar o projeto com o botão
+direito do mouse -> exportar
+Runnable jar file (executável)
+
+Para executar o Java:
+(console) java -jar hello.jar
+(gráfico) clicar 2x no executável
