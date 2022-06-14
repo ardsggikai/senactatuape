@@ -53,6 +53,7 @@ Preparação do ambiente de desenvolvimento:
 https://www.eclipse.org/downloads/
 1) Instalar o JDK
 2) Instalar o eclipse (Versão Enterprise Java and Web Developers)
+3) Eclipse -> Window -> Perspective -> Open Perspective -> Java
 -------------
 pynative.com (python3)
 f12 (console) (java)
