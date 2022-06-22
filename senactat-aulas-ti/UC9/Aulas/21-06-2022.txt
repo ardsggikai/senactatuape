@@ -1,0 +1,32 @@
+Algorítimo:
+
+1º Passo) Entender o problema
+2º passo) Desenvolver pensando no usuário final
+3º Passo) Usar o mínimo possível de código
+
+Exemplo: Cálculo do IMC 
+
+Variáveis:
+peso, altura, imc (numéro não inteiro)
+
+Entrada:
+peso, altura
+
+Processamento:
+
+        peso
+imc = _________
+             2
+       altura
+
+imc = peso / (altura * altura)
+
+Saída:
+imc
+
+Dica eclipse:
+<alt><shift><y> -> quebra de linha
+
+
+Dica Felipe (Exercícios de lógica)
+https://www.beecrowd.com.br/judge/en/login

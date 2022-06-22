@@ -1,0 +1,15 @@
+Fundamentos - Lógica
+Variáveis -> RAM
+- String (caracteres)
+- Numéricas (números inteiros e não inteiros)
+- Booleanas (verdadeiro / falso)
+
+
+Dicas eclipse:
+sysout <ctrl><espaço> -> System.out.println()
+Instalar Window Builder
+Help -> Eclipse MarketPlace - Pesquisar (find)
+Window Builder
+
+Atividade: Assistir os vídeos (1 a 5):
+https://www.youtube.com/playlist?list=PLbEOwbQR9lqxdW98mY-40IZQ5i8ZZyeQx
