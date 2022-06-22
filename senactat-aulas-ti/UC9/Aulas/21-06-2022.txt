@@ -24,6 +24,34 @@ imc = peso / (altura * altura)
 Saída:
 imc
 
+
+_______________________________________
+Exemplo 2: Desafio (Criar um novo botão e JDialog)
+Desenvolver um sistema para PC que calcule
+a média final de um aluno (boletim escolar)
+O sistema deverá apresentar o Boletim da seguinte forma:
+Nome:
+Idade:
+Disciplina:
+1º Bim:
+2º Bim:
+3º Bim:
+4º Bim:
+Média: (Calcular automaticamente)
+
+Algorítimo:
+Variáveis:
+nome, disciplina  (String)
+idade (número inteiro)
+bi1,bi2,bi3,bi4,media  (números não inteiros)
+Entrada:
+bi1,bi2,bi3,bi4
+Processamento:
+media = (bi1+bi2+bi3+bi4) / 4
+Saída:
+media
+
+
 Dica eclipse:
 <alt><shift><y> -> quebra de linha
 
