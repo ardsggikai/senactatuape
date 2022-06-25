@@ -1,0 +1,13 @@
+Desenvolvimento de um portfólio de projetos:
+
+1) Cálculo da porcentagem
+   - Desenvolver o tópico "Calcular desconto"
+
+2) Criar ícones para todos os botões da tela principal
+
+3) Criar a tela Sobre:
+   (textos - JLabel)
+   - Nome do aluno
+   - Portfolio de projetos
+   - Sob a licença MIT
+   - Inserir selo ou ícone da licença MIT
