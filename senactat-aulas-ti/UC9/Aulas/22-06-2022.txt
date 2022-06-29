@@ -1,0 +1,26 @@
+Exercício 1:
+APP para converter graus Fahrenheit para Celsius
+
+Variáveis:
+c, f (números não inteiros)
+
+Entrada:
+f
+
+Processamento:
+  C     F - 32
+ ___   ________
+  5       9
+
+c = (5 * (f - 32)) / 9
+
+Saída:
+c
+
+
+Exercício 2:
+Slides 35 e 36
+
+
+
+
