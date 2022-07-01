@@ -13,3 +13,18 @@ Desenvolvimento de um portfólio de projetos:
    - Portfolio de projetos
    - Sob a licença MIT
    - Inserir selo ou ícone da licença MIT
+
+5) Adicionar no aplicativo IMC a estrutura else if para
+   verificar o status do IMC de acordo com a tabela e usar
+   os ícones fornecidos para exibir visualmente o status.
+
+6) Validar o preenchimento obrigatório de todos os campos do
+   portfólio usando a estrutura if else | else if
+
+7) Usando a estrutura switch case, criar um novo botão
+   chamado dado e fazer o lançamento do dado exibindo o
+   resultado em uma interface gráfica.
+
+8) Criar um novo projeto no portfolio (Busca automática de CEP)
+Playlist:
+https://www.youtube.com/playlist?list=PLbEOwbQR9lqxVuDWNIrG57_JGcbIL3FWP
