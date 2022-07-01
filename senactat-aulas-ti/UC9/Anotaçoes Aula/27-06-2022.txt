@@ -1,0 +1,29 @@
+Variável:
+
+local (dentro do método)
+// só atende ao método
+
+global (dentro da classe)
+// atende todos os métodos
+
+Estruturas de controle condicional
+// 1ª forma
+if (condição) {
+  //condição verdadeira
+}
+
+// 2ª forma
+if (condição) {
+  //condição verdadeira
+} else {
+  //condição falsa
+}
+
+Obs: Nunca uma condição pode ser ao mesmo tempo 
+     verdadeira e falsa
+
+Dica Eclipse:
+ifel <ctrl><espaço>
+
+
+
