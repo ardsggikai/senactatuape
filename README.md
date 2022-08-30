@@ -39,4 +39,6 @@ GPO
 Projeto Ubuntu/Windows Server e Firewall
 
 ## UC-9
-Java (Desenvolvimento)
+Java (Desenvolvimento de logica)
+
+## UC-14 Adobe Photoshop
