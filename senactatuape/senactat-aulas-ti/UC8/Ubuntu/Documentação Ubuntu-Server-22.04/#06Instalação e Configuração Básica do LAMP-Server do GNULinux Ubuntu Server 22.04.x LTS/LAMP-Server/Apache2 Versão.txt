@@ -1,0 +1,6 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 29/05/2022
+#Versão: 0.03
+
+Apache/2.4.52 (Ubuntu) Server at localhost Port 80

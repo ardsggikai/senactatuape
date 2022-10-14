@@ -1,0 +1,82 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 17/04/2022
+#Data de atualização: 12/05/2022
+#Versão: 0.02
+Modificado por Allan 
+******************************************************************************************
+GPOS
+GPO-COMP-FIREWALL
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Windows Settings/Security Settings/Windows Firewall with Advanced Security
+Properties
+Domain Profile
+Firewall state: On (recommended)
+Inbound connections: Block (default)
+Outbound connections: Allow (default)
+Private Profile
+Firewall state: On (recommended)
+Inbound connections: Block (default)
+Outbound connections: Allow (default)
+Public Profile
+Firewall state: On (recommended)
+Inbound connections: Block (default)
+Outbound connections: Allow (default)
+
+Inbound Rules, New Rule
+Custom, Next
+All Programs, Next
+Protcol type: ICMPv4, Next
+Next
+Allow the connection, Next
+Domain, Next
+Name: PERMITE-PING
+Description: PERMITE-PING, Finish
+******************************************************************************************
+GPO-COMP-BLOQUEIA-MIDIA-REMOVIVEL
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Administrative Templates/System/Removable Storage Access
+All Removable Storage classes: Deny all access: Enabled 
+******************************************************************************************
+GPO-COMP-NAVEGADORES
+GPO Status: User configuration settings disabled
+Computer Configuration/Policies/Administrative Templates/Google/Google Chrome/Startup, Home page and New Tab page 
+Configure the home page URL: Enabled  
+Home page URL http://wp.allan.intra/wp 
+ 
+Show Home button on toolbar: Enabled  
+URLs to open on startup: Enabled  
+URLs to open on startup: http://wp.allan.intra/wp 
+ 
+Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page
+Configure the home page URL: Enabled  
+Home page URL: http://wp.allan.intra/wp 
+Show Home button on toolbar: Enabled 
+
+Microsoft Edge/Startup, home page and new tab page
+Configure the home page URL: Enabled  
+Home page URL: http://wp.allan.intra/wp 
+ 
+Configure the new tab page URL: Enabled  
+New tab page URL: http://wp.allan.intra/wp 
+ 
+Show Home button on toolbar: Enabled  
+
+Mozilla/Firefox/Home page
+Start Page: Enabled  
+ 
+URL for Home page Enabled  
+URL:  http://wp.allan.intra/wp 
+Don't allow the homepage to be changed.: Enabled 
+******************************************************************************************
+GPO-COMP-REMOTE-DESKTOP
+GPO Status: User configuration settings disabled
+Computer Configuration/Preferences/Control Panel Settings/Local Users and Groups
+New Local Group
+Action Update 
+Group Name: Remote Desktop Users (built-in)
+Add 
+ALLAN\G-TI-REMOTE-DESKTOP
+******************************************************************************************
+
+ 
+

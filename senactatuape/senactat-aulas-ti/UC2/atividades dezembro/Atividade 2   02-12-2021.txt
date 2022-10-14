@@ -1,0 +1,17 @@
+#Autor: Allan Richard
+#Data de criação: 02/12/2021
+#Data de atualização: 02/12/2021
+#Versão: 0.01
+#Atividade de hoje:02/12/2021
+
+Primeira etapa.: Pegar o Kit de Notebook;
+Segumda etapa..: Instalar o Linux Mint 20.2
+Terceira etapa.: OBSERVAÇÃO: antes de instalar o Linux
+                 Mint remover todas as partições com o
+                 Gparted
+Quarta etapa...: Instalar o Mint Padrão 
+                 Usuário: senac - Senha: 123@senac 
+                 OBSERVAÇÃO: não precisa atualizar o 
+                 sistema
+Quinta etapa...: Acesar o Github:
+                 https://github.com/vaamonde/raspberry

@@ -1,0 +1,47 @@
+------------------------------------------------------------------------------------------
+Autor: Allan Gomes
+Data de Criação: 10/10/2022
+Data de Atualização: 10/10/2022
+#Versão: 0.001
+------------------------------------------------------------------------------------------
+UC 10
+- Desenvolvimento de sistemas Desktop
+"loja Fisica de rua"
+PC (Windows / Linux )
+Rede Local
+------------------------------------------------------------------------------------------
+Componentes
+
+- Banco de Dados
+- Linguagem de Programação para desktop
+ - POO (Programação orientada a objetos)
+
+------------------------------------------------------------------------------------------
+Banco de Dados
+
+- relacionais (Mysql)
+- não relacionais (mongodb)
+
+------------------------------------------------------------------------------------------
+Linguagem de Programação
+
+- Java (Vamos Usar)
+- C# 
+
+------------------------------------------------------------------------------------------
+Projeto 1 - Simples Agenda de Contatos
+
+Briefing: 
+- Nome do Contato (Obrigatório)
+- Fone (Obrigatório)
+- E-mail (não Obrigatório)
+
+Ações
+- Cadastrar um novo Contato
+- Alterar os dados de um Contato
+- Pesquisar Contatos
+- Excluir um Contato
+
+------------------------------------------------------------------------------------------
+Material de apoio:
+https://github.com/professorjosedeassis/mysql

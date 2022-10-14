@@ -1,0 +1,11 @@
+Vetor e matriz:
+
+- Slides 78,79,80 e 81
+
+Vetor é uma variável capaz de armazenar múltiplos valores
+O vetor usa o índice para administrar os valores
+O índice é um numeiro inteiro e sempre inicia em 0
+
+Array simples -> Vetor -> Tamanho(valores armazenados) não varia
+Array List -> Vetor -> Tamanho varia (vetor dinâmico)
+Array multidimensional -> Matriz

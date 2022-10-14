@@ -1,0 +1,22 @@
+#Autor: Állan Richard
+#Data de criação: 16/11/2021
+#Data de atualização: 18/11/2021
+#Versão: 0.02
+******************************************************************************************
+Clonezilla
+******************************************************************************************
+Inicializar o PC com a mídia do Clonezilla
+Clonezilla live (VGA 800x600)
+Idioma Português
+Manter Layout de Entrada Padrão
+Iniciar Clonezilla
+device-device
+Modo Iniciante
+Clonagem de disco local para disco local
+Disco de Origem: 50GB
+Disco de Destino: 60GB
+-sfsck Ignorar verificação/correção de sistema de arquivos de origem
+-p poweroff Desligar
+Enter
+Y
+Y

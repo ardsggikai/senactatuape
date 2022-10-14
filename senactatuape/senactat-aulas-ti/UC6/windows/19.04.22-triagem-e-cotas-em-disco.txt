@@ -1,0 +1,86 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 19/04/2022
+#Data de atualização: 19/04/2022
+#Versão: 0.01
+******************************************************************************************
+Triagem e Cotas em Disco
+******************************************************************************************
+Abra o Server Manager
+Clique em Manage
+Add Roles and Features
+Next
+Next
+Next
+File and Storage Services
+File and iSCSI Services
+File Server Resource Manager
+Next
+Next
+Install
+******************************************************************************************
+Abra o Server Manager
+Clique em Tools
+File Server Resource Manager
+Quota Management
+Quota Templates
+Create Quota Template
+Template Name: 20MB
+Description: Cota de 20MB
+Limit: 20MB
+******************************************************************************************
+Cota em Pasta
+Quotas
+Create Quota
+Quota path: F:\VILA\PublicaVila
+Create quota on path
+Derive properties from this quota template (recommended):
+20MB
+Create
+******************************************************************************************
+Aplicar Cota na Pasta Base
+Quotas
+Create Quota
+Quota path: F:\HOME
+Auto apply template and create quotas on existing and new subfolders
+Derive properties from this quota template (recommended):
+20MB
+Create
+******************************************************************************************
+Aplicar Triagem
+File Screening Management
+File Groups
+Create File Group
+File group name: braga
+Files to include:
+*.bat
+*.cmd
+*.eml
+*.exe
+*.mp3
+*.mp4
+*.rar
+*.zip
+******************************************************************************************
+File Screen Templates
+Create File Screen Template
+Template name: Braga
+Active screening: Do not allow users to save unauthorized Files
+File groups: braga
+OK
+******************************************************************************************
+File Screens
+Create File Screens
+File Screen path: F:\VILA\PublicaVila
+Derive properties from this file screen template (recommended): Braga
+Create
+******************************************************************************************
+GPO: GPO-USERS-BLOQUEIA-UNIDADE-C
+GPO Status: Computer User configuration settings disabled
+User Configuration/Policies/Administrative Templates/Windows Components/File Explorer
+Hide these specified drives in My Computer: Enabled  
+Pick one of the following combinations: Restrict A, B, C and D drives only 
+ 
+Prevent access to drives from My Computer: Enabled  
+Pick one of the following combinations: Restrict A, B, C and D drives only 
+ 
+

@@ -1,0 +1,42 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 29/05/2022
+#Versão: 0.03
+
+#Agora que temos o Apache e o MariaDB instalados, a peça que falta é o PHP. Vamos instalar o PHP e as extensões #padrão que são comumente usadas.
+
+sudo apt install php libapache2-mod-php php-cli php-fpm php-json php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear php-bcmath
+
+#Habilite o módulo Apache se ainda não estiver habilitado e reinicie o Servidor Web.
+
+# Ubuntu 22.04
+#(essa é a versão do meu atual)
+sudo a2enmod php8.1
+Considering dependency mpm_prefork for php8.1:
+Considering conflict mpm_event for mpm_prefork:
+Considering conflict mpm_worker for mpm_prefork:
+Module mpm_prefork already enabled
+Considering conflict php5 for php8.1:
+Module php8.1 already enabled
+
+#pode ja estar ativado mas não custa testar
+
+#para saber a versão do seu digite esse comando
+
+ php -v
+
+PHP 8.1.2 (cli) (built: Apr  7 2022 17:46:26) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.1.2, Copyright (c) Zend Technologies
+    with Zend OPcache v8.1.2, Copyright (c), by Zend Technologies
+
+#Crie um script php para testar a instalação da pilha LAMP.
+
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/phpinfo.php
+
+#Abra o IP e URL do seu servidor:  http://192.168.0.83/phpinfo.php
+#Abra o IP e URL do seu servidor:  http://172.16.2.20/phpinfo.php
+
+#e dentro o http://
+
+#Isso fornece informações detalhadas sobre o servidor web PHP e Apache. Isso marca o fim do nosso guia sobre como #instalar o LAMP Stack no sistema Linux Ubuntu 22.04
