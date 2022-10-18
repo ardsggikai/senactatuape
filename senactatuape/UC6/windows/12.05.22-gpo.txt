@@ -1,0 +1,172 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 12/05/2022
+#Data de atualização: 12/05/2022
+#Versão: 0.02
+-----------------------------------------------------------------------------------------------------------
+No controlador de domínio, abra a ferramenta de gerenciamento de políticas de grupo.
+Crie uma nova política de grupo.
+Digite um nome para a nova política do grupo. (GPO-DESATIVAR-CORTANA)
+Computer Configuration > Policies > Administrative Templates > Windows Components > Search
+Desabilitar a opção chamada Permitir Cortana.
+Para salvar a configuração da política de grupo, você precisa fechar o editor de Política de Grupo.
+No WINDOWS SERVER 2012 R2 (Não Tem essa Politica)
+-----------------------------------------------------------------------------------------------------------
+GPO-IMPEDIR-ACESSO-AO-PAINEL-DE-CONTROLE
+User Configuration > Policies > Administrative Templates > Control Panel
+Habilite o item chamado Proibir o acesso ao Painel de Controle e às configurações do PC.
+-----------------------------------------------------------------------------------------------------------
+GPO-BLOQUEAR-TELA-DO-WINDOWS-APÓS-INATIVIDADE
+• User Configuration > Policies > Administrative Templates > Control Panel > Personalization
+À direita, serão apresentados os itens de configuração disponíveis para personalização do painel de controle.
+Clique duas vezes no item de configuração chamado Habilitar protetor de tela.
+Na tela do item de configuração, você precisa selecionar a opção Habilitada.
+Clique duas vezes no item de configuração chamado Senha proteja o protetor de tela.
+Na tela do item de configuração, você precisa selecionar a opção Habilitada.
+Clique duas vezes no item de configuração chamado Tempo limite de salvamento de tela.
+Na tela do item de configuração, você precisa selecionar a opção Habilitada.
+Defina a quantidade de tempo IDLE que você deseja esperar antes de bloquear a tela do computador.
+Em nosso exemplo, estabelecemos um limite de 600 segundos.
+Clique duas vezes no item de configuração chamado Economia de tela específica da Força.
+Na tela do item de configuração, você precisa definir o seguinte protetor de tela específico:
+
+%windir%\system32\rundll32.exe user32.dll,LockWorkStation
+
+Este comando bloqueará a tela do computador em 10 Minutos vez de mostrar um protetor de tela.
+-----------------------------------------------------------------------------------------------------------
+GPO-DESATIVAR-A-CONTA-DE-CONVIDADO
+Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options
+Acesse a opção chamada Status da conta de Convidado.
+Desative a conta do usuário convidado.
+-----------------------------------------------------------------------------------------------------------
+GPO-EVITAR-ALTERAÇÕES-NAS-CONFIGURAÇÕES-DO-PROXY
+Computer Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer
+Acesse a pasta de configuração do Internet Explorer.
+Acesse e habilite a opção chamada Impedir a alteração das configurações de proxy.
+Para salvar a configuração da política de grupo, você precisa fechar o editor de Política de Grupo.
+
+Parabéns! Você terminou a criação do GPO, Ainda Falta Aplicar..
+Na tela de gerenciamento de políticas do Grupo, você precisa clicar com o botão direito do mouse na Unidade Organizacional desejada e selecionar a opção de vincular um GPO existente.
+Em nosso exemplo, vamos vincular a política de grupo chamada MY-GPO à raiz do domínio.
+Depois de aplicar o GPO você precisa esperar por 10 ou 20 minutos.
+Durante este tempo, o GPO será replicado para outros controladores de domínio.
+Para testar a configuração, abra a configuração de Proxy do Internet Explorer.
+Aqui está a tela de configuração do Proxy, antes de nossa configuração.
+
+
+-----------------------------------------------------------------------------------------------------------
+GPO-SCRIPT-DE-CONFIGURAÇÃO-AUTOMÁTICA-DE-PROXY
+
+Vamos combinar o proxy do IPFIRE com o DHCP do Windows Server?
+
+Tendo como partida que têm o Servidor DHCP configurado e ativo no Server 2012 R2, vamos então atribuir uma configuração WPAD.
+
+Abrir gestor do DHCP com o comando:
+
+dhcpmgmt.msc
+
+    Expandir DHCP/HOST/IPV4
+    Botão direito sobre IPV4 e escolher opção “Set Predefined Options”
+    Na caixa de diálogo que surgir, clique em Adicionar (Add).
+    Agora na caixa que surgir, registe os seguintes valores:
+        Em Name: WPAD
+        Em Data type: String
+        Em Code: 252.
+        Em Description: WPAD IPFIRE
+        Carregue agora em OK
+        Agora em Value/String escreva o caminho do seu PAC
+
+ex:
+
+http://172.16.4.254:3128/proxy.pac
+
+Este ficheiro deverá ser algo do genero:
+
+function FindProxyForURL(url, host)
+{
+if (
+     (isPlainHostName(host)) ||
+     (isInNet(host, "127.0.0.1", "255.0.0.0")) ||
+     (isInNet(host, "192.168.1.0", "255.255.255.0")) ||
+     (isInNet(host, "169.254.0.0", "255.255.0.0"))
+     (isInNet(host, "172.16.4.0", "255.255.0.0"))
+     (isInNet(host, "10.26.44.0", "255.255.0.0"))
+     (isInNet(host, "10.0.4.0", "255.0.0.0"))
+   )
+     return "DIRECT";
+
+ else
+
+if (
+     (isInNet(myIpAddress(), "172.16.4.254", "255.255.0.0"))
+     (isInNet(myIpAddress(), "10.26.44.65", "255.0.0.0"))
+     (isInNet(myIpAddress(), "10.0.4.15", "255.0.0.0"))
+   )
+     return "PROXY 172.16.4.254:3128";
+}
+
+Este arquivo Proxy PAC especifica que o acesso à rede interna 172.16.4.0/24 deve ser direto.
+
+O acesso à rede interna não deve usar um servidor Proxy.
+
+Para todos os outros acessos, o computador deve usar o servidor Proxy 172.16.4.254 e a porta TCP 3128.
+
+
+\\srvardsg\NETLOGON
+
+
+    Expandir DHCP/HOST/IPV4/SCOPE/
+    Botão direito sobre Scope Options e activar a opção 252 WPAD
+    Entrar OK e está pronto.
+
+---------------------------------------------------------------------------------------------
+GPO-COMP-DESABILITA-IPV6
+GPO Status: Computer configuration settings 
+Computer Configuration/Preferences/Windows Settings/Registry/
+Action: Update 
+Hive: HKEY_LOCAL_MACHINE 
+Key path: System\CurrentControlSet\Services\Tcpip6\Parameters 
+Value name: DisabledComponents 
+Value type: REG_DWORD 
+Value data: 0xFF
+---------------------------------------------------------------------------------------------
+GPO-COMP-ENERGIA
+GPO Status: User configuration settings disabled
+Computer Configuration/Preferences/Control Panel Settings/Power Options/
+New, Power Plan (At least Windows 7)
+Action: Update
+High performance
+Set as the active power plan
+
+When computer is: 					Plugged in 			Running on batteries 
+Require a password on wakeup: 		Yes 				Yes 
+Turn off hard disk after: 			Never 				Never 
+Sleep after: 						Never 				Never 
+Allow hybrid sleep: 				Off 				Off 
+Hibernate after: 					Never 				Never 
+Lid close action: 					Do nothing 			Do nothing 
+Power button action: 				Shutdown 			Shutdown 
+Start menu power button: 			Do nothing 			Do nothing 
+Link State Power Management: 		Off 				Off 
+Minimum processor state: 			After 100 minutes 	After 5 minutes 
+Maximum processor state: 			After 100 minutes 	After 100 minutes 
+Turn off display after: 			After 10 minutes 	Never 
+Adaptive display: 					On 					On 
+Critical battery action: 			Do nothing 			Shutdown 
+Low battery level: 					After 10 minutes 	After 10 minutes 
+Critical battery level: 			After 5 minutes 	After 5 minutes 
+Low battery notification: 			Off 				Off 
+Low battery action: 				Do nothing 			Do nothing 
+******************************************************************************************
+GPO-COMP-REMOTE-DESKTOP
+GPO Status: User configuration settings disabled
+Computer Configuration/Preferences/Control Panel Settings/Local Users and Groups
+New Local Group
+Action Update 
+Group Name: Remote Desktop Users (built-in)
+Add 
+ALLAN\G-TI-REMOTE-DESKTOP
+******************************************************************************************
+
+
+gpupdate /force
+

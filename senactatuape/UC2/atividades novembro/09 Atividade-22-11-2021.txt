@@ -1,0 +1,89 @@
+Atividade de hoje: 22/11/2021
+
+Primeira etapa: Voltar o Snapshot do Windows 10
+                (Primeiro snapshot antes da clonagem)
+                
+Segunda etapa.: Conceitos Básicos de endereço IPv4
+                 (será explicado na aula)
+
+Terceira etapa: Configurar o Nome do Computador: Configurar o Nome do computador:
+                Seu+Nome-Número_da_Máquina: allan-1
+                Configurar o Grupo de Trabalho.: SENACTAT
+                Utilizar o usuário: senac e senha:
+                123@senac
+                (OBS: se você configurou difrente, você deve configurar dessa forma o usuário e senha inicial para as regras de Workgroup 
+                funcione corretamente nos exercicios da aula de hoje 
+                Windows + R = sysdm.cpl
+                hostname= allan-1
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Sites para comandos: Referências 
+                https://ss64.com/
+                https://webmundi.com/sistema-operacional/windows-7/221-comandos-executar-do-windows-run-commands/
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Endereços MAC
+
+Quarta etapa..: Digitar o comando getmac no powershell e apareceu 
+Endereço físico     Nome de transporte
+=================== ==========================================================
+08-00-27-FC-38-13   \Device\Tcpip_{CEB2B4B6-3F43-4AC8-82D8-9ECF8A87A51D}
+PS C:\Users\senac>
+
+Regra N-1: não pode ter duas rede Mac Address se não entra em Loop. 
+Endereço IPv4 Significa Protocol version 4, cada protocolo é composto por quatro grupos de dois dígitos hexadecimais (32Bits= 4Bytes)
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Regra N-2: 2^8= 255
+        : 
+        : 0-> ID Rede
+        : 255       
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+192.168.0./0 Host=Pcs
+255.255.255./0
+Rede/
+0-> IDRede
+1 a 254
+255-> Broadcast
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Endereços IPv4 Público/Privados
+Classe A -> 0.0.0.0 -> 127.255.255.255 (nunca usar para configuraçoes de rede, serve pra loopback)
+                       (127)
+Classe B -> 128.0.0.0 -> 191.255.255.255
+                       (169 APIPA)
+Classe C -> 192.0.0.0 -> 223.255.255.255
+
+Classe D -> 224.0.0.0 -> 239.255.255.255
+                       (239)
+Classe E -> 240.0.0.0 -> 247.255.255.255
+                       
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Chasses Privada CIDR
+A= 10.0.0.0 -> 10.255.255.255   (REDES GRANDES)
+Mascara Padrão: 255.0.0.0  /8 Ativos Pra rede 
+Comando no powershell IPConfig
+
+B= 172.16.0.0 -> 172.31.255.255 (REDES MEDIAS)
+Mascara Padrão: 255.255.0.0 /16 Ativos Pra rede
+
+C= 192.168.0.0 -> 192.168.255.255 (REDES PEQUENAS)
+Mascara Padrão: 255.255.255.0 /24 Ativos Pra Rede
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+GATEWAY é um Medium Ingles para Espanhol 
+IP/Mask tem que ser igual (porta de Saida Igual)
+VLSM
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Nome para IP
+DNS: 8.8.8.8
+     1.1.1.1
+DNS não liga pra Mask só Pra Rede
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

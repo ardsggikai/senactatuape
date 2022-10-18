@@ -1,0 +1,560 @@
+@charset "UTF-8";
+
+/* css reset */
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(100, 100, 100);
+
+}
+
+#interface {
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+#top {
+    height: 130px;
+}
+
+#menu {
+    display: block;
+    position: absolute;
+    width: 800px;
+    top: 98px;
+    margin-left: 300px;
+    z-index: 1;
+}
+
+#menu ul {
+    text-decoration: none;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.1em;
+}
+
+#menu li {
+    float: left;
+    background: black;
+}
+
+#menu li a {
+    color: #FFF;
+    text-decoration: none;
+    margin: 0px;
+    padding: 5px 25px;
+    display: block;
+}
+
+#menu li a:hover {
+    background: #FFF;
+    color: #000;
+    text-decoration: underline;
+}
+
+/*SUB MENU*/
+#menu li ul {
+    display: none;
+    font-size: 1em;
+
+}
+
+#menu li:hover ul {
+    display: block;
+    position: relative;
+}
+
+#menu li:hover li {
+    float: none;
+}
+
+/*FIM DO SUB MENU*/
+
+/* BANNER */
+#banner-anime {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 350px;
+    margin: 0px;
+}
+
+#anime1, #anime2 {
+    max-width: 100%;
+    height: auto;
+
+}
+
+#banner-anime img {
+    position: absolute;
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    /*ease, ease-in, ease-out, aliviar-in-out, cubico-bezier*/
+}
+
+#anime1, #anime2:hover {
+    opacity: 1;
+}
+
+#anime1:hover, #anime2 {
+    opacity: 0;
+}
+
+/* FIM BANNER */
+
+/* CONTEUDO */
+#content {
+
+    position: relative;
+    max-width: 1200px;
+    height: auto;
+    left: 5px;
+    text-align: center;
+}
+
+.console {
+
+    float: left;
+    width: 360px;
+    margin: 10px 20px;
+
+}
+
+h2 {
+
+    color: white;
+    font-size: 1.3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p {
+
+    text-align: justify;
+    color: white;
+    font-size: 1.1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px 15px;
+}
+
+img {
+
+    max-width: 100%;
+    height: auto;
+}
+
+span {
+
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+span a {
+
+    font-size: 1.2em;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background: rgb(100, 100, 100);
+    padding: 5px 10px;
+    border-radius: 25px;
+
+}
+
+span a:hover {
+
+    background: grey;
+    padding: 5px 10px;
+
+}
+
+#footer {
+
+    clear: both;
+    border-top: 2px solid grey;
+    padding: 5px;
+
+}
+
+#footer p {
+
+    text-align: center;
+
+}
+
+/* INICIO DA PAGINA XBOX */
+
+#principal-xbox {
+
+    display: block;
+    width: 800px;
+    float: left;
+    border-right: 2px solid grey;
+
+}
+
+h1 {
+
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 10px 0px;
+    font-size: 1.2em;
+
+}
+
+table {
+
+    margin: 0px auto;
+
+}
+
+td {
+
+    padding: 3px;
+
+}
+
+table img {
+
+    display: block;
+    margin: auto;
+    width: auto;
+    height: auto;
+
+}
+
+#lateral-direita {
+
+    display: block;
+    float: right;
+    margin: 5px 0px;
+    width: 380px;
+
+}
+
+#lateral-direita h2, h3 {
+
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    color: black;
+    margin: 10px 0px;
+
+}
+
+#youtube {
+
+    margin: 10px 0px;
+
+}
+
+/* INICIO DA PAGINA Playstation */
+
+#principal-playstation {
+
+    display: block;
+    width: 800px;
+    float: right;
+    border-left: 2px solid grey;
+
+}
+
+h1 {
+
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 10px 0px;
+    font-size: 1.2em;
+
+}
+
+table {
+
+    margin: 0px auto;
+
+}
+
+td {
+
+    padding: 3px;
+
+}
+
+table img {
+
+    display: block;
+    margin: auto;
+    width: auto;
+    height: auto;
+
+}
+
+#lateral-esquerda {
+
+    display: block;
+    float: right;
+    margin: 5px 0px;
+    width: 380px;
+
+}
+
+#lateral-esquerda h2, h3 {
+
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    color: black;
+    margin: 10px 0px;
+
+}
+
+#youtube {
+
+    margin: 10px 0px;
+
+}
+
+/* PAGINA DE FOTOS */
+
+#photo-album{
+    width: 60%;
+    margin: 0px auto;
+    padding: 50px;
+    list-style: none;
+}
+
+#photo-album li{
+    float: left;
+    width: 28%;
+    height: 200px;
+    margin: 10px;
+    border: 5px solid darkslategrey;
+    background: white;
+}
+
+#photo-album li .gallery{
+    opacity: 0;
+    color: white;
+    background: rgba(0, 0, 0, .5);
+    font: 0.9em verdana;
+    line-height: 370px;
+    padding: 5px;
+}
+
+#photo-album li:hover .gallery{
+    opacity: 1;
+}
+
+#photo-album li:hover{
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+#photo-album li.pix01{
+    background: url(img/galeria1.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
+
+#photo-album li.pix01:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
+}
+
+#photo-album li.pix02{
+    background: url(img/galeria2.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
+
+#photo-album li.pix02:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
+}
+
+#photo-album li.pix03{
+    background: url(img/galeria3.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
+
+#photo-album li.pix03:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
+}
+
+#photo-album li.pix04{
+    background: url(img/galeria4.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
+
+#photo-album li.pix04:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
+}
+
+#photo-album li.pix05{
+    background: url(img/galeria5.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
+
+#photo-album li.pix05:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
+}
+
+#photo-album li.pix06{
+    background: url(img/galeria6.jpg) no-repeat;
+    background-position: 50% 50%;
+    background-size: 700px 500px;
+}
+
+#photo-album li.pix06:hover{
+    background-position: 0% 0%;
+    background-size: 200px 200px;
+}
+
+/* SEGUNDA GALERIA */
+
+#gallery2{
+    width: 800px;
+    height: 480px;
+    margin: 0 auto;
+}
+
+#photo-gallery{
+    list-style: none;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+#photo-gallery li{
+    display:block;
+    float: left;
+    margin: 3px;
+    position: relative;
+}
+
+#photo-gallery img{
+    background: white;
+    border: 5px solid darkslategrey;
+    width: 200px;
+    height: 165px;
+}
+
+.magnify:hover{
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    z-index: 5;
+}
+
+/* FIM DA PAGINA DE FOTOS */
+
+/* INICIO DA PAGINA DE VIDEOS */
+
+#radio-tv {
+
+    width: 75%;
+    height: 580px;
+    background: url(img/radio-tv.png) no-repeat;
+    margin: 5px auto;
+
+}
+
+#musica {
+
+display: block;
+position: relative;
+width: 33%;
+top: 490px;
+left: 575px;
+
+}
+
+#filme {
+
+    display: block;
+    position: relative;
+    width: 49%;
+    height: 320px;
+    top: 20px;
+    left: 90px;
+
+}
+
+/* FIM DO FILME */
+
+/* INICIO DA PÁGINA CONTATOS */
+
+form {
+
+    width: 1000px;
+    margin: auto;
+
+}
+
+input, textarea {
+
+    background: ghostwhite;
+    font: 1.1em arial;   
+
+}
+
+legend {
+
+    color: black;
+    font: 1.5em arial;
+    font-weight: bold;
+
+}
+
+fieldset {
+
+    border: black;
+    margin: 20px;
+
+}
+
+#usuario {
+
+    background: url("img/icon-contato.png") no-repeat 95% 95%;
+
+}
+
+#endereco {
+
+    background: url("img/icon-endereco.png") no-repeat 95% 95%;
+
+}
+
+#mensagem {
+
+    background: url("img/icon-mensagem.png") no-repeat 95% 95%;
+
+}
+
+.btn {
+
+    background: white;
+    padding: 7px;
+    margin: 5px;
+    font:  1.2em arial;
+    border-radius: 30px;
+
+}
+
+.btn:hover {
+
+    background: grey;
+
+}

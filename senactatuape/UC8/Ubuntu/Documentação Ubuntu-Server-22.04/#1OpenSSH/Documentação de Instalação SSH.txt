@@ -1,0 +1,234 @@
+#Autor: Allan Richard De Souza Gomes
+#Data de criação: 26/05/2022
+#Data de atualização: 02/06/2022
+#Versão: 0.05
+
+Etapa 1) Instale os pacotes do OpenSSH Server no Ubuntu 22.04|20.04
+Vamos começar com o processo de instalação do servidor OpenSSH no Ubuntu 22.04|20.04. Mas primeiro, atualize a lista de pacotes do SO conforme configurado nos repositórios de fontes:
+
+ sudo apt update
+
+#Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [90.7 kB]
+#Hit:2 http://ke.archive.ubuntu.com/ubuntu jammy InRelease
+#Get:3 http://ke.archive.ubuntu.com/ubuntu jammy-updates InRelease [90.7 kB]
+#Get:4 http://ke.archive.ubuntu.com/ubuntu jammy-backports InRelease [90.7 kB]
+#Fetched 272 kB in 2s (163 kB/s)
+#Reading package lists... Done
+#Building dependency tree... Done
+#Reading state information... Done
+#45 packages can be upgraded. Run 'apt list --upgradable' to see them.
+#Thereafter, install OpenSSH Server packages on Ubuntu 22.04|20.04 using the commands below:
+
+ sudo apt install openssh-server
+
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  openssh-sftp-server runit-helper
+Suggested packages:
+  molly-guard monkeysphere ssh-askpass ufw
+The following NEW packages will be installed:
+  openssh-server openssh-sftp-server runit-helper
+0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 446 kB of archives.
+After this operation, 1,765 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+
+Após a instalação do servidor OpenSSH, inicie o serviço ssh:
+
+ sudo systemctl start ssh
+
+Recomenda-se habilitar o serviço para iniciar com o SO. Isso garantirá que você não seja desconectado do sistema se o sistema for reinicializado.
+
+ sudo systemctl enable ssh
+
+Synchronizing state of ssh.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable ssh
+
+O comando abaixo mostrará o status do serviço. Se tudo correu como esperado, deve estar em estado de execução.
+
+ grupo2@wsgrupo2:~$ systemctl status ssh
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2022-06-02 04:11:28 -03; 5min ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+   Main PID: 685 (sshd)
+      Tasks: 1 (limit: 3448)
+     Memory: 7.8M
+        CPU: 43ms
+     CGroup: /system.slice/ssh.service
+             └─685 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+jun 02 04:11:28 wsgrupo2 systemd[1]: Starting OpenBSD Secure Shell server...
+jun 02 04:11:28 wsgrupo2 sshd[685]: Server listening on 0.0.0.0 port 22.
+jun 02 04:11:28 wsgrupo2 sshd[685]: Server listening on :: port 22.
+jun 02 04:11:28 wsgrupo2 systemd[1]: Started OpenBSD Secure Shell server.
+jun 02 04:16:21 wsgrupo2 sshd[862]: Accepted password for grupo2 from 192.168.0.79 port 58565 ssh2
+jun 02 04:16:21 wsgrupo2 sshd[862]: pam_unix(sshd:session): session opened for user grupo2(uid=1000) by (uid=0)
+
+O arquivo de configuração do servidor OpenSSH é /etc/ssh/sshd_config. O arquivo contém pares palavra-chave-argumento, um por linha. Todas as linhas que começam com # e linhas vazias são interpretadas como comentários.
+
+Etapa 2) Copie sua chave pública SSH da estação de trabalho para o sistema Ubuntu
+Antes de desabilitar a autenticação de senha para SSH, você precisa copiar as chaves públicas SSH da estação de trabalho para o servidor ou para a máquina Ubuntu Desktop remota.
+
+Gere chaves SSH se você ainda não as tiver no SO da estação de trabalho – o comando fornecido funciona para Linux e macOS:
+
+ ssh-keygen
+ 
+grupo2@wsgrupo2:~$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/grupo2/.ssh/id_rsa): KeyPub/Priv
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Saving key "KeyPub/Priv" failed: No such file or directory
+grupo2@wsgrupo2:~$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/grupo2/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/grupo2/.ssh/id_rsa
+ -----BEGIN OPENSSH PRIVATE KEY-----
+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
+rkYc35egawG1dAhf3CjG9WUNBu4=
+-----END OPENSSH PRIVATE KEY-----
+Your public key has been saved in /home/grupo2/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCzSL9nJYjkiF6sXtjV9MjvLWKqNodZ1cAww50wvOYkBhnRazVqive2DYg2BgqsAPdecqGdkLSx1MRAj8WaLECMDyVJp4zfcuidr1aaRSOT6uNnqAtXvdvzhRFvFqMSPy5emSGhjM+VswvAeLyemY85ypKzTBKX4CT4wSlRjz1Kuv5Qmv7lX9YLja9ylHV2EtCyuQpy7U8ZNYVLOo7fg7p5E7lYsjblxBwrzxwU2wVGumbf4BKePKPznN8jsbx1+KE8SwZtEDJ9qdHsyN+tWHI8HgAB8EioTyOHDhOcyr+MgmJo75V6Dlb7ZlZEPTCpAe0S4zai1We7HKgphFOG9L9V9fTmP8Uc8rqTZRgCqCUjm/Tmfd994BBW8EkZ2eHPBnsJR1+13f6xqHABoG5wIBv8N3aQuCO36PcgV0xJam8esqSmMUbqtT1kGBXfTYEICQRmJOdpbKJGuZDgKM1tqjJzMKunerwaMKr/nLVeruxeFgZVEUGdz8N3iMpDibiehwU= grupo2@wsgrupo2
+
+Obtenha o endereço IP privado ou privado do sistema Ubuntu remoto:
+
+ ip address
+
+grupo2@wsgrupo2:~$ ip address
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:7d:60:11 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.83/24 metric 100 brd 192.168.0.255 scope global dynamic enp0s3
+       valid_lft 86034sec preferred_lft 86034sec
+    inet6 2804:14c:58:2546::1002/128 scope global dynamic noprefixroute
+       valid_lft 3234sec preferred_lft 3234sec
+    inet6 2804:14c:58:2546:a00:27ff:fe7d:6011/64 scope global dynamic mngtmpaddr noprefixroute
+       valid_lft 604765sec preferred_lft 518365sec
+    inet6 fe80::a00:27ff:fe7d:6011/64 scope link
+       valid_lft forever preferred_lft forever
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:67:84:d1 brd ff:ff:ff:ff:ff:ff
+    inet 172.16.2.20/24 brd 172.16.2.255 scope global enp0s8
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe67:84d1/64 scope link
+       valid_lft forever preferred_lft forever
+
+Meu endereço IP do servidor Ubuntu 22.04 é 172.16.2.20. Faça ping no endereço IP para confirmar a conectividade de rede da sua estação de trabalho:
+
+ ping -c 3 172.16.2.20
+
+PING 172.16.2.20 (172.16.2.20): 56 data bytes
+64 bytes from 172.16.2.20: icmp_seq=0 ttl=63 time=188.575 ms
+64 bytes from 172.16.2.20: icmp_seq=1 ttl=63 time=181.137 ms
+64 bytes from 172.16.2.20: icmp_seq=2 ttl=63 time=192.178 ms
+
+--- 172.16.2.20 ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 181.137/187.297/192.178/4.597 ms
+After confirming you can access remote Ubuntu server from your Workstation, copy SSH public key:
+
+grupo2@wsgrupo2:~$ ping 172.16.2.20
+PING 172.16.2.20 (172.16.2.20) 56(84) bytes of data.
+64 bytes from 172.16.2.20: icmp_seq=1 ttl=64 time=0.014 ms
+64 bytes from 172.16.2.20: icmp_seq=2 ttl=64 time=0.029 ms
+64 bytes from 172.16.2.20: icmp_seq=3 ttl=64 time=0.030 ms
+64 bytes from 172.16.2.20: icmp_seq=4 ttl=64 time=0.030 ms
+64 bytes from 172.16.2.20: icmp_seq=5 ttl=64 time=0.029 ms
+64 bytes from 172.16.2.20: icmp_seq=6 ttl=64 time=0.029 ms
+^C
+--- 172.16.2.20 ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, time 5281ms
+rtt min/avg/max/mdev = 0.014/0.026/0.030/0.005 ms
+
+grupo2@wsgrupo2:~$ ssh-copy-id grupo2@172.16.2.20
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/grupo2/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+Enter passphrase for key '/home/grupo2/.ssh/id_rsa':
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+                (if you think this is a mistake, you may want to use -f option)
+
+grupo2@wsgrupo2:~$ ssh-copy-id grupo2@192.168.0.83
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/grupo2/.ssh/id_rsa.pub"
+The authenticity of host '192.168.0.83 (192.168.0.83)' can't be established.
+ED25519 key fingerprint is SHA256:lQ42HyRRMSW+41FYS3mCtW+f6RBMiy0Ztw140PwPZfE.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:1: [hashed name]
+    ~/.ssh/known_hosts:4: [hashed name]
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+Enter passphrase for key '/home/grupo2/.ssh/id_rsa':
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+                (if you think this is a mistake, you may want to use -f option)
+
+Agora tente fazer login na máquina, com: "ssh 'grupo2@172.16.2.20'"
+e verifique se apenas a(s) chave(s) desejada(s) foi(são) adicionada(s).
+Onde:
+
+ubuntu é a conta de usuário remoto
+172.16.2.20 is the IP address of remote Ubuntu system
+Test SSH connectivity to remote Ubuntu system after copying SSH Pubkey. You should not be prompted for User Password, but maybe SSH private key keyphrase if it was set.
+
+ ssh grupo2@172.16.2.20
+ ssh grupo2@192.168.0.81
+
+Warning: Permanently added '172.16.2.20' (ECDSA) to the list of known hosts.
+Enter passphrase for key '/Users/grupo2/.ssh/id_rsa':
+Welcome to Ubuntu Jammy Jellyfish (development branch) (GNU/Linux 5.13.0-19-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+45 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Your Hardware Enablement Stack (HWE) is supported until April 2025.
+Last login: Thu Mai 27 13:55:16 2022 from 172.16.2.1

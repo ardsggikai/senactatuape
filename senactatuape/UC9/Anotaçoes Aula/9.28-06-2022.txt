@@ -1,0 +1,35 @@
+Desafio:
+APP Etanol x Gasolina
+Desenvolver no Java um APP que calcule o combustível
+mais vantajoso para abastecer (Etanol ou Gasolina?)
+
+Segundo as montadoras de veículos é mais vantagem
+abastecer com Etanol se o litro custar até 70% do
+valor do litro da gasolina.
+
+ref: https://meubolsoemdia.com.br/calculadora-alcool-gasolina
+
+Algorítimo:
+
+//variáveis
+etanol, gasolina (números não inteiros)
+
+//entrada
+etanol, gasolina
+
+//processamento/saída
+if (etanol < 0.7 * gasolina) {
+ //abastecer com etanol
+} else {
+ //abastecer com gasolina
+} 
+
+Mudar Propriedade de um Label
+
+Convert Local to Field
+
+Dica: Mudar imagem:
+lblStatus.setIcon(new ImageIcon(Combustivel.class.getResource("/img/icone.png")));
+
+
+
