@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 07 Atividade-18-11-2021.txt
 
 Primeira etapa: Iniciar o Windows 10

@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Primeira etapa: Iniciar o Linux Mint;
 Segunda etapa.: Finalizar as atividades da última aula;
 Terceiro etapa: Trabalhar com: Visual Studio Code (conf)

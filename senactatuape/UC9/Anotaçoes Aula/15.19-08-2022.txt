@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Adionar data e hora do sistema
 
 Criar o evento window - window activated (JFrame)

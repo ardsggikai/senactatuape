@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Qual é a Classe, Máscara, Endereço de REDE e Broadcast dos IPs abaixo
 10.26.40.12 (Classe A) (8Bits) (255.0.0.0) (10.0.0.0) (10.255.255.255)
 200.100.10.2 (Classe C) (24Bits) (255.255.255.0) (200.100.10.0) (200.100.10.255)

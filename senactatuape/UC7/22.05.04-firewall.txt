@@ -1,4 +1,4 @@
-#Autor: Fagner Geraldes Braga
+#Autor: Allan Gomes
 #Data de criação: 04/05/2022
 #Data de atualização: 04/05/2022
 #Versão: 0.01

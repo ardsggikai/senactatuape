@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Primeira etapa: Verificação das contas do Github
 Segunda etapa: Limpeza das Máquinas Virtuais Criadas
         Botão direito do mouse: Deletar, Deletar todos os arquivos

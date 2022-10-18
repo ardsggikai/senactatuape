@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Algorítimo:
 
 1º Passo) Entender o problema

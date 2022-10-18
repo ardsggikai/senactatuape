@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Atividade da aula de hoje: 29/11/2021
 
 Primeira etapa: Inicializar o Linux Mint

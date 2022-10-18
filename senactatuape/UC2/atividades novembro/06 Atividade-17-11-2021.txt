@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 06 Atividade-17-11-2021.txt
 
 Primeira Etapa: Voltar o Snapshot da aula anterior

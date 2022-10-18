@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Atividade de hoje: 25/11/2021
 
 Primeira etapa: Pegar o seu Kit do grupo de Notebook,Fonte, Cabo de Rede,Ligar o seu notebook no switch 

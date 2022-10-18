@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Fundamentos - Lógica
 Variáveis -> RAM
 - String (caracteres)

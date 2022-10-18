@@ -1,5 +1,5 @@
 #Autor: Fagner Geraldes Braga
-#Modificado Por: Allan Richard
+#Modificado Por: Allan Gomes
 #Data de criação: 30/11/2021
 #Data de atualização: 01/12/2021
 #Versão: 0.02
@@ -22,8 +22,8 @@ dd - recorta a linha onde está o cursor
 u - desfaz alteração
 ******************************************************************************************
 echo
-echo Fagner Geraldes Braga
-echo Fagner Geraldes Braga > sesc.txt
+echo Allan Gomes
+echo Allan Gomes > sesc.txt
 cat sesc.txt
 ******************************************************************************************
 aurelio.net

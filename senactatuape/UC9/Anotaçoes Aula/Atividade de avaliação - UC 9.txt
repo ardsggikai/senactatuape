@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Desenvolvimento de um portfólio de projetos:
 
 1X) Cálculo da porcentagem

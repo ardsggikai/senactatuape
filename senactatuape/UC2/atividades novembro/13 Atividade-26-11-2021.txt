@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Atividade de hoje: 26/11/2021 FINALIZAÇÃO PRÁTICAS COM KIT DE NOTEBOOK, SWITCH E ROTEADOR.
 
 Primeira etapa: Pegar o seu Kit do Grupo de Notebook, Fonte, Cabo de Rede, ligar o seu Notebook no Switch e iniciar o Windows 10, fazer todos os testes de conexão de rede (ping, \\, etc...)

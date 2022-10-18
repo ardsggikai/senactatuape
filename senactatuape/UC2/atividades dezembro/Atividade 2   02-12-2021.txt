@@ -1,4 +1,4 @@
-#Autor: Allan Richard
+#Autor: Allan Gomes
 #Data de criação: 02/12/2021
 #Data de atualização: 02/12/2021
 #Versão: 0.01

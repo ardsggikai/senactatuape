@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Revisão IMC APP
 
 Validação - somente uso de números em caixas de texto

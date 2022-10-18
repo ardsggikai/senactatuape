@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Validação de campos obrigatórios:
 
 .isEmpty()  -> verificar se a caixa de texto está vazia

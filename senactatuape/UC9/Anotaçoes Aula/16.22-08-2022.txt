@@ -1,3 +1,4 @@
+#Autor: Allan Gomes
 Vetor e matriz:
 
 - Slides 78,79,80 e 81
