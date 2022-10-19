@@ -5,8 +5,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.DAO;
+
 import java.awt.Toolkit;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
@@ -15,6 +20,13 @@ import java.awt.Cursor;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class Agenda extends JFrame {
 
@@ -23,10 +35,10 @@ public class Agenda extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txtId;
+	private JTextField txtNome;
+	private JTextField txtFone;
+	private JTextField txtEmail;
 
 	/**
 	 * Launch the application.
@@ -48,6 +60,12 @@ public class Agenda extends JFrame {
 	 * Create the frame.
 	 */
 	public Agenda() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				status();
+			}
+		});
 		setResizable(false);
 		setTitle("Agenda de Contatos");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Agenda.class.getResource("/img/favicon.png")));
@@ -55,11 +73,13 @@ public class Agenda extends JFrame {
 		setBounds(100, 100, 500, 290);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lblId = new JLabel("ID");
+		lblId.setForeground(SystemColor.text);
 		lblId.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblId.setHorizontalAlignment(SwingConstants.CENTER);
 		lblId.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -67,62 +87,65 @@ public class Agenda extends JFrame {
 		contentPane.add(lblId);
 
 		JLabel lblNome = new JLabel("Nome");
+		lblNome.setForeground(SystemColor.text);
 		lblNome.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNome.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNome.setFont(new Font("Arial", Font.PLAIN, 11));
 		lblNome.setBounds(32, 53, 57, 14);
 		contentPane.add(lblNome);
 
-		textField = new JTextField();
-		textField.setFont(new Font("Arial", Font.PLAIN, 11));
-		textField.setBounds(375, 54, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtId = new JTextField();
+		txtId.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtId.setBounds(375, 54, 86, 20);
+		contentPane.add(txtId);
+		txtId.setColumns(10);
 
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Arial", Font.PLAIN, 11));
-		textField_1.setBounds(91, 51, 180, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		txtNome = new JTextField();
+		txtNome.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtNome.setBounds(91, 51, 180, 20);
+		contentPane.add(txtNome);
+		txtNome.setColumns(10);
 
 		JLabel lblFone = new JLabel("Fone");
+		lblFone.setForeground(SystemColor.text);
 		lblFone.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblFone.setHorizontalAlignment(SwingConstants.CENTER);
 		lblFone.setFont(new Font("Arial", Font.PLAIN, 11));
 		lblFone.setBounds(32, 94, 46, 14);
 		contentPane.add(lblFone);
 
-		textField_2 = new JTextField();
-		textField_2.setBounds(91, 91, 110, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		txtFone = new JTextField();
+		txtFone.setBounds(91, 91, 110, 20);
+		contentPane.add(txtFone);
+		txtFone.setColumns(10);
 
 		JLabel lblEmail = new JLabel("E-Mail");
+		lblEmail.setForeground(SystemColor.text);
 		lblEmail.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEmail.setFont(new Font("Arial", Font.PLAIN, 11));
 		lblEmail.setBounds(36, 125, 46, 14);
 		contentPane.add(lblEmail);
 
-		textField_3 = new JTextField();
-		textField_3.setBounds(91, 121, 212, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		txtEmail = new JTextField();
+		txtEmail.setBounds(91, 121, 212, 20);
+		contentPane.add(txtEmail);
+		txtEmail.setColumns(10);
 
-		JButton btnAdd = new JButton("");
-		btnAdd.setToolTipText("Adicionar Contato");
-		btnAdd.setIcon(new ImageIcon(Agenda.class.getResource("/img/create.png")));
-		btnAdd.setBorderPainted(false);
-		btnAdd.setContentAreaFilled(false);
-		btnAdd.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnAdd.setFont(new Font("Arial", Font.PLAIN, 11));
-		btnAdd.setBounds(69, 176, 64, 64);
-		contentPane.add(btnAdd);
+		JButton btnCreate = new JButton("");
+		btnCreate.setToolTipText("Adicionar Contato");
+		btnCreate.setIcon(new ImageIcon(Agenda.class.getResource("/img/btnCreate.png")));
+		btnCreate.setBorderPainted(false);
+		btnCreate.setContentAreaFilled(false);
+		btnCreate.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCreate.setFont(new Font("Arial", Font.PLAIN, 11));
+		btnCreate.setBounds(69, 176, 64, 64);
+		contentPane.add(btnCreate);
 
 		JButton btnDelete = new JButton("");
 		btnDelete.setToolTipText("Deletar Contato");
 		btnDelete.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnDelete.setIcon(new ImageIcon(Agenda.class.getResource("/img/delete.png")));
+		btnDelete.setIcon(new ImageIcon(Agenda.class.getResource("/img/btnDelete.png")));
 		btnDelete.setFont(new Font("Arial", Font.PLAIN, 11));
 		btnDelete.setContentAreaFilled(false);
 		btnDelete.setBorderPainted(false);
@@ -132,25 +155,100 @@ public class Agenda extends JFrame {
 		JButton btnUpdate = new JButton("");
 		btnUpdate.setToolTipText("Atualizar Lista de Contato");
 		btnUpdate.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnUpdate.setIcon(new ImageIcon(Agenda.class.getResource("/img/update.png")));
+		btnUpdate.setIcon(new ImageIcon(Agenda.class.getResource("/img/btnUpdate.png")));
 		btnUpdate.setFont(new Font("Arial", Font.PLAIN, 11));
 		btnUpdate.setContentAreaFilled(false);
 		btnUpdate.setBorderPainted(false);
 		btnUpdate.setBounds(271, 176, 64, 64);
 		contentPane.add(btnUpdate);
 
-		JButton btnPesquisar = new JButton("");
-		btnPesquisar.addActionListener(new ActionListener() {
+		JButton btnRead = new JButton("");
+		btnRead.setFocusPainted(false);
+		btnRead.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				pesquisarContato();
 			}
 		});
-		btnPesquisar.setToolTipText("Pesquisar Contatos");
-		btnPesquisar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnPesquisar.setIcon(new ImageIcon(Agenda.class.getResource("/img/pesquisar.png")));
-		btnPesquisar.setFont(new Font("Arial", Font.PLAIN, 11));
-		btnPesquisar.setContentAreaFilled(false);
-		btnPesquisar.setBorderPainted(false);
-		btnPesquisar.setBounds(266, 33, 64, 64);
-		contentPane.add(btnPesquisar);
+		btnRead.setToolTipText("Pesquisar Contatos");
+		btnRead.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnRead.setIcon(new ImageIcon(Agenda.class.getResource("/img/btnRead.png")));
+		btnRead.setFont(new Font("Arial", Font.PLAIN, 11));
+		btnRead.setContentAreaFilled(false);
+		btnRead.setBorderPainted(false);
+		btnRead.setBounds(257, 29, 64, 64);
+		contentPane.add(btnRead);
+
+		lblStatus = new JLabel("");
+		lblStatus.setIcon(new ImageIcon(Agenda.class.getResource("/img/dboff.png")));
+		lblStatus.setFont(new Font("Arial", Font.PLAIN, 11));
+		lblStatus.setBounds(395, 85, 48, 48);
+		contentPane.add(lblStatus);
+	}// Fim Do Construtor
+
+	// Criar um objeto para acessar o método conectar() da classe DAO
+	DAO dao = new DAO();
+	private JLabel lblStatus;
+
+	/**
+	 * Método responsavel por verificar o status da conexão com o banco
+	 */
+	private void status() {
+		// System.out.println("Teste - Janela Ativada");
+		// uso da classe connection (JDBC) para estabelecer a conexão
+		try {
+			Connection con = dao.conectar();
+			if (con == null) {
+				System.out.println("Erro de Conexão");
+				lblStatus.setIcon(new ImageIcon(Agenda.class.getResource("/img/dboff.png")));
+			} else {
+				System.out.println("Banco Conectado!");
+				lblStatus.setIcon(new ImageIcon(Agenda.class.getResource("/img/dbon.png")));
+			}
+			// Nunca esquecer de encerrar a conexão
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+	} // Fim do Status
+
+	/**
+	 * Método responsável pela pesquisa (select)
+	 */
+
+	private void pesquisarContato() {
+		// System.out.println("Teste Pesquisar"); (pra testar)
+		// ? é um parâmetro a ser substituido
+		String read = "select * from contatos where nome = ?";
+		try {
+
+			// Estabelecer a conexão ("abrir a porta da geladeira")
+			Connection con = dao.conectar();
+			// Preparar o código sql para execução
+			PreparedStatement pst = con.prepareStatement(read);
+			// A Linha abaixo substituir o ? pelo conteúdo da caixa de texto txtNome, o 1
+			// faz referência a interrogação
+			pst.setString(1, txtNome.getText());
+			// Obter os dados do contato (resultado)
+			ResultSet rs = pst.executeQuery();
+			// Verificar se existe um contato cadastrado
+			// rs.next() significa ter um contato correspondente ao nome pesquisado
+			if (rs.next()) {
+               //setar as caixas de texto com o resultado da pesquisa
+				txtId.setText(rs.getString(1));
+				txtFone.setText(rs.getString(3));
+				txtEmail.setText(rs.getString(4));
+				
+				
+			} else {
+				JOptionPane.showMessageDialog(null, "Contato inexistente");
+
+			}
+			//fechar a conexão
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
-}
+
+}// Fim do codigo

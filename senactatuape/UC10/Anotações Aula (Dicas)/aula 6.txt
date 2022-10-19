@@ -1,0 +1,6 @@
+JDBC
+
+- DriverManager (driver do banco)
+- Connection (abrir e fechar uma conexão)
+- PreparedStatement (Executar o sql(query) no Java)
+- ResultSet (Trazer as informações do banco "resultado")
