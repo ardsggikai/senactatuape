@@ -1,1 +1,4 @@
 git pull && git add . && git commit -m "Atualizacao" && git push
+
+caso der erro error: cannot open .git/FETCH_HEAD: Permission denied
+rm -f .git/FETCH_HEAD
