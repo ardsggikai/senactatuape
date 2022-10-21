@@ -153,6 +153,7 @@ public class Agenda extends JFrame {
 		btnDelete = new JButton("");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				deleteByID();
 			}
 		});
 		btnDelete.setEnabled(false);
@@ -162,10 +163,15 @@ public class Agenda extends JFrame {
 		btnDelete.setFont(new Font("Arial", Font.PLAIN, 11));
 		btnDelete.setContentAreaFilled(false);
 		btnDelete.setBorderPainted(false);
-		btnDelete.setBounds(164, 175, 64, 64);
+		btnDelete.setBounds(271, 175, 64, 64);
 		contentPane.add(btnDelete);
 
 		btnUpdate = new JButton("");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				alterarContato();
+			}
+		});
 		btnUpdate.setEnabled(false);
 		btnUpdate.setToolTipText("Atualizar Lista de Contato");
 		btnUpdate.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -173,10 +179,10 @@ public class Agenda extends JFrame {
 		btnUpdate.setFont(new Font("Arial", Font.PLAIN, 11));
 		btnUpdate.setContentAreaFilled(false);
 		btnUpdate.setBorderPainted(false);
-		btnUpdate.setBounds(271, 176, 64, 64);
+		btnUpdate.setBounds(164, 176, 64, 64);
 		contentPane.add(btnUpdate);
 
-		JButton btnRead = new JButton("");
+		btnRead = new JButton("");
 		btnRead.setFocusPainted(false);
 		btnRead.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -218,15 +224,16 @@ public class Agenda extends JFrame {
 
 	}// Fim Do Construtor
 
-	// Criar um objeto para acessar o mÃ©todo conectar() da classe DAO
+	// Criar um objeto para acessar o metodo conectar() da classe DAO
 	DAO dao = new DAO();
 	private JLabel lblStatus;
 	private JButton btnCreate;
 	private JButton btnDelete;
 	private JButton btnUpdate;
+	private JButton btnRead;
 
 	/**
-	 * MÃ©todo responsavel por verificar o status da conexÃ£o com o banco
+	 * Metodo responsavel por verificar o status da conexÃ£o com o banco
 	 */
 	private void status() {
 		// System.out.println("Teste - Janela Ativada");
@@ -242,6 +249,7 @@ public class Agenda extends JFrame {
 			}
 			// Nunca esquecer de encerrar a conexÃ£o
 			con.close();
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -249,11 +257,11 @@ public class Agenda extends JFrame {
 	} // Fim do Status
 
 	/**
-	 * MÃ©todo responsÃ¡vel pela pesquisa (select)
+	 * Metodo responsavel pela pesquisa (select)
 	 */
 
 	private void pesquisarContato() {
-		// ValidaÃ§ao
+		// Validaçao
 		if (txtNome.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Digite o Nome do Contato");
 			txtNome.requestFocus();
@@ -266,7 +274,7 @@ public class Agenda extends JFrame {
 
 				// Estabelecer a conexÃ£o ("abrir a porta da geladeira")
 				Connection con = dao.conectar();
-				// Preparar o cÃ³digo sql para execuÃ§Ã£o
+				// Preparar o codigo sql para execução
 				PreparedStatement pst = con.prepareStatement(read);
 				// A Linha abaixo substituir o ? pelo conteÃºdo da caixa de texto txtNome, o 1
 				// faz referÃªncia a interrogaÃ§Ã£o
@@ -291,6 +299,7 @@ public class Agenda extends JFrame {
 					txtFone.setText(null);
 					txtEmail.setText(null);
 					btnCreate.setEnabled(true);
+					btnRead.setEnabled(false);
 
 				}
 				// fechar a conexÃ£o
@@ -318,12 +327,12 @@ public class Agenda extends JFrame {
 			try {
 				// Abrir a conexao
 				Connection con = dao.conectar();
-				// Preparar a query (substituiÃ§Ã£o de parametros)
+				// Preparar a query (substituição de parametros)
 				PreparedStatement pst = con.prepareStatement(create);
 				pst.setString(1, txtNome.getText());
 				pst.setString(2, txtFone.getText());
 				pst.setString(3, txtEmail.getText());
-				// Executar a query e confirmar a inserÃ§Ã£o no banco
+				// Executar a query e confirmar a inserção no banco
 				int confirma = pst.executeUpdate();
 				// System.out.println(confirma);
 				if (confirma == 1) {
@@ -341,6 +350,81 @@ public class Agenda extends JFrame {
 	}
 
 	/**
+	 * Método Responsavel por alterar informaçoes do contato
+	 */
+
+	private void alterarContato() {
+
+		// Validaçao
+		if (txtNome.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Digite o Nome do Contato");
+			txtNome.requestFocus();
+		} else if (txtFone.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Digite o Numero do Telefone");
+			txtFone.requestFocus();
+		} else {
+
+			// Lógica Principal
+			String update = "update contatos set nome = ?, fone = ?, email = ? where id = ?";
+
+			try {
+				// Abrir a conexao
+				Connection con = dao.conectar();
+				// Preparar a query (substituição de parametros)
+				PreparedStatement pst = con.prepareStatement(update);
+				pst.setString(1, txtNome.getText());
+				pst.setString(2, txtFone.getText());
+				pst.setString(3, txtEmail.getText());
+				pst.setString(4, txtId.getText());
+				// Executar a query e atualizar as informaçoes no banco
+				int confirma = pst.executeUpdate();
+				// System.out.println(confirma);
+				if (confirma == 1) {
+					JOptionPane.showMessageDialog(null, "Informações do Contato Atualizados com Sucesso.");
+					limpar();
+				}
+
+				// Encerrar a conexão
+				con.close();
+			} catch (Exception e) {
+
+			}
+		}
+	}
+
+	/**
+	 * Método Responsavel por deletar informaçoes do contato
+	 */
+
+	private void deleteByID() {
+
+		// Validação
+		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a Exclusão deste contato?", "Atenção",
+				JOptionPane.YES_NO_OPTION);
+		if (confirma == JOptionPane.YES_OPTION)
+			;
+		String delete = "delete from contatos where id = ?";
+		try {
+			// abrir a conexão
+			Connection con = dao.conectar();
+			// preparar a query
+			PreparedStatement pst = con.prepareStatement(delete);
+			pst.setString(1, txtId.getText());
+			// executar o comando sql e confirmar a exclusão
+			int confirmaExcluir = pst.executeUpdate();
+			if (confirmaExcluir == 1) {
+				limpar();
+				JOptionPane.showMessageDialog(null, "Contato excluido com sucesso");
+			}
+			// Encerrar a conexão
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+	}
+
+	/**
 	 * Metodo usado para limpar os campos
 	 */
 	private void limpar() {
@@ -352,6 +436,7 @@ public class Agenda extends JFrame {
 		btnCreate.setEnabled(false);
 		btnDelete.setEnabled(true);
 		btnUpdate.setEnabled(true);
+		btnRead.setEnabled(true);
 	}
 
 }// Fim do codigo
