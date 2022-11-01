@@ -1,0 +1,36 @@
+CRUD - Update
+
+//template usado na validação de campos obrigatórios
+//usado em insert e update (CRUD)
+
+if (Jtext1.getText.isEmpty) {
+  // mensagem
+  Jtext1.requestFocus();
+} else if (Jtext2.getText.isEmpty) {
+  // mensagem
+  Jtext2.requestFocus();
+} else {
+  // lógica principal CRUD
+}
+
+
+JDBC
+
+- Driver Manager (tipo de banco -> DAO)
+- Connection (abrir e fechar uma conexão)
+- PreparedStatement (preparar a query (?,?,?,?))
+- ResultSet (obter o resultado do banco) - SELECT
+
+___________________________________________________
+Publicando um projeto JAVA
+
+- documentação (javadoc)
+- release (.jar)
+
+
+
+
+
+
+
+

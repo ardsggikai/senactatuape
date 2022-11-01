@@ -1,0 +1,15 @@
+int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclusão deste contato ?", "ATENÇÃO!", JOptionPane.YES_NO_OPTION);
+		if (confirma == JOptionPane.YES_OPTION) {
+			String delete = "delete from contatos where id = ?";
+			try {
+				//abrir a conexão
+				Connection con = dao.conectar();
+				//preparar a query
+				PreparedStatement pst = con.prepareStatement(delete);
+				pst.setString(1, txtId.getText());
+				//executar o comando sql e confirmar a exclusão
+				int confirmaExcluir = pst.executeUpdate();
+				if (confirmaExcluir == 1) {
+					limpar();
+					JOptionPane.showMessageDialog(null, "Contato excluído com sucesso");
+					

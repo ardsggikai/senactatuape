@@ -1,0 +1,15 @@
+JDBC - Insert (CRUD - CREATE)
+
+tecla <enter> associada a um botão:
+getRootPane().setDefaultButton(btnRead);
+
+limpar campos.
+
+validação de campos obrigatórios
+if
+else if
+else
+
+validação de tamanho máximo de caracteres
+uso da biblioteca atxy2k
+http://atxy2k.github.io/RestrictedTextField/
