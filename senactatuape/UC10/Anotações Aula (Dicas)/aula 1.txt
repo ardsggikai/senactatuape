@@ -1,47 +1,46 @@
-------------------------------------------------------------------------------------------
-Autor: Allan Gomes
-Data de Criação: 10/10/2022
-Data de Atualização: 10/10/2022
-#Versão: 0.001
-------------------------------------------------------------------------------------------
 UC 10
-- Desenvolvimento de sistemas Desktop
-"loja Fisica de rua"
-PC (Windows / Linux )
-Rede Local
-------------------------------------------------------------------------------------------
-Componentes
+- Desenvolvimento de sistemas desktop
+"loja física de rua"
+PC (Windows / Linux)
+Rede local
 
-- Banco de Dados
-- Linguagem de Programação para desktop
- - POO (Programação orientada a objetos)
+- Banco de dados
+- Linguagem de programação para desktop
+  - POO (Programação orientada a objetos)
 
-------------------------------------------------------------------------------------------
-Banco de Dados
-
-- relacionais (Mysql)
+Banco de dados
+- relacionais (MySQL)
 - não relacionais (mongodb)
 
-------------------------------------------------------------------------------------------
-Linguagem de Programação
+Linguagem de programação
+- java
 
-- Java (Vamos Usar)
-- C# 
-
-------------------------------------------------------------------------------------------
-Projeto 1 - Simples Agenda de Contatos
+___________________________________________________
+Projeto 1 - Simples agenda de contatos
 
 Briefing: 
-- Nome do Contato (Obrigatório)
-- Fone (Obrigatório)
-- E-mail (não Obrigatório)
+- Nome do contato (obrigatório)
+- Fone (obrigatório)
+- E-mail (não obrigatório)
 
 Ações
-- Cadastrar um novo Contato
-- Alterar os dados de um Contato
-- Pesquisar Contatos
-- Excluir um Contato
+- Cadastrar um novo contato
+- Alterar os dados de um contato
+- Pesquisar contatos
+- Excluir um contato
 
-------------------------------------------------------------------------------------------
+____________________________________________________
+Banco de dados:
 Material de apoio:
 https://github.com/professorjosedeassis/mysql
+
+
+
+
+
+
+
+
+
+
+

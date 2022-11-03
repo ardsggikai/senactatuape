@@ -3,15 +3,32 @@ POO - Encapsulamento
 Slides: 70 a 76
 
 Exercício 2 - Agência bancaria
-
---------------------------------------
+_________________________________________
 Encapsulamento:
 Deixar as variáveis como private
-Criar os "getters e setters" oara acesso as variáveis protegidas.
+Criar os "getters e setters" para acesso as
+variáveis protegidas.
 botão direito do mouse -> source -> generate 
 getters and setters
 
-------------------------------------------------------------------
-JDBC (Java Data Base Conection)
+__________________________________________
+JDBC (Java Data Base Connection)
 4 Classes modelos responsáveis pela conexão 
-com o banco de dados
+com o banco de dados.
+
+Classe 1 - Driver manager (tipo de banco de dados)
+"baixar um driver do fabricante"
+1) baixar o driver no site do fabricante (mysql.com)
+2) Copiar para o pacote model
+3) Botão direito do mouse -> build path -> add to
+   build path
+
+Classe 2 - Connection (abrir e fechar uma conexão)
+
+
+
+
+
+
+
+

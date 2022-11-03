@@ -1,0 +1,54 @@
+Sistema para gestão de estoque:
+
+ Login
+     \
+     main (principal) --- produtos
+    /        |       \     
+usuarios fornecedores \
+                       \
+relatórios             clientes
+
+_____________________________________________
+// Uso da tecla <Enter> junto com um botão (construtor)
+getRootPane().setDefaultButton(btnRead);
+
+
+private void status() {
+	try {
+		// abrir a conexão
+		Connection con = dao.conectar();
+		if (con == null) {
+			// escolher a imagem dboff
+			lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/dboff.png")));
+		} else {
+		// escolher a imagem dbon
+		lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/dbon.png")));
+		}
+		// Não esquecer de fechar a conexão
+		con.close();
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+}
+
+_________________________________________________________
+Atividade 2:
+- Criar o fluxo:
+Login -> Principal
+Principal -> Usuários
+- Personalizar os botões da tela de usuários
+- Personalizar os botões da tela principal (ícones e  acessibilidade)
+- Inserir data no rodapé
+- Criar o botão sobre (Autor, versão e licença MIT)
+- Criar o fluxo:
+Principal -> Sobre
+
+
+
+
+
+
+
+
+
+
