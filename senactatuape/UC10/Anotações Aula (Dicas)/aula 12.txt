@@ -1,0 +1,3 @@
+Login -> Questões de segurança
+
+Senha -> criptografar (md5) -> hash
