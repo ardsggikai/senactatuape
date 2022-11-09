@@ -1,0 +1,27 @@
+body{
+    background: rgb(160, 236, 241);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+
+    background: #fff;
+    width: 400px;
+    height: 200px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px 0px;
+    border-radius: 30px;
+}
+
+#res {
+
+    padding: 1.1em;
+    
+}
+
+#botao {
+
+   margin: 1.0em;
+
+}

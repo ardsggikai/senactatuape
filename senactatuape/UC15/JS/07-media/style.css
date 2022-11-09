@@ -1,0 +1,33 @@
+body {
+    background: #5c599e;
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+}
+
+.container {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f19b2c;
+    width: 500px;
+    height: 375px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px 0;
+    border-radius: 30px;
+}
+
+.botao{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 2px;
+}
+
+#resp{
+    padding: 1.1em;
+}
+
+.input{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
