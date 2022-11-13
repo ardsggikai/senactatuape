@@ -3,13 +3,17 @@ package contas;
 public class PessoaFisica {
 
 	public static void main(String[] args) {
+		
+		// Objeto 1
 		Conta cc1 = new Conta();
+		cc1.setCliente("Fagner Geraldes Braga");
 		cc1.setSaldo(10000);
 		System.out.println("Cliente: " + cc1.getCliente());
 		cc1.exibirSaldo();
 		cc1.sacar(1000);
 		cc1.exibirSaldo();
 
+		// Objeto 2
 		Conta cc2 = new Conta();
 		cc2.setCliente("Natalia da Paz Almeida");
 		cc2.setSaldo(20000);
