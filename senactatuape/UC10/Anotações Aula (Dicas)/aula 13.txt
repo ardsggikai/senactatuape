@@ -1,0 +1,94 @@
+- Perfil de usuário (restrições)
+
+Método:
+private void logar() {
+		// validação da senha (captura segura)
+		String capturaSenha = new String(txtSenha.getPassword());
+		// validação de campos obrigatórios
+		if (txtLogin.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Informe o seu login");
+			txtLogin.requestFocus();
+		} else if (capturaSenha.length() == 0) {
+			JOptionPane.showMessageDialog(null, "Digite a sua senha");
+			txtSenha.requestFocus();
+		} else {
+			// lógica principal (pesquisar login e senha correspondente)
+			String read = "select * from usuarios where login = ? and senha = md5(?)";
+			try {
+				// abrir a conexão
+				Connection con = dao.conectar();
+				// preparar a query
+				PreparedStatement pst = con.prepareStatement(read);
+				// setar os argumentos(?,? login e senha)
+				pst.setString(1, txtLogin.getText());
+				pst.setString(2, capturaSenha);
+				// Executar a query e executar o login se existir login e senha correspondente
+				// no banco
+				ResultSet rs = pst.executeQuery();
+				if (rs.next()) {
+					Main main = new Main();
+					// a linha abaixo captura o perfil do usuário
+					String perfil = rs.getString(5);
+					// comportamento de login em função do perfil
+					if (perfil.equals("admin")) {
+						main.setVisible(true);
+						// Alterar a label da tela principal (inserir nome do usuário no rodapé)
+						// apoio ao entendimento da lógica
+						// System.out.println(rs.getString(2));
+						main.lblUsuario.setText(rs.getString(2));
+						// Habilitar os botões
+						main.btnRelatorios.setEnabled(true);
+						main.btnUsuarios.setEnabled(true);
+						// alterar a cor do rodapé
+						main.panelUsuario.setBackground(Color.RED);
+						// fechar o JFrame
+						this.dispose();
+					} else {
+						main.setVisible(true);
+						// Alterar a label da tela principal (inserir nome do usuário no rodapé)
+						// apoio ao entendimento da lógica
+						// System.out.println(rs.getString(2));
+						main.lblUsuario.setText(rs.getString(2));
+						// fechar o JFrame
+						this.dispose();
+					}				
+				} else {
+					JOptionPane.showMessageDialog(null, "Login e/ou senha inválido(s)");
+				}
+				// encerrar a conexão
+				con.close();
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
+	}
+
+
+
+- Tabela de fornecedores
+
+  fluxo:
+
+Login -> tela principal -> usuários
+
+Sistema de gestão de estoque
+
+Fornecedor -> produto -> cliente
+
+
+_______________________________________
+Tipos de dados (banco)
+char (string de caracteres de comprimento fixo)
+varchar (string de caracteres de comprimento variável)
+
+
+Atividade 1:
+Inserir 5 fornecedores (3 inicando com a mesma letra)
+
+
+
+
+
+
+
+

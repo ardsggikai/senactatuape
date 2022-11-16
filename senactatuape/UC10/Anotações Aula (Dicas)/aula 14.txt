@@ -1,0 +1,11 @@
+Resolvendo BUGs ba tela de usuários
+
+Tratamento de exceção (try catch) para login duplicado
+
+catch (java.sql.SQLIntegrityConstraintViolationException e1) {
+	JOptionPane.showMessageDialog(null, "Usuário não adicionado - Login existente");
+		txtLogin.setText(null);
+		txtLogin.requestFocus();
+	} catch (Exception e2) {
+		System.out.println(e2);
+	} 
