@@ -1,0 +1,16 @@
+Pesquisa avançada com uso da biblioteca rs2xml
+
+Dica:
+//limpar a tabela
+((DefaultTableModel) table.getModel()).setRowCount(0);
+
+
+Atividade de avaliação 4:
+
+Desenvolvimento da tela de clientes
+
+1) Criar a tabela de clientes (livre escolha dos campos)
+2) Criar o JDialog e fazer o link com a tela principal
+3) Desenhar a tela de acordo com a tabela, inserindo ícones nos botões com acessibilidade. 
+4) Fazer as validações de campos e botões.
+5) Fazer o CRUD completo (livre escolha da pesquisa)

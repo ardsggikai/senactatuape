@@ -1,0 +1,9 @@
+Relacionamento de tabelas
+1 - N (Um para muitos) /Pai e Filho
+
+// MECHEMOS SOMENTE NO BANCO DE DADOS MYSQL
+COMEÇA NA LINHA 81 e Finaliza na 173
+
+Material de apoio:
+https://github.com/professorjosedeassis/mysql/tree/master/aula4
+
