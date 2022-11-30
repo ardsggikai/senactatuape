@@ -1,0 +1,26 @@
+Sistema de gestão de estoque - Java <-> MySQL
+
+Atividade 5 (avaliação)
+
+Tela de produtos
+- Fazer validações de campos
+- Melhorar a UX (Experiência do usuário), inserindo ícones nos botões, limpando os campos, habilitar/desabilitar campos e botões etc.
+- Desenvolver os métodos update e delete
+- Testes (testar exaustivamente o sistema antes da validação com o professor)
+  Dicas:
+  - Verificar campos obrigatórios e número máximo de caracteres
+  - Verificar tipos de dados (ex: somente números)
+  - Verificar datas erradas
+  - Verificar o cadastro de 2 barcode idênticos
+  - Verificar o cadastro de um produto com um fornecedor que não existe
+
+
+Dica 1: Validar o componente JDateChooser (preenchimento obrigatório)
+if (JDateChooser.getDate() == null) {
+  //código
+}
+
+Dica 2: Limpar o campo do componente JDateChooser
+JDateChooser.setDate(null);
+
+

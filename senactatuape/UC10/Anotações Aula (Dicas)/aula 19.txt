@@ -1,0 +1,4 @@
+Adicionar componentes no window builder (JCalendar)
+- tutorial disponível na pasta pública
+
+Desenvolvimento da tela de produtos (layout)
