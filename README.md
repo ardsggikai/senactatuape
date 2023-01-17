@@ -38,7 +38,7 @@ GPO
 ## UC-8
 Projeto Ubuntu/Windows Server e Firewall
 
-## UC-9 / Logica
+## UC-9 / Lógica
 Java (Desenvolvimento de logica)
 
 ## UC-10 
