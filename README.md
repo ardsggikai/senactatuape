@@ -42,7 +42,11 @@ Projeto Ubuntu/Windows Server e Firewall
 Java (Desenvolvimento de logica)
 
 ## UC-10 
-Java + Mysql (Projeto Controle de Estoque)
+Java + Mysql (Projeto Controle de Estoque) (POO / Banco de Dados) 
+
+## UC-11 Teste de Software / Metodologias e Ferraments
+
+## UC-12 Sistemas para Desktop
 
 ## UC-14 Adobe Photoshop
 
