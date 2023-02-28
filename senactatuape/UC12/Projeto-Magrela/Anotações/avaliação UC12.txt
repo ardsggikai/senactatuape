@@ -1,0 +1,20 @@
+UC 12 - Atividade de avaliação
+Projeto de um sistema para gestão de serviços
+
+Requisitos mínimos:
+
+- Tela de login X
+- Tela de usuários X
+- Tela de clientes X
+- Tela OS
+- Relatórios (mínimo 3 relatórios)
+  - Clientes X
+  - Serviços entregues
+  - Serviços pendentes 
+  - Usuarios X
+- Restrições
+  - Não pode existir OS sem cliente vinculado
+  - Só o usuário administrador pode gerenciar usuários e acessar os relatórios. X
+- Validações
+  - campos (obrigatórios, limite de caracteres, somente números etc)
+  - UX (Experiência do usuário)

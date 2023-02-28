@@ -1,0 +1,5 @@
+nome da coneção (db"algo")
+Standard(TCP/IP)
+Hostname: ip do server / Port: padrão
+Username: dba
+Password: 123@senac
