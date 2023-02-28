@@ -396,16 +396,6 @@ public class Telaos extends JDialog {
 		panel_2.add(lblProblema);
 
 		txtProblema = new JTextField();
-		txtProblema.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-
-				String caracteres = "AaBbcCdDEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890 ";
-				if (!caracteres.contains(e.getKeyChar() + "")) {
-					e.consume();
-				}
-			}
-		});
 		txtProblema.setFont(new Font("Arial", Font.PLAIN, 11));
 		txtProblema.setBounds(10, 258, 433, 20);
 		panel_2.add(txtProblema);
@@ -500,14 +490,15 @@ public class Telaos extends JDialog {
 		Modelo.setLimit(30);
 
 		RestrictedTextField km = new RestrictedTextField(txtKm);
-		km.setLimit(5);
+		km.setLimit(7);
 
 		RestrictedTextField problema = new RestrictedTextField(txtProblema);
 		problema.setLimit(40);
 
 		getRootPane().setDefaultButton(btnBuscarCliente);
 
-		JButton btnImprimirOS = new JButton("Imprimir OS");
+		btnImprimirOS = new JButton("Imprimir OS");
+		btnImprimirOS.setEnabled(false);
 		btnImprimirOS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				imprimirOS();
@@ -520,9 +511,13 @@ public class Telaos extends JDialog {
 	}
 
 	DAO dao = new DAO();
+	private JButton btnImprimirOS;
 
 	private void pesquisarCliente() {
 
+		/**
+		 * VALIDACAO
+		 */
 		if (txtNomeCliente.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Insira o Nome do Cliente");
 			txtNomeCliente.requestFocus();
@@ -540,6 +535,9 @@ public class Telaos extends JDialog {
 					txtEmail.setText(rs.getString(10));
 					txtID.setText(rs.getString(1));
 
+					/**
+					 * HABILITAR CAMPOS
+					 */
 					txtNomeCliente.setEnabled(true);
 					txtNomeCliente.setEnabled(true);
 					txtFone.setEnabled(true);
@@ -547,7 +545,9 @@ public class Telaos extends JDialog {
 
 				} else {
 					JOptionPane.showMessageDialog(null, "Cliente não cadastrado");
-				
+					/**
+					 * HABILITAR CAMPOS E BOTOES
+					 */
 
 					txtNomeCliente.setEnabled(true);
 					txtFone.setEnabled(true);
@@ -560,7 +560,7 @@ public class Telaos extends JDialog {
 				System.out.println(e);
 			}
 		}
-	} 
+	} // FIM PESQUISAR
 
 	private void cadVeiculo() {
 
@@ -618,10 +618,13 @@ public class Telaos extends JDialog {
 				pst.setString(9, cboMecanico.getSelectedItem().toString());
 				pst.setString(10, txtID.getText());
 
+				btnImprimirOS.setEnabled(true);
+
 				int confirm = pst.executeUpdate();
 				if (confirm == 1) {
 					JOptionPane.showMessageDialog(null, "OS Cadastrada Com Sucesso");
-					limpar();
+					//limpar();
+					recuperarOS();
 
 				} else {
 					JOptionPane.showMessageDialog(null, "Erro ao cadastrar a OS");
@@ -668,6 +671,7 @@ public class Telaos extends JDialog {
 				// habilitar os botoes
 				btnAlterar.setEnabled(true);
 				btnAlterar_1.setEnabled(true);
+				btnImprimirOS.setEnabled(true);
 
 			} else {
 				JOptionPane.showMessageDialog(null, " Ordem de Serviço nao cadastrada");
@@ -705,7 +709,7 @@ public class Telaos extends JDialog {
 			pst.setString(10, cboMecanico.getSelectedItem().toString());
 			pst.setString(11, txtOsNumero.getText());
 
-			
+			// habilitar os botoes
 			txtOsNumero.setEnabled(true);
 
 			int confirma = pst.executeUpdate();
@@ -833,7 +837,23 @@ public class Telaos extends JDialog {
 		}
 	}
 
-	
+	private void recuperarOS() {
+		String readOS = "select max(os) from tbos";
+		try {
+			Connection con = dao.conectar();
+			PreparedStatement pst = con.prepareStatement(readOS);
+			ResultSet rs = pst.executeQuery();
+			if (rs.next()) {
+				txtOsNumero.setText(rs.getString(1));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	/**
+	 * Metodo De Limpar Campos
+	 */
 	public void limpar() {
 
 		txtOsNumero.setText(null);
