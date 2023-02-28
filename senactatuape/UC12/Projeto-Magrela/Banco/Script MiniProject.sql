@@ -66,7 +66,7 @@ create table tbos(
     telefone varchar (14) not null,
     email varchar (45) not null,
     veiculo varchar(150) not null,
-    km varchar(5) not null,
+    km varchar(7) not null,
     problema varchar(40) not null,
     situacao varchar(40) not null,
     mecanico varchar(40) not null,
