@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Agenda de Contatos</title>
+<link rel="icon" href="imagens/favicon_fone.png">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+	<section class="agenda novo_contato">
+
+		<h1>Criar Novo Contato</h1>
+		<form action="insert" name="frmContato">
+			<table class="tabela">
+				<tr>
+					<td><input type="text" name="nome" placeholder="Nome"
+						class="caixa1"></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="fone" placeholder="Telefone"
+						class="caixa2"></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="email" placeholder="E-mail"
+						class="caixa3"></td>
+				</tr>
+			</table>
+			<input type="button" value="Adicionar" class="botao"
+				onclick="validar()">
+		</form>
+
+	</section>
+
+	<script type="text/javascript" src="scripts/validacao.js"></script>
+
+</body>
