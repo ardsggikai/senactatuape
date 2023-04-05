@@ -1,0 +1,309 @@
+/**
+ * Folha de estilo do site HTMl5 e CSS3
+ * @author Professor José de Assis
+ */
+
+/********************* Importação *******************/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/******************** Padronização ******************/
+* {
+    padding: 0;
+    margin: 0;       
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em; /* padronização do tamanho da fonte aos diversos dispositivos */
+}
+
+/* O bloco de código abaixo adapta automaticamente o tamanho das imagens a tela */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* O bloco abaixo centraliza as camadas do site */
+.Layout {
+    /* background-color: #ffff00; */
+    margin: 0 auto;
+    max-width: 1140px;     
+}
+
+/* O bloco abaixo é usado para criar colunas flexiveis*/
+.Flex {
+    display: flex;
+    align-items: center;    
+}
+
+/******************** Cabeçalho **********************/
+header {
+    height: 115px;
+}
+
+#logo {
+    float: left;
+    position: absolute;
+    margin-top: 27px;
+}
+
+nav {
+    float: right;
+    margin-top: 60px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    float: left;
+    padding-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #343538;
+}
+
+nav ul li a:hover {
+    color: #c00000;
+}
+
+/******************* Banner *******************/
+main {
+    background: url(imagens/banner.jpg);
+    height: 400px; /*altura do banner*/
+    background-size: cover; /*ajusta a imagem ao tamanho da tela */
+    /*técnica usada para centralizar o conteúdor*/
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    text-align: center;
+}
+
+main h1 {
+    color: #ffffff;    
+    font-size: 5em;
+    /* criar uma sombra no texto */
+    text-shadow: #000000 0.05em 0.05em 0.05em;
+}
+
+main h2 {
+    color: #ffffff;
+    font-size: 2em;
+    /* criar uma sombra no texto */
+    text-shadow: #000000 0.05em 0.05em 0.05em;
+    margin-bottom: 50px;
+}
+
+main a{
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 700;
+    background-color: #c00000;
+    color: #ffffff;
+    padding: 10px 40px 10px 40px;
+    border: 2px solid #ffffff;
+    border-radius: 25px;
+    margin-left: 30px;
+}
+
+/************* Conteúdo (Sobre) **************/
+#sobre {
+    /*background-color: #ff0000;*/
+    padding: 50px 0px 50px 0px;
+    background: url(imagens/background.png);
+    background-size: cover;
+    background-attachment: fixed;
+        
+}
+
+#destaque img {
+    border-radius: 50%;
+}
+
+#textoDestaque {
+    /*background-color: #00ffff;*/
+    color: #ffffff;    
+    margin-left: 100px;   
+}
+
+#textoDestaque h2 {
+    font-size: 2em; 
+    margin-bottom: 15px;  
+}
+
+#onepage {
+    font-size: 1.25em;    
+    color: #ffd700;
+    font-weight: 700;      
+}
+
+.Container img {
+    margin: 15px 10px 0px 0px;
+}
+
+/************* Conteúdo video ***************/
+#video {
+    margin: 50px 0px 50px 0px;
+}
+
+#site {
+    margin-right: 50px;
+}
+
+#site h2 {
+    font-size: 2em;       
+    margin-bottom: 15px;
+    text-align: center; 
+}
+
+/************* Conteúdo (Wireframe) **************/
+#wireframe {
+    /*background-color: #ff0000;*/
+    padding: 50px 0px 50px 50px;
+    background: url(imagens/background.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#textoWireframe {
+    flex: 70%;
+    color: #ffffff;    
+}
+
+#textoWireframe h2 {     
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+#textoWireframe p {    
+    margin-bottom: 40px;    
+}
+
+#textoWireframe a {
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 700;
+    background-color: #c00000;
+    color: #ffffff;
+    padding: 10px 40px 10px 40px;
+    border: 2px solid #ffffff;
+    border-radius: 25px;  
+}
+
+#imagemWireframe {
+    text-align: center;
+    flex: 30%;
+}
+
+/*esconder qrcode e texto em mobile*/
+/*
+#qrcode{
+    display: none;
+}
+*/
+
+/************* Cartões **************/
+#cards {    
+    padding: 50px 0px 50px 0px;    
+    text-align: center;   
+    
+}
+
+#cards h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.Card {
+    max-width: 360px;
+    height: 520px;
+    background-color: #e8e8e8;
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px 3px #828282; 
+     
+}
+
+.Centro {
+    margin: 0px 25px 0px 25px;
+}
+
+.Card img {
+    border-radius: 25px 25px 0px 0px;
+}
+
+.Card h3 {
+    margin: 15px 30px 0px 30px;
+}
+
+.Card p {
+    text-align: left;
+    color: #343538;
+    padding: 10px 30px 15px 30px;
+}
+
+
+
+/************* Contato **************/
+#contato {   
+    padding: 50px 0px 50px 0px;
+    background: url(imagens/background2.png) center;
+    background-size: cover;
+}
+
+#contato h2 {
+    font-size: 2em;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#local {
+    color: #ffffff;
+    margin-left: 125px;
+}
+
+/* esconder mapa clicavel no pc*/
+#mapa2{
+    display: none;
+}
+
+#email {
+    margin-top: 30px;
+}
+
+#dados {
+    margin-top: 60px;
+}
+
+#fone {
+    margin: 0px 0px 180px 125px;
+}
+
+#fone p {
+    margin-bottom: 25px;
+    color: #ffffff;    
+}
+
+
+/************* Rodapé **************/
+footer {
+    background-color: #343538;
+    height: 100px;
+}
+
+#copyright {
+    float: left;
+}
+
+#copyright p {
+    color: #e8e8e8;
+    margin-top: 40px;
+}
+
+#social {
+    float: right;
+    margin-top: 27px;
+}
