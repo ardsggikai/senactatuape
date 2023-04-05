@@ -1,0 +1,87 @@
+2023-02-27 20:36:33,922 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is not available. Remote download required.
+2023-02-27 20:38:38,463 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-02-27 20:39:52,713 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-02-27 20:43:11,716 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-02-27 20:43:41,480 [JGit-FileStoreAttributeWriter-2] ERROR org.eclipse.jgit.util.FS - Cannot save config file 'FileBasedConfig[Z:\.config\jgit\config]'
+java.io.IOException: Creating directories for Z:\.config\jgit failed
+	at org.eclipse.jgit.util.FileUtils.mkdirs(FileUtils.java:413)
+	at org.eclipse.jgit.internal.storage.file.LockFile.lock(LockFile.java:140)
+	at org.eclipse.jgit.storage.file.FileBasedConfig.save(FileBasedConfig.java:184)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.saveToConfig(FS.java:766)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.lambda$5(FS.java:448)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-02-27 22:01:22,792 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-02-27 22:01:26,212 [JGit-FileStoreAttributeWriter-2] ERROR org.eclipse.jgit.util.FS - Cannot save config file 'FileBasedConfig[Z:\.config\jgit\config]'
+java.io.IOException: Creating directories for Z:\.config\jgit failed
+	at org.eclipse.jgit.util.FileUtils.mkdirs(FileUtils.java:413)
+	at org.eclipse.jgit.internal.storage.file.LockFile.lock(LockFile.java:140)
+	at org.eclipse.jgit.storage.file.FileBasedConfig.save(FileBasedConfig.java:184)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.saveToConfig(FS.java:766)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.lambda$5(FS.java:448)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-02-28 19:02:56,375 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-02-28 19:02:59,814 [JGit-FileStoreAttributeWriter-2] ERROR org.eclipse.jgit.util.FS - Cannot save config file 'FileBasedConfig[Z:\.config\jgit\config]'
+java.io.IOException: Creating directories for Z:\.config\jgit failed
+	at org.eclipse.jgit.util.FileUtils.mkdirs(FileUtils.java:413)
+	at org.eclipse.jgit.internal.storage.file.LockFile.lock(LockFile.java:140)
+	at org.eclipse.jgit.storage.file.FileBasedConfig.save(FileBasedConfig.java:184)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.saveToConfig(FS.java:766)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.lambda$5(FS.java:448)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-02-28 21:28:46,369 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-02-28 21:28:49,871 [JGit-FileStoreAttributeWriter-2] ERROR org.eclipse.jgit.util.FS - Cannot save config file 'FileBasedConfig[Z:\.config\jgit\config]'
+java.io.IOException: Creating directories for Z:\.config\jgit failed
+	at org.eclipse.jgit.util.FileUtils.mkdirs(FileUtils.java:413)
+	at org.eclipse.jgit.internal.storage.file.LockFile.lock(LockFile.java:140)
+	at org.eclipse.jgit.storage.file.FileBasedConfig.save(FileBasedConfig.java:184)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.saveToConfig(FS.java:766)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.lambda$5(FS.java:448)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-02 19:11:17,816 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-03-02 19:11:21,350 [JGit-FileStoreAttributeWriter-2] ERROR org.eclipse.jgit.util.FS - Cannot save config file 'FileBasedConfig[Z:\.config\jgit\config]'
+java.io.IOException: Creating directories for Z:\.config\jgit failed
+	at org.eclipse.jgit.util.FileUtils.mkdirs(FileUtils.java:413)
+	at org.eclipse.jgit.internal.storage.file.LockFile.lock(LockFile.java:140)
+	at org.eclipse.jgit.storage.file.FileBasedConfig.save(FileBasedConfig.java:184)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.saveToConfig(FS.java:766)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.lambda$5(FS.java:448)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-02 21:32:00,574 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-02 21:32:05,481 [JGit-FileStoreAttributeWriter-2] ERROR org.eclipse.jgit.util.FS - Cannot save config file 'FileBasedConfig[Z:\.config\jgit\config]'
+java.io.IOException: Creating directories for Z:\.config\jgit failed
+	at org.eclipse.jgit.util.FileUtils.mkdirs(FileUtils.java:413)
+	at org.eclipse.jgit.internal.storage.file.LockFile.lock(LockFile.java:140)
+	at org.eclipse.jgit.storage.file.FileBasedConfig.save(FileBasedConfig.java:184)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.saveToConfig(FS.java:766)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.lambda$5(FS.java:448)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-07 19:38:56,522 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-03-07 19:52:12,691 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-07 21:26:51,306 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-07 21:31:26,644 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-07 21:35:04,869 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-07 22:01:56,728 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-09 19:33:36,247 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-03-09 21:27:11,609 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-09 21:47:34,683 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-14 19:09:22,168 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-14 21:57:10,437 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-03-16 19:26:20,596 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-03-16 19:42:29,982 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-21 19:33:31,546 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-03-28 19:31:29,525 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-04-04 20:05:32,558 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-04-04 20:58:00,029 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-04-04 22:06:38,160 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- a linha abaixo adapta o site aos diversos dispositivos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compatibilizar com o internet explorer -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Inserir um ícone favorito -->
+    <link rel="icon" href="imagens/favicon.png">
+    <!-- A linha abaixo faz a ligação com a folha de estilo-->
+    <link rel="stylesheet" href="style.css">
+    <title>HTML5 e CSS3</title>
+    <meta name="description" content="Aprenda HTML5 e CSS3 de forma simples, prática e objetiva desenvolvendo passo a passo do zero até a hospedagem um site moderno e responsivo.">
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <!-- Layout -->
+        <div class="Layout">
+            <!-- Logotipo -->
+            <div id="logo">
+                <img src="imagens/logo.png" alt="logotipo" title="Professor José de Assis">
+            </div>
+            <!-- Menu -->
+            <nav>
+                <ul>
+                    <li><a href="">Início</a></li>
+                    <li><a href="">Sobre</a></li>
+                    <li><a href="">Conteúdo</a></li>
+                    <li><a href="">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Banner -->
+    <main>
+        <div class="Layout">
+            <h1>HTML5 e CSS3</h1>
+            <h2>Você faz. Você vê. Você aprende.</h2>
+            <a href="#" target="_blank">Saiba +</a>
+        </div>
+    </main>
+    <!-- sobre -->
+    <section id="sobre">
+        <div class="Layout Flex">
+            <!-- Imagem de destaque -->
+            <div id="destaque">
+                <img src="imagens/html5css3.jpg" alt="computador">
+            </div>
+            <!-- texto de destaque -->
+            <div id="textoDestaque">
+                <h2>Aprender na prática</h2>
+                <p>Aprenda HTML5, CSS3 e técnicas de SEO na prática, desenvolvendo passo a passo do zero até a
+                    hospedagem um site <span id="onepage">"ONE PAGE"</span> responsivo.</p>
+                <div class="Container Flex">
+                    <img src="imagens/html5.png" alt="html5">
+                    <p>HTML5</p>
+                </div>
+                <div class="Container Flex">
+                    <img src="imagens/css3.png" alt="css3">
+                    <p>CSS3</p>
+                </div>
+                <div class="Container Flex">
+                    <img src="imagens/seo.png" alt="seo">
+                    <p>SEO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="video">
+        <div class="Layout Flex">
+            <div id="site">
+                <h2>One page site</h2>
+                <p>Ideal para negócios de pequeno ou médio porte o "one page site" é um site onde você inclui todas as informações que o visitante precisa de forma objetiva e criativa em uma única página.</p>
+            </div>
+            <div id="youtube">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/t1uKa_qggSU"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+    <!-- Conteúdo -->
+    <section id="wireframe">
+        <div class="Layout Flex">
+            <!-- Texto do conteúdo -->
+            <div id="textoWireframe">
+                <h2>Wireframe</h2>
+                <p>Wireframe é uma representação visual da estrutura básica de uma página. Ele deve ser feito da maneira
+                    mais simples possível, mostrando apenas o essencial, como uma espécie de rascunho, sem cores ou
+                    imagens. Clique no botão<span id="qrcode"> ou escaneie o QR Code</span> para obter o wireframe desta
+                    página.</p>
+                <a href="wireframe.pdf" target="_blank">PDF</a>
+            </div>
+            <!-- Imagem do conteúdo -->
+            <div id="imagemWireframe">
+                <img src="imagens/qrcode.png" alt="qrcode">
+            </div>
+        </div>
+    </section>
+    <!-- Conteúdo -->
+    <section id="cards">
+        <h2>Conteúdo</h2>
+        <div class="Layout Flex">
+            <div class="Card">
+                <img src="imagens/estruturahtml.png" alt="Página em construção">
+                <h3>HTML5</h3>
+                <p>É uma linguagem de marcação de hipertexto usada para apresentar e estruturar o conteúdo na web.</p>
+                <hr>
+                <p>A estrutura de um documento html é dividida em partes conforme indicado neste cartão.</p>
+            </div>
+            <div class="Card Centro">
+                <img src="imagens/boxmodel.png" alt="Página em construção">
+                <h3>BOX MODEL CSS</h3>
+                <p>Todo elemento (tag html) é renderizado pelo navegador de internet como uma caixa retangular.</p>
+                <hr>
+                <p>O box model relaciona as propriedades descritas neste cartão para compor a dimensão do elemento.</p>
+            </div>
+            <div class="Card">
+                <img src="imagens/breakpoints.png" alt="Página em construção">
+                <h3>BREAKPOINTS</h2>
+                    <p>Pontos de interrupção onde a interface do usuário será adaptada ao tamanho da tela.</p>
+                    <hr>
+                    <p>Partindo sempre do smartphone em modo portrait, usamos como referência os valores descritos neste
+                        cartão.</p>
+            </div>
+        </div>
+
+    </section>
+    <!-- Contato -->
+    <section id="contato">
+        <h2>Contato</h2>
+        <div class="Layout Flex">
+            <!-- Google Maps -->
+            <div id="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14631.148822897296!2d-46.583706549999995!3d-23.5401548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1621532770451!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>            
+            <div id="local">
+                <a href="https://goo.gl/maps/6xgSM18uUhfy61ue9" target="_blank" id="mapa2"><img src="imagens/mapa.png" alt="local"></a>
+                <img src="imagens/local.png" alt="local">
+                <p>Rua Nome da rua, 1234</p>
+                <p>Nome do Bairro</p>
+                <p>São Paulo - SP</p>
+                <img src="imagens/email.png" alt="email" id="email">
+                <p>seuemail@email.com</p>
+                <p id="dados">
+                    <p>&#128064 Dados fictícios</p>
+                </p>
+            </div>
+            <div id="fone">
+                <img src="imagens/fone.png" alt="fone">
+                <p>(11) 99999-9999</p>
+            </div>
+        </div>
+    </section>
+    <!-- Rodapé -->
+    <footer>
+        <div class="Layout">
+            <!-- Copyright -->
+            <div id="copyright">
+                <p>©2021 - Professor José de Assis</p>
+            </div>
+            <!-- Redes sociais -->
+            <div id="social">
+                <a href="https://www.youtube.com/user/ProfessorJosedeAssis" target="_blank"><img
+                        src="imagens/youtube.png" alt="youtube"></a>
+                <a href="https://www.linkedin.com/in/professorjosedeassis/" target="_blank"><img
+                        src="imagens/linkedin.png" alt="linkedin"></a>
+                <a href="https://www.facebook.com/professorjosedeassis" target="_blank"><img src="imagens/facebook.png"
+                        alt="facebook"></a>
+                <a href="https://www.instagram.com/prof.joseassis/" target="_blank"><img src="imagens/instagram.png"
+                        alt="instagram"></a>
+                <a href="https://twitter.com/joseassis" target="_blank"><img src="imagens/twitter.png"
+                        alt="twitter #joseassis"></a>
+
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

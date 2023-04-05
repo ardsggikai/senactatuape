@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\allan.rsgomes\eclipse-workspace (Sirlene)\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2387792079.index
+101375694.index
+3818532959.index
+2789539289.index
+2323047199.index
+3440800161.index
